@@ -9,6 +9,7 @@
 ### Create Invoice
 
 **Endpoint**: https://payop.com/v1/invoices/create
+
 **Content-Type**: application/json
 
 **Parameters**
@@ -92,7 +93,9 @@ Internal Payop transaction created only after successful request to Acquirer.
 IPN request will be send to ipn url which you setup for selected application.
 
 **IPN url**: selected from application
+
 **Method**: POST
+
 **Content-Type**: application/json
 
 **Request example**
