@@ -101,10 +101,17 @@ IPN request will be send to ipn url which you setup for selected application.
 **Request example**
 
 ```json
-{"txid": "b6c9f501-5517-4bc5-89e2-a516fcd7e117"}
+{
+    "invoice": {
+        "id": "54b8f367-8c4c-4495-969d-bf4cb46bceb2",
+        "txid": null
+    }
+}
 ```
-Using this transaction id (txid) you can get transaction (please see related docs) info,
-find there your order id and process this order in your system.
+
+Using invoice id from notification you can get invoice info, find there your order id and process this order in your system.
+If transaction was created for invoice parameter **txid** will contains transaction identifier.
+Using this transaction id (txid) you can get transaction (please see related docs) info.
 
 
 
