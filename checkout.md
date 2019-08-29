@@ -18,6 +18,7 @@
   *  **id** (required) - order id. Example: testOrder
   *  **amount** (required) - order amount. Example: 50.21
   *  **currency** (required) - order currency. Example: USD
+  *  **items** (required) - order items. **Can be empty: []**  
   *  **description** - order description.
 * **payer** (required) - object with payer information
   *  **email** - payer email. **[Required]** always. 
