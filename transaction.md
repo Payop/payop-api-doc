@@ -95,3 +95,12 @@ Example of response:
     "status": 1
 }
 ```
+
+
+**Possible transaction states:**
+
+* 1 - NEW 
+* 2 - ACCEPTED
+* 3 - REJECTED
+* 4 - PENDING
+* 5 - FAILED
