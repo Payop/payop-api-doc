@@ -1,5 +1,22 @@
 # Checkout
 
+### Important Notice
+
+There are currently 2 options for using the API. If you are using an old (legacy) project, you should use the old [documentation](https://old.payop.com/apidoc/), if it is a new project - then everything you need is described in the new (this) documentation.
+
+All projects created after the transition to the new system work according to the new documentation.
+
+You can distinguish an old project from a new one by public key.
+
+In the old project, the public key has a similar form:
+
+**application-777**
+
+For a new project, the public key looks like this:
+
+**application-7cccbe4b-e448-45d3-93d0-35f1a65df87e**
+
+
 ### Minimal Checkout Flow
 
 1. Create Invoice
