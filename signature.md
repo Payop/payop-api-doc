@@ -47,10 +47,6 @@ import hashlib
 # Create Payment
 source = bytes("{}:{}:{}:{}".format(amount, currency, order_id, secret_key), "utf-8")
 hashlib.sha256(source).hexdigest()
-
-# Callback
-source = bytes("{}:{}:{}:{}:{}".format(amount, currency, order_id, status, secret_key), "utf-8")
-hashlib.sha256(source).hexdigest()
 ```
 
 ### Examples of signatures generated from real data
