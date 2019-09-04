@@ -89,26 +89,26 @@ You can create multiple withdrawal requests at the same time. The procedure is v
 
 ```json
 [
-	{
-		"method": 8,
-		"type": 1,
-		"amount": 34,
-		"currency":"USD",
-		"additionalData": {
-			"direction": "direction one",
-			"email": "my.email@address.com"
-		}
-	},
-	{
-		"method": 6,
-		"type": 1,
-		"amount": 35,
-		"currency":"USD",
-		"additionalData": {
-			"direction": "direction two",
-			"walletNumber": "my wallet number",
-			"country": "USA"
-		}
-	}
+    {
+        "method": 8,
+        "type": 1,
+        "amount": 34,
+        "currency":"USD",
+        "additionalData": {
+            "direction": "direction one",
+            "email": "my.email@address.com"
+        }
+    },
+    {
+        "method": 6,
+        "type": 1,
+        "amount": 35,
+        "currency":"USD",
+        "additionalData": {
+            "direction": "direction two",
+            "walletNumber": "my wallet number",
+            "country": "USA"
+        }
+    }
 ]
 ```
