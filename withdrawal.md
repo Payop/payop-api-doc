@@ -1,6 +1,6 @@
 # Withdrawal
 
-**Important! ** To create a withdrawal request, you must receive a token for your user as described in the login section. You must pass the personal token in the http request header.
+**Important!** To create a withdrawal request, you must receive a token for your user as described in the login section. You must pass the personal token in the http request header.
 
 ### Create Withdrawal Request
 
