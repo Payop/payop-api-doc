@@ -1,6 +1,6 @@
 # Withdrawal
 
-To create a withdrawal request, you must receive a token for your user as described in the login section.
+**Important! ** To create a withdrawal request, you must receive a token for your user as described in the login section. You must pass the personal token in the http request header.
 
 ### Create Withdrawal Request
 
@@ -8,7 +8,7 @@ Endpoint: https://payop.com/v1/withdrawals/create
 
 Content-Type: application/json
 
-Parameters
+**Parameters:**
 
 * **method** -- withdrawal method (numeric field):
 
@@ -81,4 +81,34 @@ Create request for withdraw to the Visa/MasterCard (RU cards).
 }
 ```
 
-**Important! You must pass the personal token in the http request header.**
+### Mass withdrawal requests
+
+Endpoint: https://payop.com/v1/withdrawals/create-mass
+
+You can create multiple withdrawal requests at the same time. The procedure is very similar to the previous one. You should use a slightly different endpoint and put several data sets to create queries in one array.
+
+```json
+[
+	{
+		"method": 8,
+		"type": 1,
+		"amount": 34,
+		"currency":"USD",
+		"additionalData": {
+			"direction": "direction one",
+			"email": "my.email@address.com"
+		}
+	},
+	{
+		"method": 6,
+		"type": 1,
+		"amount": 35,
+		"currency":"USD",
+		"additionalData": {
+			"direction": "direction two",
+			"walletNumber": "my wallet number",
+			"country": "USA"
+		}
+	}
+]
+```
