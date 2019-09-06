@@ -11,8 +11,11 @@ Each request to Payop API should have **Content-Type HTTP header** with `applica
     * [Successful response](#successful-response)
     * [Failed responses](#failed-responses)
 * [Authentication](authentication.md)
+* [Checkout](Checkout/checkout.md)
+    * [Create Invoice](Checkout/createInvoice.md)
+    * [Get invoice](Checkout/getInvoice.md)
+
 * [Transaction Info](transaction.md)
-* [Checkout](checkout.md)
 * [Signature](signature.md)
 * [Withdrawal](withdrawal.md)
 
