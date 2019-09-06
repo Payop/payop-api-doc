@@ -7,9 +7,20 @@ Payop API has predictable resource-oriented URLs, accepts [JSON](http://www.json
 
 Each request to Payop API should have **Content-Type HTTP header** with `application/json` value.
 
-### API Response examples
+* [API Response examples](#api-response-examples)
+    * [Successful response](#successful-response)
+    * [Failed responses](#failed-responses)
+* [Authentication](authentication.md)
+* [Transaction Info](transaction.md)
+* [Checkout](checkout.md)
+* [Signature](signature.md)
+* [Withdrawal](withdrawal.md)
 
-**Successful response**
+
+
+## API Response examples
+
+#### Successful response
 
 Headers
 ```
@@ -38,9 +49,9 @@ Key       | Type                              | Description                     
 data      | **JSON object** OR **string**     | Email address                                                      |
 status    | **Number**                        | Don't care about it. It's required for internal technical purposes |
 
-**Failed responses**
+#### Failed responses
 
-* Invalid requests.
+* **Invalid requests**
     
     Headers
     ```
@@ -54,7 +65,7 @@ status    | **Number**                        | Don't care about it. It's requir
     }
     ```
 
-* Validation fails
+* **Validation fails**
 
     Headers
     ```
@@ -74,11 +85,4 @@ status    | **Number**                        | Don't care about it. It's requir
         }
     }
     ```
-
-1. [Authentication](authentication.md)
-1. [Transaction Info](transaction.md)
-1. [Checkout](checkout.md)
-1. [Signature](signature.md)
-1. [Withdrawal](withdrawal.md)
-
 
