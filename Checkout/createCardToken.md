@@ -37,7 +37,7 @@ holderName            | string  | Cardholder name                          |    
 
 
 ### Request example
-{"invoiceIdentifier":"92db5ff8-d2fd-402f-9a57-ad6eb4c921fd","pan":"5555555555554444","expirationDate":"12/20","cvv":"123","holderName":"DMYTRO"}
+
 ```shell script
 curl -X POST \
   https://payop.com/v1/payment-tools/card-token/create \
