@@ -6,6 +6,12 @@ and control almost each step of the payment.
 It is suitable for those who have enough resources for development                       
 and at the same time want have more controls of the payment.
 
+----
+**Note:** You can check example of Server-To-Server 
+integration in the [Checkout Demo App repository](https://github.com/Payop/checkout-demo-app) 
+
+----
+
 # Checkout Flow
 
 1. [Create invoice](#create-invoice)      
