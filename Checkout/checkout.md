@@ -1,3 +1,9 @@
+# Checkout
+
+* [Create Invoice](createInvoice.md)
+    * [Create Invoice](createInvoice.md)
+    * [Get invoice](getInvoice.md)
+
 ```
 
 ## Checkout parameters:
