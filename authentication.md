@@ -10,10 +10,16 @@ Several requests to Payop API require authentication.
 
 Payop API Authentication based on JWT tokens and using custom http header with name **token** for transferring.
 
+
 The token has a limited "time to live" (TTL). Default token TTL is 30 days.
 
 ----
 ***Note:** We recommend to get new token each 15-20 days, to avoid authentication fails*
+
+----     
+
+----
+***Note:** You have to update your token in case of you reset your password
 
 ----     
 

@@ -16,6 +16,8 @@ Checkout transaction can be created only for invoice.
 
 ## Create invoice
 
+Actually, you can create an example request in the personal merchants account in the section Projects > REST.
+
 ### URL for requests
 
 `Content-Type: application/json`
