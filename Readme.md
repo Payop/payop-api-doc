@@ -20,7 +20,7 @@ Each request to Payop API should have **Content-Type HTTP header** with `applica
 
 ## API Response examples
 
-#### Successful response
+### Successful response
 
 Headers
 ```
@@ -46,10 +46,17 @@ Each successful response this is JSON object with keys:
 
 Key       | Type                              | Description                                                        |
 ----------|-----------------------------------|--------------------------------------------------------------------| 
-data      | **JSON object** OR **string**     | Email address                                                      |
+data      | **JSON object** OR **string**     | Response data. Arbitrary structure object.                         |
 status    | **Number**                        | Don't care about it. It's required for internal technical purposes |
 
-#### Failed responses
+----
+***Note:** "string" type for **data** this is not a feature, this is a bug.
+  We are unable to change this in current api version, because of some integrations rely on it.
+  But we will fix this in next API versions.*
+
+----
+
+### Failed responses
 
 * **Invalid requests**
     

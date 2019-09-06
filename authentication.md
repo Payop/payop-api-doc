@@ -12,7 +12,10 @@ Payop API Authentication based on JWT tokens and using custom http header with n
 
 The token has a limited "time to live" (TTL). Default token TTL is 30 days.
 
-***Note:*** We recommend to get new token each 15-20 days, to avoid authentication fails     
+----
+***Note:** We recommend to get new token each 15-20 days, to avoid authentication fails*
+
+----     
 
 ```
 HTTP-Headers
@@ -22,7 +25,7 @@ token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEwMDAyIiwiYWNjZXNzVG9rZW4i
 
 ## Authenticate (Get authentication token)
 
-#### URL for requests
+### URL for requests
 
 `Content-Type: application/json`
 
@@ -38,12 +41,12 @@ password  | string | Password       |     *     |
 
 **Request example**
 ```shell script
-    curl -X POST  https://payop.com/v1/users/login \
-        -H 'Content-Type: application/json' \
-        -d '{"email": "John.McLein@payop.com", "password": "John.McLein PASSWORD"}'
+curl -X POST  https://payop.com/v1/users/login \
+    -H 'Content-Type: application/json' \
+    -d '{"email": "John.McLein@payop.com", "password": "John.McLein PASSWORD"}'
 ```
 
-#### Successful response
+### Successful response
 
 Headers
 ```
@@ -74,7 +77,7 @@ Body
 }
 ```
 
-#### Errors and failed responses
+### Errors and failed responses
 
 **404 Not Found**
 ```json
