@@ -57,6 +57,7 @@ Body
         "payAmount": 101.5,
         "payCurrency": "USD",
         "state": 5,
+        "error": "3DS authorization error or 3DS canceled by payer",
         "commission": [
             {
                 "identifier": "20842",
