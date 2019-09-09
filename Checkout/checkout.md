@@ -65,19 +65,25 @@ IPN request will be send to ipn url which you setup for selected project.
     }, 
     "transaction": {
         "id": "dca59ca5-be19-470d-9494-9b76944e0241",
-        "state": 2
+        "state": 2,
+        "error": {
+            "message": "3DS authorization error or 3DS canceled by payer",
+            "code": ""
+        }
     }
 }
 ```
 
 **Parameters**
 
-Parameter             |  Type   |                 Description     |
-----------------------|---------|---------------------------------| 
-invoice.id            | string  | Invoice identifier              |
-invoice.id            | string  | Transaction identifier          |
-transaction.id        | string  | Transaction identifier          |
-transaction.state     | number  | Transaction state               |
+Parameter                       |  Type   |                 Description     |
+--------------------------------|---------|---------------------------------| 
+invoice.id                      | string  | Invoice identifier              |
+invoice.id                      | string  | Transaction identifier          |
+transaction.id                  | string  | Transaction identifier          |
+transaction.state               | number  | Transaction state               |
+transaction.error.message       | string  | Transaction error message       |
+transaction.error.code          | string  | Always empty string             |
 
 Using transaction id (txid) you [can get transaction](../Transaction/getTransaction.md) 
 find there your order id and process this order in your system.
