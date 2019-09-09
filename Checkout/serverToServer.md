@@ -1,4 +1,4 @@
-# Server-ToServer integration
+# Server-To-Server integration
 
 This type of integration allow interact with Payop API 
 and control almost each step of the payment.                                                       
