@@ -36,7 +36,7 @@ paymentMethod         | string           | Payment method id. Required if invoic
 cardToken             | string           | [Bank card token][token]. Required if paymentMethod.formType equal "cards" (bank card payment method)   |           |
 
 [token]: ../Checkout/createCardToken.md
-[status]: ../Checkout/checkStatusUrl.md
+[status]: ../Checkout/checkTransactionStatus.md
 
 
 ### Request example
