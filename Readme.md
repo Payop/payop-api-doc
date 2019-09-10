@@ -27,6 +27,7 @@ Each request to Payop API should have **Content-Type HTTP header** with `applica
     * [Create checkout transaction](Transaction/createCheckoutTransaction.md)
     * [Get transaction](Transaction/getTransaction.md)
 1. [Withdrawal](withdrawal.md)
+1. [Refund](refund.md)
 
 
 
