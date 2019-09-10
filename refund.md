@@ -156,33 +156,5 @@ curl -X GET \
 } 
 ```
 
-**Transaction statuses**
+You can see the description of statuses and types at the page [Get transaction](getTransaction.md)
 
-Status      |  Type    |  Description                        |
-------------|----------|-------------------------------------| 
-1           | new      |  New transaction                    |
-2           | accepted |  Transaction was paid successfully  |
-4           | pending  |  Transaction pending                |
-3, 5        | failed   |  Transaction failed                 |
-
-
-**Transaction types**
-
-Type      |  Type    |  Description                        |
-----------|----------|-------------------------------------| 
-7         | checkout |  Checkout transaction               |
-2         | refund   |  Refund transaction                 |
-
-**Payer information types**
-
-Type      |  Description   |
-----------|----------------| 
-1         | Email          |
-2         | Phone          |
-3         | Name           |
-4         | National id    |
-5         | IBAN           |
-6         | Address        |
-7         | Zip code       |
-8         | IP             |
-9         | Country code   |

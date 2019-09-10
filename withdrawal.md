@@ -117,3 +117,48 @@ You can create multiple withdrawal requests at the same time. The procedure is v
     }
 ]
 ```
+
+### Merchants withdraw transactions
+
+**Endpoint:**
+
+`GET https://payop.com/v1/withdrawals/user-withdrawals`
+
+**Headers:**
+ 
+    Content-Type: application/json
+    token: eyJ0eXAiO...
+
+**Request example:**
+
+```shell script
+curl -X GET \
+  https://payop.com/v1/withdrawals/user-withdrawals \
+    -H 'Content-Type: application/json' \
+  -H 'token: eyJ0eXAiOiJKV...
+```
+
+**Successful response example:**
+
+```json
+{
+    "data": {
+            "identifier": "6173e7a5-aaee-4eb3-9851-943c0b5c47d1",
+            "groupIdentifier": null,
+            "userIdentifier": "10043",
+            "type": 1,
+            "currency": "RUB",
+            "amount": 100,
+            "transactionIdentifier": "05f6ce15-fb5b-4232-8a9c-acda3dc256a2",
+            "status": 1,
+            "method": 4,
+            "createdAt": 1568112855,
+            "updatedAt": null,
+            "additionalData": {
+                "cardNumber": "4444444444444444",
+                "cardHolderName": "Ivan Ivanov"
+            }
+    },
+    "status": 1
+}
+```
