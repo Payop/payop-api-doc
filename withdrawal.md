@@ -36,7 +36,7 @@ We present the fields in accordance with different values of the method field:
 
  1. Bank transfer
 
-        transferType
+        transferType = "Personal" or "Business"
         beneficiary
         accountNumber
         bankName
