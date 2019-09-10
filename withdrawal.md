@@ -1,12 +1,17 @@
 # Withdrawal
 
-**Important!** To create a withdrawal request, you must receive a token for your user as described in the login section. You must pass the personal token in the http request header.
+**Important!** To create a withdrawal request, you must first receive a token for your user, as described in the login section. When creating a request for withdrawal, you must transfer a personal token in the header of the http request.
 
 ### Create Withdrawal Request
 
-Endpoint: https://payop.com/v1/withdrawals/create
+**Endpoint**: https://payop.com/v1/withdrawals/create
 
-Content-Type: application/json
+**Content-Type**: application/json
+
+**Headers**:
+ 
+    Content-Type: application/json
+    token: eyJ0eXAiO...
 
 **Parameters:**
 
