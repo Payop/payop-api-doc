@@ -58,6 +58,13 @@ Body
         "payCurrency": "USD",
         "state": 5,
         "error": "3DS authorization error or 3DS canceled by payer",
+        "cardMetadata": {
+            "bin": "555555",
+            "lastDigits": "4444",
+            "paymentSystem": "mastercard",
+            "country": "BR",
+            "holderName": "Snatiago Delcaptcha"
+        },
         "commission": [
             {
                 "identifier": "20842",
