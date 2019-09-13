@@ -142,6 +142,9 @@ curl -X POST \
 ```
 
 ### Successful response example
+
+In case of successful response you can get refund identifier from header `identifier`
+
 Headers
 ```
 HTTP/1.1 200 OK
@@ -149,13 +152,23 @@ Content-Type: application/json
 identifier: 81962ed0-a65c-4d1a-851b-b3dbf9750399
 ```
 
+----
+**Note:** Don't use identifier from response body, it's will be removed in the future API releases.
+
+----
+
 Body
 ```json
 {
-    "data": "81962ed0-a65c-4d1a-851b-b3dbf9750399",
+    "data": "",
     "status": 1
 }
 ```
+
+
+
+
+
 
 ### Errors and failed responses
 
