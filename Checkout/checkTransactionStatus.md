@@ -46,7 +46,7 @@ Based on below responses can be chosen several ways what to do next:
 
 `Content-Type: application/json`
 
-`POST https://payop.com/v1/checkout/check-transaction-status/{txid}"`
+`GET https://payop.com/v1/checkout/check-transaction-status/{txid}"`
 
 **Parameters**
 
