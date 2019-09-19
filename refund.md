@@ -34,6 +34,26 @@
 }
 ```
 
+### Successful response example
+
+In case of successful response you can get refund identifier from header `identifier`
+
+Headers
+```
+HTTP/1.1 200 OK
+Content-Type: application/json
+identifier: 81962ed0-a65c-4d1a-851b-b3dbf9750399
+```
+
+Body
+```json
+{
+    "data": "",
+    "status": 1
+}
+```
+
+
 ### Merchants refund transactions
 
 **Endpoint:**
