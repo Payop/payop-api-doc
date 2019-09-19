@@ -33,7 +33,7 @@ id          | string |     *     |
 curl -X GET \
   https://payop.com/v1/transactions/81962ed0-a65c-4d1a-851b-b3dbf9750399 \
     -H 'Content-Type: application/json' \
-  -H 'token: eyJ0eXAiOiJKV...
+    -H 'token: eyJ0eXAiOiJKV...
 ```
 
 ### Successful response example
