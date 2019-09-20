@@ -18,10 +18,6 @@ Checkout transaction can be created only for invoice.
 
 Actually, you can create an example request in the personal merchants account in the section Projects > REST.
 
-----
-**Note:** This URL require [authentication](../authentication.md).
-
-----
 
 ### URL for requests
 
@@ -108,16 +104,11 @@ Pattern        |        Replacement
 
 ### Request example
 
-----
-**Note:** This URL require [authentication](../authentication.md).
-
-----
 
 ```shell script
 curl -X POST \
   https://payop.com/v1/invoices/create \
   -H 'Content-Type: application/json' \
-    -H 'token: eyJ0eXAiOiJKV...' \
   -d '{
     "publicKey": "application-3b60feb1",
     "order": {
