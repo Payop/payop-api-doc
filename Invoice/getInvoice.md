@@ -89,7 +89,8 @@ Body
         "isSeen": true,
         "customization": [],
         "createdAt": 1567754398,
-        "updatedAt": null
+        "updatedAt": null,
+        "transactionIdentifier": "3333feb1-eeb8-4215-a494-238242788888"
     },
     "status": 1
 }
