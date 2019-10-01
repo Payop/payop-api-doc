@@ -66,6 +66,9 @@ IPN request will be send to ipn url which you setup for selected project.
     "transaction": {
         "id": "dca59ca5-be19-470d-9494-9b76944e0241",
         "state": 2,
+        "order": {
+            "id": "ANY_ORDER_ID"        
+        },
         "error": {
             "message": "3DS authorization error or 3DS canceled by payer",
             "code": ""
