@@ -1,6 +1,8 @@
 # Withdrawal
 
-**Important!** To create a withdrawal request, you must first receive a token for your user, as described in the login section. When creating a request for withdrawal, you must transfer a personal token in the header of the http request.
+**Important!** To create a withdrawal request, you must first [receive a token for your user](authentication.md),
+ as described in the [login section](authentication.md).
+ When creating a request for withdrawal, you must transfer a personal token in the header of the http request.
 
 ### Create Withdrawal Request
 
@@ -11,7 +13,7 @@
 **Headers**:
  
     Content-Type: application/json
-    token: eyJ0eXAiO...
+    Authorization: Bearer eyJ0eXAiO...
 
 **Parameters:**
 
@@ -95,7 +97,7 @@ Create request for withdraw to the Visa/MasterCard (RU cards).
 **Headers**:
  
     Content-Type: application/json
-    token: eyJ0eXAiO...
+    Authorization: Bearer eyJ0eXAiO...
     
 **Request example:**
 
@@ -103,7 +105,7 @@ Create request for withdraw to the Visa/MasterCard (RU cards).
 curl -X GET \
   https://payop.com/v1/instrument-settings/payment-methods/available-withdrawal-for-user \
     -H 'Content-Type: application/json' \
-  -H 'token: eyJ0eXAiOiJKV...
+  -H 'Authorization: Bearer eyJ0eXAiOiJKV...
 ```    
 
 **Successful response example:**
@@ -156,7 +158,9 @@ curl -X GET \
 
 Endpoint: https://payop.com/v1/withdrawals/create-mass
 
-You can create multiple withdrawal requests at the same time. The procedure is very similar to the previous one. You should use a slightly different endpoint and put several data sets to create queries in one array.
+You can create multiple withdrawal requests at the same time.
+The procedure is very similar to the previous one. You should use a slightly different endpoint and
+put several data sets to create queries in one array.
 
 ```json
 [
@@ -193,7 +197,7 @@ You can create multiple withdrawal requests at the same time. The procedure is v
 **Headers:**
  
     Content-Type: application/json
-    token: eyJ0eXAiO...
+    Authorization: Bearer eyJ0eXAiO...
 
 **Request example:**
 
@@ -201,7 +205,7 @@ You can create multiple withdrawal requests at the same time. The procedure is v
 curl -X GET \
   https://payop.com/v1/withdrawals/user-withdrawals \
     -H 'Content-Type: application/json' \
-  -H 'token: eyJ0eXAiOiJKV...
+  -H 'Authorization: Bearer eyJ0eXAiOiJKV...
 ```
 
 **Successful response example:**

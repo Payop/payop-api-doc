@@ -26,7 +26,7 @@ You should be noted that when creating an invoice you can only use payment metho
 curl -X GET \
   https://payop.com/v1/instrument-settings/payment-methods/available-for-user \
     -H 'Content-Type: application/json' \
-  -H 'token: eyJ0eXAiOiJKV...
+  -H 'Authorization: Bearer eyJ0eXAiOiJKV...
 ```
 
 
@@ -114,6 +114,6 @@ If it is necessary to fill in other required fields, they are placed in a nested
         "extraFields": {
           "nationalid": "GB-123456798"
         }
-    },
+    }
 }
 ```
