@@ -1,6 +1,8 @@
 # Refund
 
-**Important!** To create a refund request, you must first receive a token for your user, as described in the login section. When creating a request for refund, you must transfer a personal token in the header of the http request.
+**Important!** To create a refund request, you must first [receive a token for your user](authentication.md),
+ as described in the [login section](authentication.md).
+  When creating a request for refund, you must transfer a personal token in the header of the http request.
 
 ### Create Refund Request
 
@@ -11,7 +13,7 @@
 **Headers:**
  
     Content-Type: application/json
-    token: eyJ0eXAiO...
+    Authorization: Bearer eyJ0eXAiO...
 
 **Parameters:**
 
@@ -63,7 +65,7 @@ Body
 **Headers:**
  
     Content-Type: application/json
-    token: eyJ0eXAiO...
+    Authorization: Bearer eyJ0eXAiO...
 
 **Request example:**
 
@@ -71,7 +73,7 @@ Body
 curl -X GET \
   https://payop.com/v1/refunds/user-refunds \
     -H 'Content-Type: application/json' \
-  -H 'token: eyJ0eXAiOiJKV...
+  -H 'Authorization: Bearer eyJ0eXAiOiJKV...
 ```
 
 **Successful response example:**
@@ -176,5 +178,5 @@ curl -X GET \
 } 
 ```
 
-You can see the description of statuses and types at the page [Get transaction](getTransaction.md)
+You can see the description of statuses and types at the page [Get transaction](Transaction/getTransaction.md)
 

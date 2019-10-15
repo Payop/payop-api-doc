@@ -39,7 +39,7 @@ Headers
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
-token: eyJ0eXAiO...
+Authorization: Bearer eyJ0eXAiO...
 ```
 Body
 ```json
