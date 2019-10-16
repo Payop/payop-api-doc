@@ -96,7 +96,7 @@ Body
         "isSuccess": true,
         "status": "pending",
         "form": {
-            "method": "GET",
+            "method": "POST",
             "url": "https://pay.skrill.com/app/?sid=468",
             "fields": {
                 "PaReq": "fmn3o8usfjlils",
