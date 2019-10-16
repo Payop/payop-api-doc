@@ -32,7 +32,7 @@ Parameter                       |        Type      |                 Description
 publicKey                       | string           | Public key issued in the project.                                                                       |     *     |
 **order**                       | **JSON object**  | Order info                                                                                              |     *     |
 &emsp;order.id                  | string           | Payment ID                                                                                              |     *     |
-&emsp;order.amount              | number           | Amount of the payment                                                                                   |     *     |
+&emsp;order.amount              | string           | Amount of the payment `#0.00`                                                                                   |     *     |
 &emsp;order.currency            | string           | The character code of the payment currency, which is supported by the selected payment method.          |     *     |
 &emsp;order.description         | string           | Description of payment                                                                                  |     *     |
 &emsp;order.items               | json array       | Products or services included in the order. An array containing arbitrary data. Can be empty array.     |     *     |
