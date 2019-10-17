@@ -21,7 +21,13 @@
 
      1 - Bank transfer.
      
+     2 - International Cards.
+     
+     3 - Visa/MasterCard (UA cards).
+     
      4 - Visa/MasterCard (RU cards).
+     
+     5 - Webmoney
      
      6 - Qiwi
      
