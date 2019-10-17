@@ -55,7 +55,7 @@ We present the fields in accordance with different values of the method field:
         zipCode
         direction
         
-  2. International Cards
+ 2. International Cards
 
         cardNumber 
         expirationDate
