@@ -19,7 +19,7 @@
 `Content-Type: application/json`
 `Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE...`
 
-`POST https://payop.com/v1/transactions/{id}`
+`GET https://payop.com/v1/transactions/{id}`
 
 **Parameters**
 
