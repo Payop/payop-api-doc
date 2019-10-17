@@ -51,7 +51,7 @@ We present the fields in accordance with different values of the method field:
         swiftCode
         address
         city
-        country
+        country = 2 letters code of contry by ISO-3166
         zipCode
         direction
  
