@@ -56,11 +56,21 @@ We present the fields in accordance with different values of the method field:
         direction
  
 
+3. Visa/MasterCard (UA cards).
+
+        cardNumber - card number
+        cardHolderName — card holder name
+        
 4. Visa/MasterCard (RU cards).
 
         cardNumber - card number
         cardHolderName — card holder name
+        
+5. Webmoney.
 
+    direction - transfer description,
+    walletNumber - wallet number
+    
 6. Qiwi.
 
     direction - transfer description,
