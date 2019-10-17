@@ -59,8 +59,8 @@ Body
             }
         ],
         "description": "",
-        "resultUrl": "https://test.com/result",
-        "failUrl": "https://test.com/fail",
+        "resultUrl": "https://your.site/result",
+        "failUrl": "https://your.site/fail",
         "language": "en",
         "payer": {
             "email": "test.user@payop.com",

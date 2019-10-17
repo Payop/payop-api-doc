@@ -117,8 +117,8 @@ Body
                 "code": "AS"
             }
         },
-        "resultUrl": "https://test.com/result",
-        "failUrl": "https://test.com/fail",
+        "resultUrl": "https://your.site/result",
+        "failUrl": "https://your.site/fail",
         "pid": "23234523525",
         "application": {
             "identifier": "3",

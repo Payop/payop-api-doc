@@ -92,14 +92,14 @@ Pattern        |        Replacement
 **Examples:**
 ```
     # Template
-    https://payop.com/result-page/?invoiceId={{invoiceId}}&txid={{txid}}
+    https://your.site/result-page/?invoiceId={{invoiceId}}&txid={{txid}}
     # Result
-    https://payop.com/result-page/?invoiceId=b8bf37ab-fc69-44df-bfeb-b9a879ce20b7&txid=1eeda2f2-d3e1-4edd-853e-3d897bc629b2
+    https://your.site/result-page/?invoiceId=b8bf37ab-fc69-44df-bfeb-b9a879ce20b7&txid=1eeda2f2-d3e1-4edd-853e-3d897bc629b2
 
     # Template
-    https://payop.com/result-page/{{txid}}/
+    https://your.site/result-page/{{txid}}/
     # Result
-    https://payop.com/result-page/1eeda2f2-d3e1-4edd-853e-3d897bc629b2/
+    https://your.site/result-page/1eeda2f2-d3e1-4edd-853e-3d897bc629b2/
 ```
 
 ### Request example
@@ -138,8 +138,8 @@ curl -X POST \
     },
     "paymentMethod": 261,
     "language": "en",
-    "resultUrl": "https://test.com/result",
-    "failPath": "https://test.com/fail"
+    "resultUrl": "https://your.site/result",
+    "failPath": "https://your.site/fail"
 }'
 ```
 

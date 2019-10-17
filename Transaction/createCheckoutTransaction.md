@@ -50,7 +50,7 @@ curl -X POST \
 	"customer": {
 		"email": "test@email.com"
 	},
-	"checkStatusUrl": "https://payop.com/check-status/{{txid}}",
+	"checkStatusUrl": "https://your.site/check-status/{{txid}}",
 	"payCurrency": "EUR",
 	"paymentMethod": 381,
 	"cardToken": "sdffsdfsdf"
