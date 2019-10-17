@@ -68,14 +68,14 @@ We present the fields in accordance with different values of the method field:
         
 5. Webmoney.
 
-    direction - transfer description,
-    walletNumber - wallet number
+        direction - transfer description,
+        walletNumber - wallet number
     
 6. Qiwi.
 
-    direction - transfer description,
-    walletNumber - wallet number
-    country - country
+        direction - transfer description,
+        walletNumber - wallet number
+        country - country
      
 8. Paypal.
 
