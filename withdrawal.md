@@ -54,7 +54,19 @@ We present the fields in accordance with different values of the method field:
         country = 2 letters code of contry by ISO-3166
         zipCode
         direction
- 
+        
+  2. International Cards
+
+        cardNumber 
+        expirationDate
+        cardHolderName
+        cardholderBirthDate
+        firstAddressLine
+        secondAddressLine
+        city
+        country 
+        zipCode
+        direction
 
 3. Visa/MasterCard (UA cards).
 
