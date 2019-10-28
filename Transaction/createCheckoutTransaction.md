@@ -48,7 +48,8 @@ curl -X POST \
   -d '{
 	"invoiceIdentifier": "e61dfa44-4987-400a-b58e-cd550aae9613",
 	"customer": {
-		"email": "test@email.com"
+		"email": "test@email.com",
+        "ip": "127.0.0.1"
 	},
 	"checkStatusUrl": "https://your.site/check-status/{{txid}}",
 	"payCurrency": "EUR",

@@ -67,7 +67,7 @@ to save all possible data, you can use "extraFields" field to save payer extra f
 {
     "email": "test.email@address.com",
     "extraFields": {
-        "ip": "127.0.0.1",
+        "nationalid": "5579844567",
         "name": "Human"
     }   
 }
