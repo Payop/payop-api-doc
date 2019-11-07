@@ -26,8 +26,8 @@ This page has builtin functionality to make decision about next processes.
 
 Parameter        |  Type   |                 Description     |
 -----------------|---------|---------------------------------|
-{{language}}     | string  | Invoice language                |
-{{language}}     | string  | Invoice identifier              |
+{{locale}}     | string  | Invoice language                |
+{{invoiceId}}     | string  | Invoice identifier              |
 
 
 If all the required fields are completed, an attempt will be made to pay by the payment method specified when creating the account.
