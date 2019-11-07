@@ -37,7 +37,7 @@ Based on below responses can be chosen several ways what to do next:
             'fields' => ['PaReq' => 'fmn3o8usfjlils', 'MD' => '8ec777d6-685d-4e06-b356-d7673acb47ba', 'TermUrl' => 'https://payop.com/v1/url']
          ]
         ```
-2. Response['status'] is "pending" and Response['status'] empty - repeat transaction status request after 5-10 seconds.
+2. Response['status'] is "pending" and Response['url'] empty - repeat transaction status request after 5-10 seconds.
 3. Response['status'] is "success" - redirect to Response['url']
 4. Response['status'] is "fail" - redirect to Response['url']
 5. Exceptional case. Something went wrong on the Payop side. Contact Payop support.
