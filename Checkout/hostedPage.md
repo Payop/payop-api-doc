@@ -20,7 +20,7 @@ and at the same time the control over almost the entire process will be on the s
 After getting invoice id you can redirect user to the invoice preprocessing page.
 This page has builtin functionality to make decision about next processes.
 
-**Invoice preprocessing page url**:  https://payop.com//{{locale}}/payment/invoice-preprocessing/{{invoiceId}}
+**Invoice preprocessing page url**:  https://payop.com/{{locale}}/payment/invoice-preprocessing/{{invoiceId}}
 
 **Parameters**
 
