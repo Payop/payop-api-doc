@@ -26,13 +26,18 @@
       
 * **amount**: refund amount in the currency of the parent transaction         
 
+* **metadata** [JSON object] Arbitrary structure object to store any additional merchant data. Result JSON should be less than 800 kB
+
 **Body:**
 
 ```json
 {
     "transactionIdentifier": "d839c714-7743-47cf-8f9d-73592597c6e1",
     "refundType": 2,
-    "amount": "10"
+    "amount": "10",
+    "metadata": {
+            "internal merchant id": "example"
+    }
 }
 ```
 
@@ -171,6 +176,9 @@ curl -X GET \
                     "name": "Example Application",
                     "info": "Example Application Description"
                 }
+            },
+            "metadata": {
+                "internal merchant id": "example"
             }
         }
     ],

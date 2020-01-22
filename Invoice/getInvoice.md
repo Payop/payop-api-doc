@@ -90,7 +90,15 @@ Body
         "customization": [],
         "createdAt": 1567754398,
         "updatedAt": null,
-        "transactionIdentifier": "3333feb1-eeb8-4215-a494-238242788888"
+        "transactionIdentifier": "3333feb1-eeb8-4215-a494-238242788888",
+        "metadata": {
+            "internal merchant id": "example",
+            "any other merchant data": {
+                "orderId": "test",
+                "amount": 3,
+                "customerId": 15487            
+            }
+        }
     },
     "status": 1
 }

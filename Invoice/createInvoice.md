@@ -27,25 +27,26 @@ Actually, you can create an example request in the personal merchants account in
 
 **Parameters**
 
-Parameter                       |        Type      |                 Description                                                                             |  Required |
---------------------------------|------------------|---------------------------------------------------------------------------------------------------------|-----------| 
-publicKey                       | string           | Public key issued in the project.                                                                       |     *     |
-**order**                       | **JSON object**  | Order info                                                                                              |     *     |
-&emsp;order.id                  | string           | Payment ID                                                                                              |     *     |
-&emsp;order.amount              | string           | Amount of the payment `#0.00`                                                                                   |     *     |
-&emsp;order.currency            | string           | The character code of the payment currency, which is supported by the selected payment method.          |     *     |
-&emsp;order.description         | string           | Description of payment                                                                                  |     *     |
-&emsp;order.items               | json array       | Products or services included in the order. An array containing arbitrary data. Can be empty array.     |     *     |
-**[payer](#payer-extra-info)**  | **JSON object**  | Payer info                                                                                              |     *     |
-&emsp;payer.email               | string         | Payer email                                                                                               |           |
-&emsp;payer.name                | string         | Payer name                                                                                                |           |
-&emsp;payer.phone               | string         | Payer phone                                                                                               |           |
-&emsp;payer.extraFields         | JSON object    | payer extra info (fieldName:fieldValue)                                                                   |           |
-language                        | string           |   Language  (en, ru).                                                                                   |     *     |
-resultUrl                       | string           | Successful payment link. Allowed to use [template expression][template].                                |     *     |
-failPath                        | string           | Unsuccessful payment link. Allowed to use [template expression][template].                              |     *     |
-signature                       | string           | [Signature](#signature)                                                                                 |     *     |
-paymentMethod                   | string           | Payment method id selected for this invoice.                                                            |           |
+Parameter                       |        Type      |                 Description                                                                              |  Required |
+--------------------------------|------------------|----------------------------------------------------------------------------------------------------------|-----------| 
+publicKey                       | string           | Public key issued in the project.                                                                        |     *     |
+**order**                       | **JSON object**  | Order info                                                                                               |     *     |
+&emsp;order.id                  | string           | Payment ID                                                                                               |     *     |
+&emsp;order.amount              | string           | Amount of the payment `#0.00`                                                                            |     *     |
+&emsp;order.currency            | string           | The character code of the payment currency, which is supported by the selected payment method.           |     *     |
+&emsp;order.description         | string           | Description of payment                                                                                   |     *     |
+&emsp;order.items               | json array       | Products or services included in the order. An array containing arbitrary data. Can be empty array.      |     *     |
+**[payer](#payer-extra-info)**  | **JSON object**  | Payer info                                                                                               |     *     |
+&emsp;payer.email               | string           | Payer email                                                                                              |           |
+&emsp;payer.name                | string           | Payer name                                                                                               |           |
+&emsp;payer.phone               | string           | Payer phone                                                                                              |           |
+&emsp;payer.extraFields         | JSON object      | payer extra info (fieldName:fieldValue)                                                                  |           |
+language                        | string           | Language  (en, ru).                                                                                    |     *     |
+resultUrl                       | string           | Successful payment link. Allowed to use [template expression][template].                                 |     *     |
+failPath                        | string           | Unsuccessful payment link. Allowed to use [template expression][template].                               |     *     |
+signature                       | string           | [Signature](#signature)                                                                                  |     *     |
+paymentMethod                   | string           | Payment method id selected for this invoice.                                                             |           |
+metadata                        | **JSON object**  | Arbitrary structure object to store any additional merchant data. Result JSON should be less than 800 kB |           |
 
 [template]: (#template-expressions)
 
