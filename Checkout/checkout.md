@@ -61,7 +61,15 @@ IPN request will be send to ipn url which you setup for selected project.
 {
     "invoice": {
         "id": "d024f697-ba2d-456f-910e-4d7fdfd338dd",
-        "txid": "dca59ca5-be19-470d-9494-9b76944e0241"
+        "txid": "dca59ca5-be19-470d-9494-9b76944e0241",
+        "metadata": {
+            "internal merchant id": "example",
+            "any other merchant data which were passed to invoice on create it": {
+                "orderId": "test",
+                "amount": 3,
+                "customerId": 15487            
+            }
+        }
     }, 
     "transaction": {
         "id": "dca59ca5-be19-470d-9494-9b76944e0241",
