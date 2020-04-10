@@ -55,8 +55,6 @@ We present the fields in accordance with different values of the method field:
         beneficiaryBank - JSON object
             - name - Name of the Beneficiary Bank. [A-Za-z0-9]. Max. length: 34 
             - country - Country of the Beneficiary Bank. ISO 3166-1 alpha-2 code
-            - city - City of the Beneficiary Bank. [A-Za-z0-9]. Max. length: 34 
-            - address - Address of the Beneficiary Bank. [A-Za-z0-9]. Max. length: 34 
             - bic - SWIFT code of the Beneficiary Bank. [A-Za-z0-9]. Max. length: 11 
         direction - Description.
         afsk - Optional field. Only for IN transfers. 
