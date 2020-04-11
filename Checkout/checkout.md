@@ -90,7 +90,7 @@ IPN request will be send to ipn url which you setup for selected project.
 Parameter                       |  Type   |                 Description     |
 --------------------------------|---------|---------------------------------| 
 invoice.id                      | string  | Invoice identifier              |
-invoice.id                      | string  | Transaction identifier          |
+invoice.txid                      | string  | Transaction identifier          |
 transaction.id                  | string  | Transaction identifier          |
 transaction.state               | number  | Transaction state               |
 transaction.error.message       | string  | Transaction error message       |
