@@ -54,9 +54,8 @@ We present the fields in accordance with different values of the method field:
             - registrationNumber - Optional field. Registration number of the receiver. [A-Za-z0-9]. Max. length: 34
         beneficiaryBank - JSON object
             - name - Name of the Beneficiary Bank. [A-Za-z0-9]. Max. length: 34 
-            - country - Country of the Beneficiary Bank. ISO 3166-1 alpha-2 code
             - bic - SWIFT code of the Beneficiary Bank. [A-Za-z0-9]. Max. length: 11 
-        direction - Description.
+        direction - Description. [A-Za-z0-9].
         afsk - Optional field. Only for IN transfers. 
         routingNumber - Optional field. Only for US transfers. 
         
