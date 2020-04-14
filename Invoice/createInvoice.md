@@ -216,9 +216,10 @@ Signature encryption method - **sha256**
 
 | Parameter | Description | Type | Example |
 |-----------|-------------|------|---------|
-| order[id] | Payment ID  | string | FF01; 354 |
 | order[amount] | Amount of payment | string | 100.0000 |
-| order[currency] | Character code of payment currency, which is supported by the selected payment method | string | USD; EUR |
+| order[currency] | Character code of payment currency, which is supported by the selected payment method | string | USD; EUR 
+| order[id] | Payment ID  | string | FF01; 354 |
+|
 | secretKey | Project secret key | string | rekrj1f8bc4werwer |
 
 #### Signature generation example
