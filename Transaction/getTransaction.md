@@ -3,7 +3,7 @@
     * [Request example](#request-example)
     * [Successful response example](#successful-response-example)
     * [Errors and failed responses](#errors-and-failed-responses)
-    * [Transaction statuses](#transaction-statuses)
+    * [Transaction states](#transaction-statuses)
     * [Transaction types](#transaction-types)
     * [Payer information types](#payer-information-types)
 
@@ -125,8 +125,7 @@ Body
             "name": "Project name",
             "info": "For sales"
         }
-    },
-    "status": 1
+    }
 }
 ```
 
@@ -147,7 +146,7 @@ Body
 ```
 
 
-### Transaction statuses
+### Transaction states
 
 Status      |  Type    |  Description                        |
 ------------|----------|-------------------------------------| 
