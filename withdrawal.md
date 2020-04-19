@@ -45,6 +45,7 @@
 We present the fields in accordance with different values of the method field:
 
  1. Bank transfer
+ 
         beneficiary - JSON object
             - account - Receiver's account (IBAN or local account number). [A-Za-z0-9]. Max. length: 34 
             - name - Receiver's name. [A-Za-z0-9]. Max. length: 34
