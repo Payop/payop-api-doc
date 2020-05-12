@@ -4,9 +4,11 @@
  as described in the [login section](authentication.md).
  When creating a request for withdrawal, you must transfer a personal token in the header of the http request.
 
-### Create Withdrawal Request
+### Mass (batch) withdrawal requests
 
-**Endpoint**: https://payop.com/v1/withdrawals/create
+Only batch withdrawal request available using API.
+
+**Endpoint**: https://payop.com/v1/withdrawals/create-mass
 
 **Content-Type**: application/json
 
@@ -15,6 +17,33 @@
     Content-Type: application/json
     Authorization: Bearer eyJ0eXAiO...
 
+**Withdrawal Request Example**
+
+```json
+[
+    {
+        "method": 8,
+        "type": 1,
+        "amount": 34,
+        "currency":"USD",
+        "additionalData": {
+            "direction": "direction one",
+            "email": "my.email@address.com"
+        }
+    },
+    {
+        "method": 6,
+        "type": 1,
+        "amount": 35,
+        "currency":"USD",
+        "additionalData": {
+            "direction": "direction two",
+            "walletNumber": "my wallet number",
+            "country": "USA"
+        }
+    }
+]
+```
 **Parameters:**
 
 * **method** -- withdrawal method (numeric field):
@@ -40,7 +69,6 @@
 * **currency** -- withdraw currency.
 * **additionalData** -- The content of the block depends on the method.
 * **metadata** [JSON object] -- Arbitrary structure object to store any additional merchant data. Result JSON should be less than 800 kB
-
 
 We present the fields in accordance with different values of the method field:
 
@@ -189,41 +217,6 @@ curl -X GET \
 }
 ```
 
-
-### Mass withdrawal requests
-
-Endpoint: https://payop.com/v1/withdrawals/create-mass
-
-You can create multiple withdrawal requests at the same time.
-The procedure is very similar to the previous one. You should use a slightly different endpoint and
-put several data sets to create queries in one array.
-
-```json
-[
-    {
-        "method": 8,
-        "type": 1,
-        "amount": 34,
-        "currency":"USD",
-        "additionalData": {
-            "direction": "direction one",
-            "email": "my.email@address.com"
-        }
-    },
-    {
-        "method": 6,
-        "type": 1,
-        "amount": 35,
-        "currency":"USD",
-        "additionalData": {
-            "direction": "direction two",
-            "walletNumber": "my wallet number",
-            "country": "USA"
-        }
-    }
-]
-```
-
 ### Merchants withdraw transactions
 
 **Endpoint:**
@@ -248,26 +241,28 @@ curl -X GET \
 
 ```json
 {
-    "data": {
-        "identifier": "6173e7a5-aaee-4eb3-9851-943c0b5c47d1",
-        "groupIdentifier": null,
-        "userIdentifier": "10043",
-        "type": 1,
-        "currency": "RUB",
-        "amount": 100,
-        "transactionIdentifier": "05f6ce15-fb5b-4232-8a9c-acda3dc256a2",
-        "status": 1,
-        "method": 4,
-        "createdAt": 1568112855,
-        "updatedAt": null,
-        "additionalData": {
-            "cardNumber": "4444444444444444",
-            "cardHolderName": "Ivan Ivanov"
-        },
-        "metadata": {
-            "internal merchant id": "example"
+    "data": [
+        {
+            "identifier": "6173e7a5-aaee-4eb3-9851-943c0b5c47d1",
+            "groupIdentifier": null,
+            "userIdentifier": "10043",
+            "type": 1,
+            "currency": "RUB",
+            "amount": 100,
+            "transactionIdentifier": "05f6ce15-fb5b-4232-8a9c-acda3dc256a2",
+            "status": 1,
+            "method": 4,
+            "createdAt": 1568112855,
+            "updatedAt": null,
+            "additionalData": {
+                "cardNumber": "4444444444444444",
+                "cardHolderName": "Ivan Ivanov"
+            },
+            "metadata": {
+                "internal merchant id": "example"
+            }
         }
-    },
+    ],
     "status": 1
 }
 ```
