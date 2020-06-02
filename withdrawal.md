@@ -11,6 +11,10 @@ We are using popular encryption library to decrypt request payload - [Sodium](ht
 In short, before send withdrawal request you have to make next steps:
  
 * Encrypt request payload with [Sodium Sealed boxes](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes#usage)
+(
+    [Python](https://libnacl.readthedocs.io/en/latest/topics/raw_sealed.html),
+    [PHP](https://www.php.net/manual/en/function.sodium-crypto-box-seal.php)
+)
 * Encode encrypted binary string with Base64
  
 Below you can see PHP example, how encrypt request payload before send withdrawal request:
