@@ -1,8 +1,46 @@
 # Withdrawal
 
 **Important!** To create a withdrawal request, you must first [receive a token for your user](authentication.md),
- as described in the [login section](authentication.md).
- When creating a request for withdrawal, you must transfer a personal token in the header of the http request.
+ as described in the [login section](authentication.md) and create a certificate to encrypt request payload.
+ 1. When creating a request for withdrawal, you must transfer a personal token in the header of the http request.
+ 2. When creating a request for withdrawal, you must encrypt request payload with a personal certificate.
+ 
+#### Request payload encrypt/decrypt
+
+We are using popular encryption library to decrypt request payload - [Sodium](https://libsodium.gitbook.io/doc/).
+In short, before send withdrawal request you have to make next steps:
+ 
+* Encrypt request payload with [Sodium Sealed boxes](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes#usage)
+(
+    [Python](https://libnacl.readthedocs.io/en/latest/topics/raw_sealed.html),
+    [PHP](https://www.php.net/manual/en/function.sodium-crypto-box-seal.php)
+)
+* Encode encrypted binary string with Base64
+ 
+Below you can see PHP example, how encrypt request payload before send withdrawal request:
+
+```php
+$certificate = file_get_contents('path_to_certificate');
+$data = [
+    [
+            'method' => 8,
+            'type' => 1,
+            'amount' => 34,
+            'currency' => 'USD',
+            'additionalData' => [
+                'direction' => 'direction one',
+                'email' => 'my.email@address.com'
+            ]
+    ]
+];
+
+$encryptedPayload = sodium_crypto_box_seal(json_encode($data), $certificate);
+// $encryptedPayload - it's a binary string
+$base64Payload = base64_encode($encryptedPayload);
+// $base64Payload - looks like a next string 9kQ7v9nXLHjeOyIqi+hIJfEKuOCQZ2C5WWVcnmfPHUxh1EbK5g=
+```
+
+See more examples [here](examples/apiCertificates)
 
 ### Mass (batch) withdrawal requests
 
@@ -17,7 +55,7 @@ Only batch withdrawal request available using API.
     Content-Type: application/json
     Authorization: Bearer eyJ0eXAiO...
 
-**Withdrawal Request Example**
+**Withdrawal RAW DATA Example (this data should be encrypted, see below)**
 
 ```json
 [
@@ -44,6 +82,13 @@ Only batch withdrawal request available using API.
     }
 ]
 ```
+
+**Withdrawal Request with encrypted data Example**
+
+```json
+{"data":  "9kQ7v9nXLHjeOyIqi+hIJfEKuOCQZ2C5WWVcnmfPHUxh1EbK5g="}
+```
+
 **Parameters:**
 
 * **method** -- withdrawal method (numeric field):
@@ -132,7 +177,7 @@ We present the fields in accordance with different values of the method field:
         data -  bitcoin wallet
 
 
-**Withdrawal Request Example**
+**Withdrawal RAW DATA Example (this data should be encrypted)**
 
 Create request for withdraw to the Visa/MasterCard (RU cards).
 
