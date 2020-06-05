@@ -4,6 +4,10 @@
  as described in the [login section](authentication.md) and create a certificate to encrypt request payload.
  1. When creating a request for withdrawal, you must transfer a personal token in the header of the http request.
  2. When creating a request for withdrawal, you must encrypt request payload with a personal certificate.
+  You can **download** your personal certificate in [your account](https://payop.com/en/profile/settings/certificate).
+  
+  ![Payop API Certificate page](./images/api-certificate.jpg)
+
  
 #### Request payload encrypt/decrypt
 
@@ -44,7 +48,7 @@ See more examples [here](examples/apiCertificates)
 
 ### Mass (batch) withdrawal requests
 
-Only batch withdrawal request available using API.
+Only batch withdrawal request available using API. You can create **1** or more withdrawal using batch request. 
 
 **Endpoint**: https://payop.com/v1/withdrawals/create-mass
 
