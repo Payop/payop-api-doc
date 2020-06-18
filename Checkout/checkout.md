@@ -45,6 +45,13 @@ IPN will be send only in case of successfully created transaction.
 Internal Payop transaction created only after successful request to Acquirer.
 IPN request will be send to ipn url which you setup for selected project.
 
+For greater security, we highly recommend that you accept IPN only from our IP address:
+* 52.49.204.201 
+* 54.229.170.21
+
+----
+**Note:** When using some payment methods, several notifications can be sent for one transaction (first with "failed" status, and then with "success" status).
+
 ----
 **Note:** Please note! A notification is sent to the merchant's server within 24 hours
  and until the Payop server, upon this request, receives the HTTP status code "200 OK".
