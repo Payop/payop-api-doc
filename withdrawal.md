@@ -18,7 +18,7 @@
   every 10 minutes (available statuses: 1 - Pending; 2 - Accepted; 3 - Rejected).
  
  ----
- **Note:** Your application have to change withdrawal status on your side only in case you get final status from Payop (2 or 3). 
+**Note:** Your application have to change withdrawal status on your side only in case you get final status from Payop (2 or 3). 
 As example, if you are getting 500 http error code (or something like this) when you make request to get withdrawal details,
 you don't need to change withdrawal status. Just leave it as pending and repeat request later.
  ----   
