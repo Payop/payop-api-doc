@@ -8,6 +8,22 @@
   
   ![Payop API Certificate page](./images/api-certificate.jpg)
 
+#### Withdrawal flow
+
+**Important!** Withdrawal is asynchronous operation. That is means that you never get final status on withdrawal create action.
+
+ 1. [Create withdrawal request](#mass-batch-withdrawal-requests)
+ 2. Save withdrawal id from response (`id` property from response object related to concrete withdrawal)
+ 3. [Check withdrawal status by getting withdrawal details](#get-concrete-withdrawal-details)
+  every 10 minutes (available statuses: 1 - Pending; 2 - Accepted; 3 - Rejected).
+
+----
+**Note:** Your application have to change withdrawal status on your side only in case you get final status from Payop (2 or 3). 
+As example, if you are getting 500 http error code (or something like this) when you make request to get withdrawal details,
+you don't need to change withdrawal status. Just leave it as pending and repeat request later.
+
+----
+
  
 #### Request payload encrypt/decrypt
 
@@ -196,7 +212,7 @@ Create request for withdraw to the Visa/MasterCard (RU cards).
         "cardHolderName": "Ivan Ivanov"
     },
     "metadata": {
-            "internal merchant id": "example"
+        "internal merchant id": "example"
     }
 }
 ```
@@ -272,6 +288,8 @@ curl -X GET \
 
 `GET https://payop.com/v1/withdrawals/user-withdrawals`
 
+`GET https://payop.com/v1/withdrawals/user-withdrawals?query[identifier]={payopWithdrawalId}`
+
 **Headers:**
  
     Content-Type: application/json
@@ -292,13 +310,105 @@ curl -X GET \
 {
     "data": [
         {
-            "identifier": "6173e7a5-aaee-4eb3-9851-943c0b5c47d1",
+            "identifier": "0000000-0000-0000-0000-00000001",
             "groupIdentifier": null,
             "userIdentifier": "10043",
             "type": 1,
             "currency": "RUB",
             "amount": 100,
-            "transactionIdentifier": "05f6ce15-fb5b-4232-8a9c-acda3dc256a2",
+            "transactionIdentifier": "0000000-0000-0000-0000-00000001",
+            "status": 1, // Pending
+            "method": 4,
+            "createdAt": 1568112855,
+            "updatedAt": null,
+            "additionalData": {
+                "direction": "Dm PENDING test withdrawal",
+                "cardNumber": "4444444444444444",
+                "cardHolderName": "Ivan Ivanov"
+            },
+            "metadata": {
+                "internal merchant id": "example"
+            }
+        },
+        {
+            "identifier": "0000000-0000-0000-0000-00000002",
+            "groupIdentifier": null,
+            "userIdentifier": "10043",
+            "type": 2, // Accepted
+            "currency": "RUB",
+            "amount": 65,
+            "transactionIdentifier": "0000000-0000-0000-0000-00000002",
+            "status": 2,
+            "method": 6,
+            "comment": null,
+            "createdAt": 1579502520,
+            "updatedAt": 1579502818,
+            "metadata": [],
+            "additionalData": {
+                "direction": "Dm ACCEPTED test withdrawal",
+                "country": "UA",
+                "walletNumber": "+3800000000"
+            }
+        },
+        {
+            "identifier": "0000000-0000-0000-0000-00000003",
+            "groupIdentifier": null,
+            "userIdentifier": "10043",
+            "type": 3, // Failed
+            "currency": "RUB",
+            "amount": 65,
+            "transactionIdentifier": "0000000-0000-0000-0000-00000003",
+            "status": 2,
+            "method": 6,
+            "comment": null,
+            "createdAt": 1579502520,
+            "updatedAt": 1579502818,
+            "metadata": [],
+            "additionalData": {
+                "direction": "Dm FAILED test withdrawal",
+                "country": "UA",
+                "walletNumber": "+3800000000"
+            }
+        }
+    ],
+    "status": 1
+}
+```
+
+### Get concrete withdrawal details
+
+
+**Endpoint:**
+
+`GET https://payop.com/v1/withdrawals/user-withdrawals?query[identifier]={payopWithdrawalId}`
+
+**Headers:**
+ 
+    Content-Type: application/json
+    Authorization: Bearer eyJ0eXAiO...
+
+**Request example:**
+
+```shell script
+curl -X GET \
+  https://payop.com/v1/withdrawals/user-withdrawals?query[identifier]={payopWithdrawalId} \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer eyJ0eXAiOiJKV...
+```
+
+**Successful response example:**
+
+```json
+{
+    "data": [
+        {
+            "identifier": "{payopWithdrawalId}",
+            "groupIdentifier": null,
+            "userIdentifier": "10043",
+            "type": 1,
+            "currency": "RUB",
+            "amount": 100,
+            "transactionIdentifier": "0000000-0000-0000-0000-00000001",
             "status": 1,
             "method": 4,
             "createdAt": 1568112855,
