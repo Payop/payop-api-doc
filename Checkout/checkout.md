@@ -47,7 +47,7 @@ IPN request will be send to ipn url which you setup for selected project.
 
 For greater security, we highly recommend that you accept IPN only from our IP address:
 * 52.49.204.201 
-* 54.229.170.21
+* 54.229.170.212
 
 ----
 **Note:** When using some payment methods, several notifications can be sent for one transaction (first with "failed" status, and then with "success" status).
