@@ -50,7 +50,21 @@ For greater security, we highly recommend that you accept IPN only from our IP a
 * 54.229.170.212
 
 ----
-**Note:** When using some payment methods, several notifications can be sent for one transaction (first with "failed" status, and then with "success" status).
+**Note:** Sometimes IPN that is related to a particular order can be sent multiple times. If you are receiving multiple IPNs with the same status and data (order ID. transaction ID etc.) that refer to an order, please make sure that the payment has been credited only once.
+
+So, what do you need to check: if you received IPNs with the same status and data (order ID, transaction ID etc.) related to a transaction, you have to accept only the first notification and ignore the others.
+
+However, several IPN notifications should to be accepted for a particular transaction if there are carrying different statuses. In this case, you don't need to ignore them, but update the current transaction state.
+
+For instance: 
+
+case 1. You received several IPNs with the same data and "success" state had been received for the order ID 1111; 
+case 2. You had received IPN for the order ID 1111 with status 'failed'; later on you received the other IPN notification with the same transaction data for the order ID 1111 but with the other state "success".
+
+Solution: 
+
+case 1. You need to accept only the first notification and ignore the others;
+case 2. You shouldn't ignore notification with a different state to let the transaction status become updated.
 
 ----
 **Note:** Please note! A notification is sent to the merchant's server within 24 hours
