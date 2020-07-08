@@ -37,7 +37,7 @@ publicKey                       | string           | Public key issued in the pr
 &emsp;order.description         | string           | Description of payment                                                                                   |     *     |
 &emsp;order.items               | json array       | Products or services included in the order. An array containing arbitrary data. Can be empty array.      |     *     |
 **[payer](#payer-extra-info)**  | **JSON object**  | Payer info                                                                                               |     *     |
-&emsp;payer.email               | string           | Payer email                                                                                              |           |
+&emsp;payer.email               | string           | Payer email                                                                                              |     *     |
 &emsp;payer.name                | string           | Payer name                                                                                               |           |
 &emsp;payer.phone               | string           | Payer phone                                                                                              |           |
 &emsp;payer.extraFields         | JSON object      | payer extra info (fieldName:fieldValue)                                                                  |           |
