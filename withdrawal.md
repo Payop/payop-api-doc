@@ -139,7 +139,7 @@ We present the fields in accordance with different values of the method field
  (all below fields are required unless otherwise indicated):
 
  1. Bank transfer
- 
+ ```
      beneficiary - JSON object
         - account - Receiver's account (IBAN or local account number). [A-Za-z0-9]. Max. length: 34 
         - name - Receiver's name. [A-Za-z0-9]. Max. length: 34
@@ -153,9 +153,10 @@ We present the fields in accordance with different values of the method field
      direction - Description. [A-Za-z0-9].
      afsk - Optional field. Only for IN transfers. 
      routingNumber - Optional field. Only for US transfers. 
-        
- 2. International Cards
+```    
 
+ 2. International Cards
+```
      cardNumber - Example: 5555555555554444 
      expirationDate - format: MM/YYYY
      cardHolderName - [A-Za-z0-9]. Max. length: 50
@@ -166,45 +167,52 @@ We present the fields in accordance with different values of the method field
      country - Country code. Must be in ISO 3166-1 alpha-2 format. Example: US
      zipCode - [A-Za-z0-9]. Max. length: 20
      direction - Description. [A-Za-z0-9].
+```
 
 3. Visa/MasterCard (UA cards).
-
+```
      cardNumber - card number. Example: 5555555555554444
      cardHolderName — [A-Za-z0-9]. Max. length: 50
      direction - Description. [A-Za-z0-9].
+```
         
 4. Visa/MasterCard (RU cards).
-
+```
      cardNumber - card number. Example: 5555555555554444
      cardHolderName — [A-Za-z0-9]. Max. length: 50
      direction - Description. [A-Za-z0-9].
+```
         
 5. Webmoney.
-
+```
      direction - Description. [A-Za-z0-9].
      walletNumber - wallet number. Example: Z432423894723947823
+```
     
 6. Qiwi.
-
+```
      direction - Description. [A-Za-z0-9].
      walletNumber - wallet number. Example: +7451684153189138
      country - Country code. Must be in ISO 3166-1 alpha-2 format. Example: RU
+```
      
 7. Yandex money.
-
+```
      direction - Description. [A-Za-z0-9].
      walletNumber - wallet number.
+```
 
 8. Paypal.
-
+```
      direction - Description. [A-Za-z0-9].
      email - recipient email
+```
      
 11. Bitcoin.
-     
+```     
      direction - Description. [A-Za-z0-9].
      data -  bitcoin wallet
-
+```
 
 **Withdrawal RAW DATA Example (this data should be encrypted)**
 
