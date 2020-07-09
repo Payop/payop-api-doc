@@ -135,66 +135,75 @@ Only batch withdrawal request available using API. You can create **1** or more 
 * **additionalData** -- The content of the block depends on the method.
 * **metadata** [JSON object] -- Arbitrary structure object to store any additional merchant data. Result JSON should be less than 800 kB
 
-We present the fields in accordance with different values of the method field:
+We present the fields in accordance with different values of the method field
+ (all below fields are required unless otherwise indicated):
 
  1. Bank transfer
  
-        beneficiary - JSON object
-            - account - Receiver's account (IBAN or local account number). [A-Za-z0-9]. Max. length: 34 
-            - name - Receiver's name. [A-Za-z0-9]. Max. length: 34
-            - country - Receiver's country of residence. ISO 3166-1 alpha-2 code
-            - city - Receiver's city. [A-Za-z0-9]. Max. length: 34
-            - address - Receiver's address. [A-Za-z0-9]. Max. length: 34
-            - registrationNumber - Optional field. Registration number of the receiver. [A-Za-z0-9]. Max. length: 34
-        beneficiaryBank - JSON object
-            - name - Name of the Beneficiary Bank. [A-Za-z0-9]. Max. length: 34 
-            - bic - SWIFT code of the Beneficiary Bank. [A-Za-z0-9]. Max. length: 11 
-        direction - Description. [A-Za-z0-9].
-        afsk - Optional field. Only for IN transfers. 
-        routingNumber - Optional field. Only for US transfers. 
+     beneficiary - JSON object
+        - account - Receiver's account (IBAN or local account number). [A-Za-z0-9]. Max. length: 34 
+        - name - Receiver's name. [A-Za-z0-9]. Max. length: 34
+        - country - Receiver's country of residence. ISO 3166-1 alpha-2 code
+        - city - Receiver's city. [A-Za-z0-9]. Max. length: 34
+        - address - Receiver's address. [A-Za-z0-9]. Max. length: 34
+        - registrationNumber - Optional field. Registration number of the receiver. [A-Za-z0-9]. Max. length: 34
+     beneficiaryBank - JSON object
+        - name - Name of the Beneficiary Bank. [A-Za-z0-9]. Max. length: 34 
+        - bic - SWIFT code of the Beneficiary Bank. [A-Za-z0-9]. Max. length: 11 
+     direction - Description. [A-Za-z0-9].
+     afsk - Optional field. Only for IN transfers. 
+     routingNumber - Optional field. Only for US transfers. 
         
  2. International Cards
 
-        cardNumber 
-        expirationDate
-        cardHolderName
-        cardholderBirthDate
-        firstAddressLine
-        secondAddressLine
-        city
-        country 
-        zipCode
-        direction
+     cardNumber - Example: 5555555555554444 
+     expirationDate - format: MM/YYYY
+     cardHolderName - [A-Za-z0-9]. Max. length: 50
+     cardholderBirthDate - format: YYYY-MM-DD
+     firstAddressLine - [A-Za-z0-9]. Max. length: 50
+     secondAddressLine - [A-Za-z0-9]. Max. length: 50
+     city - [A-Za-z0-9]. Max. length: 50. Example: Kyiv
+     country - Country code. Must be in ISO 3166-1 alpha-2 format. Example: US
+     zipCode - [A-Za-z0-9]. Max. length: 20
+     direction - Description. [A-Za-z0-9].
 
 3. Visa/MasterCard (UA cards).
 
-        cardNumber - card number
-        cardHolderName — card holder name
+     cardNumber - card number. Example: 5555555555554444
+     cardHolderName — [A-Za-z0-9]. Max. length: 50
+     direction - Description. [A-Za-z0-9].
         
 4. Visa/MasterCard (RU cards).
 
-        cardNumber - card number
-        cardHolderName — card holder name
+     cardNumber - card number. Example: 5555555555554444
+     cardHolderName — [A-Za-z0-9]. Max. length: 50
+     direction - Description. [A-Za-z0-9].
         
 5. Webmoney.
 
-        direction - transfer description,
-        walletNumber - wallet number
+     direction - Description. [A-Za-z0-9].
+     walletNumber - wallet number. Example: Z432423894723947823
     
 6. Qiwi.
 
-        direction - transfer description,
-        walletNumber - wallet number
-        country - country
+     direction - Description. [A-Za-z0-9].
+     walletNumber - wallet number. Example: +7451684153189138
+     country - Country code. Must be in ISO 3166-1 alpha-2 format. Example: RU
      
+7. Yandex money.
+
+     direction - Description. [A-Za-z0-9].
+     walletNumber - wallet number.
+
 8. Paypal.
 
-        direction - transfer description
-        email - recipient email
+     direction - Description. [A-Za-z0-9].
+     email - recipient email
      
 11. Bitcoin.
      
-        data -  bitcoin wallet
+     direction - Description. [A-Za-z0-9].
+     data -  bitcoin wallet
 
 
 **Withdrawal RAW DATA Example (this data should be encrypted)**
@@ -202,20 +211,45 @@ We present the fields in accordance with different values of the method field:
 Create request for withdraw to the Visa/MasterCard (RU cards).
 
 ```json
-{
-    "method": 4,
-    "type": 1,
-    "amount": 100,
-    "currency":"RUB",
-    "additionalData": {
-        "cardNumber": "4444444444444444",
-        "cardHolderName": "Ivan Ivanov"
-    },
-    "metadata": {
-        "internal merchant id": "example"
+[
+    {
+        "method": 4,
+        "type": 1,
+        "amount": 100,
+        "currency":"RUB",
+        "additionalData": {
+            "cardNumber": "4444444444444444",
+            "cardHolderName": "Ivan Ivanov"
+        },
+        "metadata": {
+            "internal merchant id": "example"
+        }
     }
+]
+```
+
+**Withdrawal Response Example**
+
+```json
+{
+    "data": [
+        {
+            "id": "eab40b05-805b-5dbb-8900-a634a9ecaf57",
+            "metadata": {
+                "description": "Test bank transfer payout"
+            }
+        },
+        {
+            "id": "19b60564-e75e-5c51-988d-9b7bf69ae240",
+            "metadata": {
+                "description": "Test international cards payout"
+            }
+        }
+    ],
+    "status": 1
 }
 ```
+
 
 ### List of payment methods available to the merchant
 
