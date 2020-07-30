@@ -5,9 +5,9 @@
 
 # Merchant payment methods
 
-Get payment methods list available for merchant.
+Get payment methods list available for merchant per application/project.
 
-You should be noted that when creating an invoice you can only use payment methods available to you.
+You should be noted that when creating an invoice you can only use payment methods available for your application.
 
 ----
 **Note:** This URL require [authentication](../authentication.md).
@@ -18,13 +18,19 @@ You should be noted that when creating an invoice you can only use payment metho
 
 `Content-Type: application/json`
 
-`GET https://payop.com/v1/instrument-settings/payment-methods/available-for-user`
+`GET https://payop.com/v1/instrument-settings/payment-methods/available-for-application/{id}`
+
+**Parameters**
+
+Parameter   |  Type  |           Description           |  Required |
+------------|--------|---------------------------------|-----------| 
+id          | string | Application/Project identifier  |     *     |
 
 ### Request example
 
 ```shell script
 curl -X GET \
-  https://payop.com/v1/instrument-settings/payment-methods/available-for-user \
+  https://payop.com/v1/instrument-settings/payment-methods/available-for-application/0a4e9324-1213-4ee2-aa91-15b2b8dfa56d \
     -H 'Content-Type: application/json' \
   -H 'Authorization: Bearer eyJ0eXAiOiJKV...
 ```
