@@ -376,7 +376,7 @@ curl -X GET \
             "identifier": "0000000-0000-0000-0000-00000002",
             "groupIdentifier": null,
             "userIdentifier": "10043",
-            "type": 2,
+            "type": 1,
             "currency": "RUB",
             "amount": 65,
             "transactionIdentifier": "0000000-0000-0000-0000-00000002",
@@ -396,11 +396,11 @@ curl -X GET \
             "identifier": "0000000-0000-0000-0000-00000003",
             "groupIdentifier": null,
             "userIdentifier": "10043",
-            "type": 3,
+            "type": 1,
             "currency": "RUB",
             "amount": 65,
             "transactionIdentifier": "0000000-0000-0000-0000-00000003",
-            "status": 2, // Failed
+            "status": 3, // Failed
             "method": 6,
             "comment": null,
             "createdAt": 1579502520,
