@@ -15,7 +15,7 @@
  1. [Create withdrawal request](#mass-batch-withdrawal-requests)
  2. Save withdrawal id from response (`id` property from response object related to concrete withdrawal)
  3. [Check withdrawal status by getting withdrawal details](#get-concrete-withdrawal-details)
-  every 10 minutes (available statuses: 1 - Pending; 2 - Accepted; 3 - Rejected).
+  every 10 minutes (available statuses: 1, 4 - Pending; 2 - Accepted; 3 - Rejected).
 
 ----
 **Note:** Your application have to change withdrawal status on your side only in case you get final status from Payop (2 or 3). 
@@ -360,6 +360,27 @@ curl -X GET \
             "amount": 100,
             "transactionIdentifier": "0000000-0000-0000-0000-00000001",
             "status": 1, // Pending
+            "method": 4,
+            "createdAt": 1568112855,
+            "updatedAt": null,
+            "additionalData": {
+                "direction": "Dm PENDING test withdrawal",
+                "cardNumber": "4444444444444444",
+                "cardHolderName": "Ivan Ivanov"
+            },
+            "metadata": {
+                "internal merchant id": "example"
+            }
+        },
+        {
+            "identifier": "0000000-0000-0000-0000-00000001",
+            "groupIdentifier": null,
+            "userIdentifier": "10043",
+            "type": 1,
+            "currency": "RUB",
+            "amount": 100,
+            "transactionIdentifier": "0000000-0000-0000-0000-00000001",
+            "status": 4, // Pending
             "method": 4,
             "createdAt": 1568112855,
             "updatedAt": null,
