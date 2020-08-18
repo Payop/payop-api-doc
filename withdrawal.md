@@ -376,11 +376,11 @@ curl -X GET \
             "identifier": "0000000-0000-0000-0000-00000002",
             "groupIdentifier": null,
             "userIdentifier": "10043",
-            "type": 2, // Accepted
+            "type": 2,
             "currency": "RUB",
             "amount": 65,
             "transactionIdentifier": "0000000-0000-0000-0000-00000002",
-            "status": 2,
+            "status": 2, // Accepted
             "method": 6,
             "comment": null,
             "createdAt": 1579502520,
@@ -396,11 +396,11 @@ curl -X GET \
             "identifier": "0000000-0000-0000-0000-00000003",
             "groupIdentifier": null,
             "userIdentifier": "10043",
-            "type": 3, // Failed
+            "type": 3,
             "currency": "RUB",
             "amount": 65,
             "transactionIdentifier": "0000000-0000-0000-0000-00000003",
-            "status": 2,
+            "status": 2, // Failed
             "method": 6,
             "comment": null,
             "createdAt": 1579502520,
