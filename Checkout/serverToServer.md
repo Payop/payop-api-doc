@@ -1,6 +1,6 @@
 # Server-To-Server integration
 
-This type of integration allow interact with Payop API 
+This type of integration allow to interact with Payop API 
 and control almost each step of the payment.                                                       
                                                                                                 
 It is suitable for those who have enough resources for development                       
@@ -18,7 +18,7 @@ integration in the [Checkout Demo App repository](https://github.com/Payop/check
 1. [Make decision on the next step](#make-decision-on-the-next-step)      
 1. [Create bank card token](#create-bank-card-token)      
 1. [Create checkout transaction](#create-bank-card-token)      
-1. [Check transaction status and decide where to go](#check-transaction-status-and-decide-where-to-go)      
+1. [Check invoice status and decide where to go](#check-invoice-status-and-decide-where-to-go)      
 1. [Receive IPN](#receive-ipn)      
 
 ## Create Invoice
@@ -30,7 +30,7 @@ Follow the link to see how [create Invoice](../Invoice/createInvoice.md)
 
 ## Make decision on the next step
 
-While was created invoice with selected payment method, you can decide what to do next.
+While was created with selected payment method, you can decide what to do next.
 
 There available a two cases, depends on selected payment method.
 
@@ -47,9 +47,9 @@ Follow the link to see how [Create Bank Card token](createCardToken.md)
 
 Follow the link to see how [Create checkout transaction](../Transaction/createCheckoutTransaction.md)
 
-## Check transaction status and decide where to go
+## Check invoice status and decide where to go
 
-Follow the link to see how [Check transaction status and decide where to go](checkTransactionStatus.md)
+Follow the link to see how [Check invoice status and decide where to go](checkInvoiceStatus.md)
 
 ## Receive IPN
 
