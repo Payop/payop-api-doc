@@ -20,6 +20,7 @@ Each request to Payop API should have **Content-Type HTTP header** with `applica
     * [Card tokenization](Checkout/createCardToken.md)
     * [Check payment status](Checkout/checkInvoiceStatus.md)
     * [Merchant payment methods](Checkout/getMerchantPaymentMethods.md)
+    * [Payment Routing](Checkout/paymentRouting.md)
 1. [Invoice](Invoice/getInvoice.md)
     * [Create invoice](Invoice/createInvoice.md)
     * [Get invoice](Invoice/getInvoice.md)

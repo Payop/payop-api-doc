@@ -7,6 +7,7 @@
 1. [Card tokenization](createCardToken.md)
 1. [Check payment status](checkInvoiceStatus.md)
 1. [Merchant payment methods](getMerchantPaymentMethods.md)
+1. [Payment Routing](paymentRouting.md)
 
 # Checkout
 
