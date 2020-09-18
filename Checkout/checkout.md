@@ -83,6 +83,7 @@ case 2. You shouldn't ignore notification with a different state to let the tran
 {
     "invoice": {
         "id": "d024f697-ba2d-456f-910e-4d7fdfd338dd",
+        "status": 1,
         "txid": "dca59ca5-be19-470d-9494-9b76944e0241",
         "metadata": {
             "internal merchant id": "example",
@@ -112,7 +113,8 @@ case 2. You shouldn't ignore notification with a different state to let the tran
 Parameter                       |  Type   |                 Description     |
 --------------------------------|---------|---------------------------------| 
 invoice.id                      | string  | Invoice identifier              |
-invoice.txid                      | string  | Transaction identifier          |
+invoice.status                  | number  | Invoice status                  |
+invoice.txid                    | string  | Transaction identifier          |
 transaction.id                  | string  | Transaction identifier          |
 transaction.state               | number  | Transaction state               |
 transaction.error.message       | string  | Transaction error message       |
