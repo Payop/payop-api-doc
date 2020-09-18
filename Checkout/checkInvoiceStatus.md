@@ -1,11 +1,11 @@
-# Check transaction status
+# Check invoice status
 
-This API endpoint provide transaction lifecycle states in moment of request.
+This API endpoint provide invoice lifecycle states in moment of request.
 
 We use it for below cases:
  * After create checkout transaction - to make decision, what to do next to continue payment
- * When payment was finished, but acquirer don't send notification for some time (repeat request and wait while transaction status changed)
- * When transaction changes state to FINAL (accepted, failed)
+ * When payment is finished, but acquirer don't send notification for some time (repeat request and wait while invoice status changed)
+ * When invoice transaction changes state to FINAL (accepted, failed)
  
 ### How to use data from response
 
@@ -37,7 +37,7 @@ Based on below responses can be chosen several ways what to do next:
             'fields' => ['PaReq' => 'fmn3o8usfjlils', 'MD' => '8ec777d6-685d-4e06-b356-d7673acb47ba', 'TermUrl' => 'https://payop.com/v1/url']
          ]
         ```
-2. Response['status'] is "pending" and Response['url'] empty - repeat transaction status request after 5-10 seconds.
+2. Response['status'] is "pending" and Response['url'] empty - repeat invoice status request after 5-10 seconds.
 3. Response['status'] is "success" - redirect to Response['url']
 4. Response['status'] is "fail" - redirect to Response['url']
 5. Exceptional case. Something went wrong on the Payop side. Contact Payop support.
@@ -46,19 +46,19 @@ Based on below responses can be chosen several ways what to do next:
 
 `Content-Type: application/json`
 
-`GET https://payop.com/v1/checkout/check-transaction-status/{txid}"`
+`GET https://payop.com/v1/checkout/check-invoice-status/{invoiceID}"`
 
 **Parameters**
 
 Parameter   |  Type  |  Required |
 ------------|--------|-----------| 
-txid        | string |     *     |
+invoiceID   | string |     *     |
 
 ### Request example
 
 ```shell script
 curl -X GET \
-  https://payop.com/v1/checkout/check-transaction-status/81962ed0-a65c-4d1a-851b-b3dbf9750399 \
+  https://payop.com/v1/checkout/check-invoice-status/81962ed0-a65c-4d1a-851b-b3dbf9750399 \
     -H 'Content-Type: application/json'
 ```
 
@@ -82,8 +82,7 @@ Body
             "url": "https://pay.skrill.com/app/?sid=468",
             "fields": []
         },
-        "url": "https://pay.skrill.com/app/?sid=468",
-        "txid": "81962ed0-a65c-4d1a-851b-b3dbf9750399"
+        "url": "https://pay.skrill.com/app/?sid=468"
     },
     "status": 1
 }
@@ -104,8 +103,7 @@ Body
                 "TermUrl": "https://payop.com/3ds-result"
             }
         },
-        "url": "https://pay.skrill.com/app/?sid=468",
-        "txid": "81962ed0-a65c-4d1a-851b-b3dbf9750399"
+        "url": "https://pay.skrill.com/app/?sid=468"
     },
     "status": 1
 }
@@ -118,8 +116,7 @@ Body
         "isSuccess": true,
         "status": "pending",
         "form": [],
-        "url": "",
-        "txid": "81962ed0-a65c-4d1a-851b-b3dbf9750399"
+        "url": ""
     },
     "status": 1
 }
@@ -131,9 +128,11 @@ Body
     "data": {
         "isSuccess": true,
         "status": "success",
-        "form": [],
-        "url": "",
-        "txid": "http://resultUrl/success"
+        "message": "",
+        "form": {
+            "url": "https://your_result_page_url"
+        },
+        "url": "https://your_result_page_url"
     },
     "status": 1
 }
