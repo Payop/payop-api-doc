@@ -112,7 +112,7 @@ case 2. You shouldn't ignore notification with a different state to let the tran
 
 Status      |  Type    |  Description                        |
 ------------|----------|-------------------------------------| 
-1           | accepted |  Successful transaction on invoice                     |
+1           | accepted |  Successful invoice                     |
 4           | pending  |  Invoice pending                |
 5           | failed   |  Invoice failed                 |
 
