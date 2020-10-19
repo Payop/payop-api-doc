@@ -5,9 +5,8 @@
     * [IPN (instant payment notification)](#ipn)
         * [IPN Request example](#ipn-request-example)
 1. [Card tokenization](createCardToken.md)
-1. [Check payment status](checkInvoiceStatus.md)
+1. [Check payment status](checkTransactionStatus.md)
 1. [Merchant payment methods](getMerchantPaymentMethods.md)
-1. [Payment Routing](paymentRouting.md)
 
 # Checkout
 
@@ -18,7 +17,7 @@ In case you are still using old api we recommend you switch your application to 
 
 All projects created after the transition to the new system work according to the new documentation.
 
-You can distinguish an old project from a new one by a public key.
+You can distinguish an old project from a new one by public key.
 
 In the old project, the public key has a similar form:
 
