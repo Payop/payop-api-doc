@@ -146,6 +146,7 @@ We present the fields in accordance with different values of the method field
         - country - Receiver's country of residence. ISO 3166-1 alpha-2 code
         - city - Receiver's city. [A-Za-z0-9]. Max. length: 34
         - address - Receiver's address. [A-Za-z0-9]. Max. length: 34
+        - zipCode - Receiver's zip code. Max. length: 34
         - registrationNumber - Optional field. Registration number of the receiver. [A-Za-z0-9]. Max. length: 34
      beneficiaryBank - JSON object
         - name - Name of the Beneficiary Bank. [A-Za-z0-9]. Max. length: 34 
