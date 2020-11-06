@@ -108,6 +108,16 @@ case 2. You shouldn't ignore notification with a different state to let the tran
 }
 ```
 
+### Invoice status
+
+Status      |  Type    |  Description                        |
+------------|----------|-------------------------------------| 
+0           | new      |  New invoice                        |
+1           | accepted |  Invoice was paid successfully      |
+4           | pending  |  Invoice pending                |
+5           | failed   |  Invoice failed                 |
+
+
 **Parameters**
 
 Parameter                       |  Type   |                 Description     |
