@@ -37,6 +37,7 @@ checkStatusUrl        | string           | [URL to check payment status][status]
 payCurrency           | string           | Currency code. Should be passed in case of the payment currency is different from the order currency    |           |
 paymentMethod         | string           | Payment method id. Required if invoice doesn't have payment method                                      |           |
 cardToken             | string           | [Bank card token][token]. Required if paymentMethod.formType equal "cards" (bank card payment method)   |           |
+authOnly              | bool             | If this parameter is equal to `true`, then authorization places the funds on hold with the customer's bank. When the transaction is [captured](../Checkout/captureVoid.md#capture-transaction), the funds transfer process will occur.    |           |
 
 [token]: ../Checkout/createCardToken.md
 [status]: ../Checkout/checkInvoiceStatus.md
