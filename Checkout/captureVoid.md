@@ -3,6 +3,11 @@
     
 # Capture transaction
 
+----
+***Note:** The longest period between auth and capture operations is 72 hours. Therefore, if no capture request comes within 72 hours since auth is received, it will be performed anyway.*
+
+----
+
 ### URL for requests
 
 `Content-Type: application/json`
