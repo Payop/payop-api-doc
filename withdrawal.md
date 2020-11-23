@@ -157,11 +157,10 @@ We present the fields in accordance with different values of the method field
      routingNumber - Optional field. Required only for US, CA transfers. 
      purposeCode - Optional field. Required only for AE transfers. 
 ```    
-
-    1. For **CA** transfers **routingNumber** takes the format *0XXXYYYYY* and is made up of:
-        1. a leading 0
-        2. the 3 digit Bank Code (XXX)
-        3. the 5 digit Branch Code (YYYYY)
+    * For **CA** transfers **routingNumber** takes the format *0XXXYYYYY* and is made up of:
+        * a leading 0
+        * the 3 digit Bank Code (XXX)
+        * the 5 digit Branch Code (YYYYY)
 
 
  2. International Cards
