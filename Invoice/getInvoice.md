@@ -123,8 +123,9 @@ Body
 
 ### Invoice statuses
 
-Status      |  Type    |  Description                |
-------------|----------|-----------------------------| 
-0           | new      |  Invoice can be paid        |
-1           | paid     |  Invoice already paid       |
-2           | overdue  |  Overdue invoice can't paid |
+Status      |  Type    |  Description                        |
+------------|----------|-------------------------------------| 
+0           | new      |  New invoice                        |
+1           | accepted |  Invoice was paid successfully      |
+4           | pending  |  Invoice pending                |
+5           | failed   |  Invoice failed                 |
