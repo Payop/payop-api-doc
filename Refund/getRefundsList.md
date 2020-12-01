@@ -1,87 +1,35 @@
-# Refund
+ * [Back to contents](../Readme.md#contents)
 
-**Important!** To create a refund request, you must first [receive a token for your user](authentication.md),
- as described in the [login section](authentication.md).
-  When creating a request for refund, you must transfer a personal token in the header of the http request.
+# Merchants refund transactions
 
-### Create Refund Request
+* [Endpoint description](#endpoint-description)
+* [Request example](#request-example)
+* [Successful response example](#successful-response-example)
+* [Refund statuses](#refund-statuses)
+
+## Endpoint description
+
+**Important!** This endpoint requires [authentication](../Authentication/bearerAuthentication.md).
 
 **Endpoint:**
 
-`POST https://payop.com/v1/refunds/create`
+    GET https://payop.com/v1/refunds/user-refunds
 
 **Headers:**
  
     Content-Type: application/json
     Authorization: Bearer eyJ0eXAiO...
 
-**Parameters:**
-
-* **transactionIdentifier**: your checkout transaction identifier
-
-* **refundType**: refund type. It is possible only two value: 
-    
-      1 - all transaction amount
-      2 - partial amount
-      
-* **amount**: refund amount in the currency of the parent transaction         
-
-* **metadata** [JSON object] Arbitrary structure object to store any additional merchant data. Result JSON should be less than 800 kB
-
-**Body:**
-
-```json
-{
-    "transactionIdentifier": "d839c714-7743-47cf-8f9d-73592597c6e1",
-    "refundType": 2,
-    "amount": "10",
-    "metadata": {
-            "internal merchant id": "example"
-    }
-}
-```
-
-### Successful response example
-
-In case of successful response you can get refund identifier from header `identifier`
-
-Headers
-```
-HTTP/1.1 200 OK
-Content-Type: application/json
-identifier: 81962ed0-a65c-4d1a-851b-b3dbf9750399
-```
-
-Body
-```json
-{
-    "data": "",
-    "status": 1
-}
-```
-
-
-### Merchants refund transactions
-
-**Endpoint:**
-
-`GET https://payop.com/v1/refunds/user-refunds`
-
-**Headers:**
- 
-    Content-Type: application/json
-    Authorization: Bearer eyJ0eXAiO...
-
-**Request example:**
+## Request example
 
 ```shell script
 curl -X GET \
   https://payop.com/v1/refunds/user-refunds \
     -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer eyJ0eXAiOiJKV...
+    -H 'Authorization: Bearer eyJ0eXAiOiJKV...'
 ```
 
-**Successful response example:**
+## Successful response example
 
 ```json
 {
@@ -186,5 +134,10 @@ curl -X GET \
 } 
 ```
 
-You can see the description of statuses and types at the page [Get transaction](Transaction/getTransaction.md)
+## Refund statuses
 
+Status | Type     | Description                       |
+-------|----------|-----------------------------------|
+1      | new      | New refund                        |
+2      | accepted | Accepted refund                   |
+3, 4   | rejected | Rejected refund                   |

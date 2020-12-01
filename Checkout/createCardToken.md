@@ -1,42 +1,47 @@
-* [Create bank card token](#create-bank-card-token)
-    * [URL for requests](#url-for-requests)
-    * [Request example](#request-example)
-    * [Successful response example](#successful-response-example)
-    * [Errors and failed responses](#errors-and-failed-responses)
+* [Back to contents](../Readme.md#contents)
 
-# Intro
+# Create bank card token
 
-The platform provides you with the opportunity to independently 
+* [Intro](#intro)
+* [Endpoint description](#endpoint-description)
+* [Request example](#request-example)
+* [Successful response example](#successful-response-example)
+* [Errors and fail responses](#errors-and-fail-responses)
+
+## Intro
+
+Payop provides you the opportunity to independently 
 initiate the debiting of money from payment cards of payers
 and takes care of certification and compliance with PCS-DSS standards.
 The standard declares a ban on the processing and storage of cardholder data (DDC) on the merchant's side.
 
 ----
 **Note:** Access to card token generation is available only upon request.
- Please contact Payop support if want use card tokenization. 
+ Please contact [Payop support](https://payop.com/en/contact-us) if you want use card tokenization. 
 
 ----
 
-## Create bank card token
+## Endpoint description
 
-### URL for requests
+**Endpoint:**
 
-`Content-Type: application/json`
+    POST https://payop.com/v1/payment-tools/card-token/create
 
-`POST https://payop.com/v1/payment-tools/card-token/create`
+**Headers:**
 
-**Parameters**
+    Content-Type: application/json
 
-Parameter             |  Type   |                 Description              |  Required |
-----------------------|------------------|---------------------------------|-----------| 
-invoiceIdentifier     | string  | Invoice identifier                       |     *     |
-pan                   | string  | Bank card number                         |     *     |
-expirationDate        | string  | Expiration date. Format mm/yy (12/20)    |     *     |
-cvv                   | string  | CVV                                      |     *     |
-holderName            | string  | Cardholder name                          |     *     |
+**Parameters:**
 
+Parameter         | Type   | Description                           | Required |
+------------------|--------|---------------------------------------|----------|
+invoiceIdentifier | string | Invoice identifier                    | *        |
+pan               | string | Bank card number                      | *        |
+expirationDate    | string | Expiration date. Format mm/yy (12/20) | *        |
+cvv               | string | CVV                                   | *        |
+holderName        | string | Cardholder name                       | *        |
 
-### Request example
+## Request example
 
 ```shell script
 curl -X POST \
@@ -51,8 +56,7 @@ curl -X POST \
 }'
 ```
 
-
-### Successful response example
+## Successful response example
 
 Headers
 ```
@@ -71,14 +75,7 @@ Body
 }
 ```
 
-### Errors and failed responses
-
-**415 Unsupported Media Type**
-```json
-{
-  "message": "Unsupported media type. Only json allowed"
-}
-```
+## Errors and fail responses
 
 **503 Service Unavailable**
 ```json
@@ -87,34 +84,12 @@ Body
 }
 ```
 
-**403 Not Found**
+**403 Forbidden**
 
-In case of you get this error, you should contact Payop support.
+In case of you get this error, you should contact [Payop support](https://payop.com/en/contact-us).
 
 ```json
 {
     "message": "Card tokenization is not available for your application. Please contact support"
-}
-```
-
-**404 Not Found**
-```json
-{
-    "message": "Invoice not found"
-}
-```
-
-**422 Unprocessable Entity**
-
-```json
-{
-    "message": {
-        "pan": [
-            "Invalid card number."
-        ],
-        "cvv": [
-            "This value is too long. It should have 4 characters or less."
-        ]
-    }
 }
 ```
