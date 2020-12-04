@@ -1,42 +1,43 @@
-* [Get transaction info](#get-transaction-info)
-    * [URL for requests](#url-for-requests)
-    * [Request example](#request-example)
-    * [Successful response example](#successful-response-example)
-    * [Errors and failed responses](#errors-and-failed-responses)
-    * [Transaction states](#transaction-statuses)
-    * [Transaction types](#transaction-types)
-    * [Payer information types](#payer-information-types)
+ * [Back to content](../Readme.md)
 
 # Get transaction info
 
-----
-**Note:** This URL require [authentication](../authentication.md).
+* [Endpoint description](#endpoint-description)
+* [Request example](#request-example)
+* [Successful response example](#successful-response-example)
+* [Transaction states](#transaction-states)
+* [Transaction types](#transaction-types)
+* [Payer information types](#payer-information-types)
 
-----
+## Endpoint description
 
-### URL for requests
+**Important!** This endpoint requires [authentication](../Authentication/bearerAuthentication.md).
 
-`Content-Type: application/json`
-`Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE...`
+**Endpoint:**
 
-`GET https://payop.com/v1/transactions/{id}`
+    GET https://payop.com/v1/transactions/{id}
 
-**Parameters**
+**Headers:**
+    
+    Content-Type: application/json
+    Authorization: Bearer eyJ0eXAiOiJKV...
 
-Parameter   |  Type  |  Required |
-------------|--------|-----------| 
-id          | string |     *     |
+**Parameters:**
 
-### Request example
+Parameter | Type   | Required |
+----------|--------|----------|
+id        | string | *        |
+
+## Request example
 
 ```shell script
 curl -X GET \
   https://payop.com/v1/transactions/81962ed0-a65c-4d1a-851b-b3dbf9750399 \
     -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer eyJ0eXAiOiJKV...
+    -H 'Authorization: Bearer eyJ0eXAiOiJKV...'
 ```
 
-### Successful response example
+## Successful response example
 
 Headers
 ```
@@ -54,8 +55,6 @@ Body
         "type": 7,
         "amount": 100,
         "currency": "USD",
-        "payAmount": 101.5,
-        "payCurrency": "USD",
         "state": 5,
         "error": "3DS authorization error or 3DS canceled by payer",
         "cardMetadata": {
@@ -129,49 +128,32 @@ Body
 }
 ```
 
-### Errors and failed responses
+## Transaction states
 
-**415 Unsupported Media Type**
-```json
-{
-  "message": "Unsupported media type. Only json allowed"
-}
-```
-
-**404 Not Found**
-```json
-{
-   "message": "Transaction not found"
-}
-```
+Status | Type     | Description                       |
+-------|----------|-----------------------------------|
+1      | new      | New transaction                   |
+2      | accepted | Transaction was paid successfully |
+4      | pending  | Transaction pending               |
+3, 5   | failed   | Transaction failed                |
 
 
-### Transaction states
+## Transaction types
 
-Status      |  Type    |  Description                        |
-------------|----------|-------------------------------------| 
-1           | new      |  New transaction                    |
-2           | accepted |  Transaction was paid successfully  |
-4           | pending  |  Transaction pending                |
-3, 5        | failed   |  Transaction failed                 |
+Type | Type     | Description          |
+-----|----------|----------------------|
+7    | checkout | Checkout transaction |
 
+## Payer information types
 
-### Transaction types
-
-Type      |  Type    |  Description                        |
-----------|----------|-------------------------------------| 
-7         | checkout |  Checkout transaction               |
-
-### Payer information types
-
-Type      |  Description   |
-----------|----------------| 
-1         | Email          |
-2         | Phone          |
-3         | Name           |
-4         | National id    |
-5         | IBAN           |
-6         | Address        |
-7         | Zip code       |
-8         | IP             |
-9         | Country code   |
+Type | Description  |
+-----|--------------|
+1    | Email        |
+2    | Phone        |
+3    | Name         |
+4    | National id  |
+5    | IBAN         |
+6    | Address      |
+7    | Zip code     |
+8    | IP           |
+9    | Country code |

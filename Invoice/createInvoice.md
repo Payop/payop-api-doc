@@ -1,57 +1,52 @@
-* [Create invoice](#create-invoice)
-    * [URL for requests](#url-for-requests)
-        * [Payer extra info](#payer-extra-info)
-        * [Template expressions](#template-expressions)
-    * [Request example](#request-example)
-    * [Successful response example](#successful-response-example)
-    * [Errors and failed responses](#errors-and-failed-responses)
+* [Back to contents](../Readme.md#contents)
+
+# Create invoice
+
+* [Endpoint description](#endpoint-description)
+    * [Payer](#payer)
+    * [Template expressions](#template-expressions)
     * [Signature](#signature)
-        * [Signature generation example](#signature-generation-example)
-        * [Examples of signatures generated from real data](#examples-of-signatures-generated-from-real-data)
-
-# Intro
-
-**Invoice** - is a basic entity in each payment. When you start payment, you pay the invoice.
-Checkout transaction can be created only for invoice. 
-
-## Create invoice
+* [Request example](#request-example)
+* [Successful response example](#successful-response-example)
 
 Actually, you can create an example request in the personal merchants account in the section Projects > REST.
 
+## Endpoint description
 
-### URL for requests
+**Endpoint:**
 
-`Content-Type: application/json`
+    POST https://payop.com/v1/invoices/create
 
-`POST https://payop.com/v1/invoices/create`
+**Headers:**
 
-**Parameters**
+    Content-Type: application/json
 
-Parameter                       |        Type      |                 Description                                                                              |  Required |
---------------------------------|------------------|----------------------------------------------------------------------------------------------------------|-----------| 
-publicKey                       | string           | Public key issued in the project.                                                                        |     *     |
-**order**                       | **JSON object**  | Order info                                                                                               |     *     |
-&emsp;order.id                  | string           | Payment ID                                                                                               |     *     |
-&emsp;order.amount              | string           | Amount of the payment `#0.00`                                                                            |     *     |
-&emsp;order.currency            | string           | The character code of the payment currency, which is supported by the selected payment method.           |     *     |
-&emsp;order.description         | string           | Description of payment                                                                                   |     *     |
-&emsp;order.items               | json array       | Products or services included in the order. An array containing arbitrary data. Can be empty array.      |     *     |
-**[payer](#payer-extra-info)**  | **JSON object**  | Payer info                                                                                               |     *     |
-&emsp;payer.email               | string           | Payer email                                                                                              |     *     |
-&emsp;payer.name                | string           | Payer name                                                                                               |           |
-&emsp;payer.phone               | string           | Payer phone                                                                                              |           |
-&emsp;payer.extraFields         | JSON object      | payer extra info (fieldName:fieldValue)                                                                  |           |
-language                        | string           | Language  (en, ru).                                                                                    |     *     |
-resultUrl                       | string           | Successful payment link. Allowed to use [template expression][template].                                 |     *     |
-failPath                        | string           | Unsuccessful payment link. Allowed to use [template expression][template].                               |     *     |
-signature                       | string           | [Signature](#signature)                                                                                  |     *     |
-paymentMethod                   | string           | Payment method id selected for this invoice.                                                             |           |
-metadata                        | **JSON object**  | Arbitrary structure object to store any additional merchant data. Result JSON should be less than 800 kB |           |
+**Parameters:**
 
-[template]: (#template-expressions)
+Parameter                     | Type            | Description                                                                                              | Required |
+------------------------------|-----------------|----------------------------------------------------------------------------------------------------------|----------|
+publicKey                     | string          | Public key issued in the project                                                                         | *        |
+**order**                     | **JSON object** | Order info                                                                                               | *        |
+&emsp;&emsp;order.id          | string          | Payment ID                                                                                               | *        |
+&emsp;&emsp;order.amount      | string          | Amount of the payment                                                                                    | *        |
+&emsp;&emsp;order.currency    | string          | The character code of the payment currency, which is supported by the selected payment method            | *        |
+&emsp;&emsp;order.description | string          | Description of payment                                                                                   |          |
+&emsp;&emsp;order.items       | json array      | Products or services included in the order. An array containing arbitrary data. Can be empty array       | *        |
+**payer**                     | **JSON object** | [Payer](#payer) object                                                                                   | *        |
+&emsp;&emsp;payer.email       | string          | Payer email                                                                                              | *        |
+&emsp;&emsp;payer.name        | string          | Payer name                                                                                               |          |
+&emsp;&emsp;payer.phone       | string          | Payer phone                                                                                              |          |
+&emsp;&emsp;payer.extraFields | **JSON object** | payer extra info (fieldName:fieldValue)                                                                  |          |
+language                      | string          | Language  (en, ru)                                                                                       | *        |
+resultUrl                     | string          | Successful payment link. Allowed to use [template expression](#template-expressions).                    | *        |
+failPath                      | string          | Unsuccessful payment link. Allowed to use [template expression](#template-expressions).                  | *        |
+signature                     | string          | [Signature](#signature)                                                                                  | *        |
+paymentMethod                 | string          | Payment method id selected for this invoice. One of [merchant's payment methods](getPaymentMethods.md)   |          |
+metadata                      | **JSON object** | Arbitrary structure object to store any additional merchant data. Result JSON should be less than 800 kB |          |
 
-###### Payer extra info
-**payer** is a structure with a specific set of fields such as: `email`, `name`, `phone`, `extraFields`.
+### Payer
+
+Payer is a structure with a specific set of fields such as: `email`, `name`, `phone`, `extraFields`.
 Field `email` **required**. Other fields depends on selected payment method.
 
 It's not necessary to fill this fields on this stage, because you can provide payer data when create transaction.
@@ -59,7 +54,7 @@ But if you save payer data with invoice, later this data will be merged into tra
 
 ----
 **Note:** To avoid rigid binding to the structure, which does not give the entire possible list of fields 
-to save all possible data, you can use "extraFields" field to save payer extra fields.
+to save all possible data, you can use `extraFields` field to save payer extra fields.
 
 ----
 
@@ -74,9 +69,9 @@ to save all possible data, you can use "extraFields" field to save payer extra f
 }
 ```
 
-###### Template expressions
+### Template expressions
 
-**Template expressions** useful when you need to make some replacements in the strings.
+Template expressions are useful when you need to make some replacements in the strings.
 For now only below parameters supports template expressions. 
 
 Parameter      |        Patterns          |
@@ -90,7 +85,7 @@ Pattern        |        Replacement
 {{invoiceId}}  | Replaced with Payop invoice id      |
 {{txid}}       | Replaced with Payop transaction id  |
 
-**Examples:**
+**Template expressions examples:**
 ```
     # Template
     https://your.site/result-page/?invoiceId={{invoiceId}}&txid={{txid}}
@@ -103,8 +98,62 @@ Pattern        |        Replacement
     https://your.site/result-page/1eeda2f2-d3e1-4edd-853e-3d897bc629b2/
 ```
 
-### Request example
+### Signature
 
+Digital signature of the payment is necessary in order to check the immutability/correctness of the data
+in the process of transferring them over the network between the participants of the payment.
+
+Signature required only on invoice creation.
+
+Signature encryption method - **sha256**
+
+**The parameters that make up the digital signature (the order of the parameters does matter)**
+
+**Parameters**
+
+Parameter         | Description                                                                           | Type   | Example           |
+------------------|---------------------------------------------------------------------------------------|--------|-------------------|
+order.id          | Order ID in your system                                                               | string | FF01; 354         |
+order.amount      | Amount of payment                                                                     | string | 100.0000          |
+order.currency    | Character code of payment currency, which is supported by the selected payment method | string | USD; EUR          |
+secretKey         | Project secret key                                                                    | string | rekrj1f8bc4werwer |
+
+Signature is generated by making **sha-256** hash of such string: "**_order.amount:order.currency:order.id:secretKey_**" (values separated by **":"**, ordering and case matters).
+
+**Signature generation example (PHP)**
+
+```php
+<?php
+    // $order = ['id' => 'FF01', 'amount' => '100.0000', 'currency' => 'USD'];
+    ksort($order, SORT_STRING);
+    $dataSet = array_values($order);
+    $dataSet[] = $secretKey;
+    hash('sha256', implode(':', $dataSet));
+```
+
+You can use a PHP script placed [here](../examples/signatureGenerator.php) to generate signature interactively. 
+Copy script to your computer and execute `php path/to/script.php` in terminal.
+Then provide needed values (exactly as in request payload) and copy generated signature.
+
+**Examples of signatures generated from real data**
+
+```
+Amount: "1.2000"
+Currency: "USD"
+Order ID: "Test-Order-354"
+Secret key: "supersecretkey"
+Result: 3445000c1f55f447b853fe068529c23fc4188e36aa4984e37836538d95f8e015
+```
+
+```
+Amount: "0.4500"
+Currency: "EUR"
+Order ID: "FK-288-SDC"
+Secret key: "fantastic_supersecretkey"
+Result: 15c4c6ee83285dd82e1d7d29984a718cc527f218b8a0bb7e9b951b08ea1f30cd
+```
+
+## Request example
 
 ```shell script
 curl -X POST \
@@ -135,7 +184,7 @@ curl -X POST \
         "email": "test.user@payop.com",
         "phone": "",
         "name": "",
-        "extraFields": ""
+        "extraFields": []
     },
     "paymentMethod": 261,
     "language": "en",
@@ -166,89 +215,4 @@ Body
     "data": "",
     "status": 1
 }
-```
-
-
-
-
-
-
-### Errors and failed responses
-
-**415 Unsupported Media Type**
-```json
-{
-  "message": "Unsupported media type. Only json allowed"
-}
-```
-
-**404 Not Found**
-```json
-{
-   "message": "Application not found"
-}
-```
-
-**422 Unprocessable Entity**
-```json
-{
-    "message": {
-        "publicKey": ["This value should not be blank."]
-    }
-}
-```
-
-
-
-
-### Signature
-
-Digital signature of the payment is necessary in order to check the immutability/correctness of the data
-in the process of transferring them over the network between the participants of the payment.
-
-Signature required only on invoice creation.
-
-Signature encryption method - **sha256**
-
-**The parameters that make up the digital signature (the order of the parameters does matter)**
-
-**Parameters**
-
-| Parameter | Description | Type | Example |
-|-----------|-------------|------|---------|
-| order[amount] | Amount of payment | string | 100.0000 |
-| order[currency] | Character code of payment currency, which is supported by the selected payment method | string | USD; EUR 
-| order[id] | Payment ID  | string | FF01; 354 |
-|
-| secretKey | Project secret key | string | rekrj1f8bc4werwer |
-
-#### Signature generation example
-
-**PHP**
-
-```php
-<?php
-    // $order = ['id' => 'FF01', 'amount' => '100.0000', 'currency' => 'USD'];
-    ksort($order, SORT_STRING);
-    $dataSet = array_values($order);
-    $dataSet[] = $secretKey;
-    hash('sha256', implode(':', $dataSet));
-```
-
-#### Examples of signatures generated from real data
-
-```
-Amount: "1.2000"
-Currency: "USD"
-Order ID: "Test-Order-354"
-Secret key: "supersecretkey"
-Result: 3445000c1f55f447b853fe068529c23fc4188e36aa4984e37836538d95f8e015
-```
-
-```
-Amount: "0.4500"
-Currency: "EUR"
-Order ID: "FK-288-SDC"
-Secret key: "fantastic_supersecretkey"
-Result: 15c4c6ee83285dd82e1d7d29984a718cc527f218b8a0bb7e9b951b08ea1f30cd
 ```

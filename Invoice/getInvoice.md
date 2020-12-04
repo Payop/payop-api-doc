@@ -1,25 +1,29 @@
-* [Get invoice info](#get-invoice-info)
-    * [URL for requests](#url-for-requests)
-    * [Request example](#request-example)
-    * [Successful response example](#successful-response-example)
-    * [Errors and failed responses](#errors-and-failed-responses)
-    * [Invoice statuses](#invoice-statuses)
+* [Back to contents](../Readme.md#contents)
 
 # Get invoice info
 
-### URL for requests
+* [Endpoint description](#endpoint-description)
+* [Request example](#request-example)
+* [Successful response example](#successful-response-example)
+* [Possible invoice statuses](#possible-invoice-statuses)
 
-`Content-Type: application/json`
+## Endpoint description
 
-`POST https://payop.com/v1/invoices/{{invoiceId}}`
+**Endpoint:**
 
-**Parameters**
+    GET https://payop.com/v1/invoices/{{invoiceId}}
+
+**Headers:**
+
+    Content-Type: application/json
+
+**Parameters:**
 
 Parameter   |  Type  |  Required |
-------------|--------|-----------| 
+------------|--------|-----------|
 invoiceId   | string |     *     |
 
-### Request example
+## Request example
 
 ```shell script
 curl -X GET \
@@ -27,7 +31,7 @@ curl -X GET \
     -H 'Content-Type: application/json'
 ```
 
-### Successful response example
+## Successful response example
 
 Headers
 ```
@@ -104,28 +108,11 @@ Body
 }
 ```
 
-### Errors and failed responses
-
-**415 Unsupported Media Type**
-```json
-{
-  "message": "Unsupported media type. Only json allowed"
-}
-```
-
-**404 Not Found**
-```json
-{
-   "message": "Invoice not found"
-}
-```
-
-
-### Invoice statuses
+## Possible invoice statuses
 
 Status      |  Type    |  Description                        |
-------------|----------|-------------------------------------| 
+------------|----------|-------------------------------------|
 0           | new      |  New invoice                        |
 1           | accepted |  Invoice was paid successfully      |
-4           | pending  |  Invoice pending                |
-5           | failed   |  Invoice failed                 |
+4           | pending  |  Invoice pending                    |
+5           | failed   |  Invoice failed                     |
