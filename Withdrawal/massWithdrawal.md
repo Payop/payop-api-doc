@@ -61,13 +61,14 @@ Possible values:
 Additional data must be a JSON object with structrure depending on the withdrawal method.
 Here is the list of possible methods with appropriate structure descriptions (all fields are required unless other is indicated):
 
-1 - Bank transfer:
+1. Bank transfer
  ```
      beneficiary - JSON object
         - account - Receiver's account (IBAN or local account number). [A-Za-z0-9]. Max. length: 34 
         - name - Receiver's name. [A-Za-z0-9]. Max. length: 34
         - country - Receiver's country of residence. ISO 3166-1 alpha-2 code
         - city - Receiver's city. [A-Za-z0-9]. Max. length: 34
+        - state - State or province. [A-Za-z0-9]. Required for US, CA beneficiary. Max. length: 34. 
         - address - Receiver's address. [A-Za-z0-9]. Max. length: 34
         - zipCode - Receiver's zip code. Max. length: 34
         - registrationNumber - Optional field. Registration number of the receiver. [A-Za-z0-9]. Max. length: 34
@@ -75,9 +76,15 @@ Here is the list of possible methods with appropriate structure descriptions (al
         - name - Name of the Beneficiary Bank. [A-Za-z0-9]. Max. length: 34 
         - bic - SWIFT code of the Beneficiary Bank. [A-Za-z0-9]. Max. length: 11 
      direction - Description. [A-Za-z0-9].
-     afsk - Optional field. Only for IN transfers. 
-     routingNumber - Optional field. Only for US transfers. 
-``` 
+     afsk - Optional field. Required only for IN transfers. 
+     routingNumber - Optional field. Required only for US, CA transfers. 
+     purposeCode - Optional field. Required only for AE transfers. 
+```    
+* For **CA** transfers **routingNumber** takes the format *0XXXYYYYY* and is made up of:
+  * a leading 0
+  * the 3 digit Bank Code (XXX)
+  * the 5 digit Branch Code (YYYYY)
+
 2 - International Cards:
 ```
      cardNumber - Example: 5555555555554444 
