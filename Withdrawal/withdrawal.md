@@ -39,7 +39,11 @@ In short, before sending a withdrawal request you have to make next steps:
 Below you can see PHP example, how to encrypt request payload before sending a withdrawal request:
 
 ```php
-$certificate = file_get_contents('path_to_certificate');
+// Original certificate file that was downloaded from the site (payop.com). it's contains a binary string.
+$certFilePath = '/project/x25519.pub';
+// Certificate must be encoded as base64 string.
+// You can use below example to encode it or use linux console command: cat /project/x25519.pub | base64 
+$certificate = base64_encode(file_get_contents($certFilePath));
 $data = [
     [
             'method' => 8,
