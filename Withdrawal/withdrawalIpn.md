@@ -44,7 +44,7 @@ and until the Payop server, upon this request, receives the HTTP status code "20
         "state": 1,
         "amount": 100,
         "currency": "USD",
-        "comment": "Here could be a comment left by manager",
+        "comment": "Manager's comment",
         "metadata": {
           "key1": "Metadata information.",
           "key2": "Metadata information."
@@ -65,6 +65,8 @@ transaction.withdrawId          | string  | Withdraw identifier             |
 transaction.state               | number  | Withdraw state                  |
 transaction.amount              | number  | Currency                        |
 transaction.currency            | number  | Amount                          |
+transaction.comment             | string  | Manager's comment               |
+transaction.metadata            | array   | Key-value array of metadata     |
 transaction.error.message       | string  | Transaction error message       |
 transaction.error.code          | string  | Always empty string             |
 

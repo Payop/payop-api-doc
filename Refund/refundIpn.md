@@ -68,6 +68,7 @@ transaction.refundId            | string  | Refund identifier               |
 transaction.state               | number  | Refund state                    |
 transaction.amount              | number  | Currency                        |
 transaction.currency            | number  | Amount                          |
+transaction.metadata            | array   | Key-value array of metadata     |
 transaction.error.message       | string  | Transaction error message       |
 transaction.error.code          | string  | Always empty string             |
 sourceTransaction.id            | string  | Source transaction identifier   |
