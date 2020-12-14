@@ -60,6 +60,7 @@ Each request to Payop API should have **Content-Type HTTP header** with `applica
     * [Create withdrawal request](Withdrawal/massWithdrawal.md)
     * [Get merchant's withdrawals](Withdrawal/getWithdrawalsList.md)
     * [Get concrete withdrawal details](Withdrawal/getWithdrawal.md)
+    * [IPN (instant payment notification)](Withdrawal/withdrawalIpn.md)
    
 1. **Refund**
     
@@ -67,4 +68,5 @@ Each request to Payop API should have **Content-Type HTTP header** with `applica
     
     * [Create refund](Refund/createRefund.md)
     * [Get merchant's refunds](Refund/getRefundsList.md)
-
+    * [Get concrete refund details](Refund/getRefund.md)
+    * [IPN (instant payment notification)](Refund/refundIpn.md)
