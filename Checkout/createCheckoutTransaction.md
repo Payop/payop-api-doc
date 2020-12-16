@@ -41,7 +41,7 @@ invoiceIdentifier               | string          | Invoice identifier          
 **customer**                    | **JSON object** | Payer/Customer info                                                                                                                                                                                                                                                | *        |
 &emsp;&emsp;customer.email      | string          | Email                                                                                                                                                                                                                                                              | *        |
 &emsp;&emsp;customer.ip         | string          | IP adress. We highly recommend adding this parameter to the request for more complete identification of the customer                                                                                                                                               |          |
-&emsp;&emsp;customer.session_id | string          | Session ID is a custom, unique ID that links a user’s device data with transactions. It should be based on the user’s current browsing session, by tracking cookies for example. Required if you want to [use the anti-fraud system](#using-the-anti-fraud-system) |          |
+&emsp;&emsp;customer.seon_session | string          | This field should contain the base64 encoded session data returned by the SEON js-SDKs. Required if you want to [use the anti-fraud system](#using-the-anti-fraud-system) |          |
 &emsp;&emsp; ...                | string          | Any data related to the payer/customer                                                                                                                                                                                                                             |          |
 checkStatusUrl                  | string          | [URL to check payment status](checkInvoiceStatus.md))                                                                                                                                                                                                              | *        |
 payCurrency                     | string          | Currency code. Should be passed in case of the payment currency is different from the order currency                                                                                                                                                               |          |
@@ -89,17 +89,17 @@ Body
 ## Using the anti-fraud system
 
 You can integrate an optional device fingerprinting module directly into a web app, by using JavaScript agent. Please, always use CDN hosted script to ensure you always load the latest available version.
-
+	
 1. Include the JavaScript Agent inside the <head> tags of your website or web app.
 2. Set a unique session_id for your the client using the seon.config() function.
-3. Call the seon.saveSession() function to save session for the device.
-4. Add session_id to [Create transaction](createCheckoutTransaction.md#endpoint-description) request.
+3. Call the seon.getBase64Session() function to get the encrypted payload for the device.
+4. Add seon_session to [Create transaction](createCheckoutTransaction.md#endpoint-description) request.
 	
 ```html
 <html>
 	<head>
     		...
-    		<script src="https://cdn.seon.io/v3.0/js/agent.js"></script>
+    		<script src="https://cdn.seon.io/js/v4/agent.js"></script>
   	</head>
   	<body>
     	...
@@ -112,7 +112,6 @@ You can integrate an optional device fingerprinting module directly into a web a
 ----
 ```js
 seon.config({
-	public_key: '2d1888404acc3faaa6797bd3',
         session_id: '{session_id}',
         audio_fingerprint: true,
         canvas_fingerprint: true,
@@ -124,12 +123,12 @@ seon.config({
             	console.log("error", message);
         }
 });
-seon.saveSession(function (success) {
-        if (success) {
-            	console.log('Session data has been saved!', success)
+seon.getBase64Session(function(data) {
+        if (data) {
+                console.log("Session payload", data);
         } else {
-            	console.log('Failed to save session data.')
+                console.log("Failed to retrieve session data.");
         }
-})
+});
 
 ```
