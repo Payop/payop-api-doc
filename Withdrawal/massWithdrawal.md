@@ -75,8 +75,8 @@ Here is the list of possible methods with appropriate structure descriptions (al
      beneficiaryBank - JSON object
         - name - Name of the Beneficiary Bank. [A-Za-z0-9]. Max. length: 34 
         - bic - SWIFT code of the Beneficiary Bank. [A-Za-z0-9]. Max. length: 11
+        - city - Bank city. [A-Za-z0-9]. Max. length: 34
         - address - Bank address. [A-Za-z0-9]. Max. length: 68
-        - city - Optional field. Bank city. [A-Za-z0-9]. Max. length: 34
         - zipCode - Optional field. Bank zip code. Max. length: 34 
      direction - Description. [A-Za-z0-9].
      afsk - Optional field. Required only for IN transfers. 
