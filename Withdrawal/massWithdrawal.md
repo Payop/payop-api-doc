@@ -119,6 +119,8 @@ Here is the list of possible methods with appropriate structure descriptions (al
 5 - Webmoney:
 ```
      direction - Description. [A-Za-z0-9].
+     holderName - Holder name. [A-Za-z0-9].
+     country - Country code. Must be in ISO 3166-1 alpha-2 format. Example: RU
      walletNumber - wallet number. Example: Z432423894723947823
 ```
     
