@@ -79,7 +79,7 @@ Here is the list of possible methods with appropriate structure descriptions (al
         - address - Bank address. [A-Za-z0-9]. Max. length: 68
         - zipCode - Optional field. Bank zip code. Max. length: 34 
      direction - Description. [A-Za-z0-9].
-     afsk - Optional field. Required only for IN transfers. 
+     ifsc - Optional field. Required only for IN transfers. 
      routingNumber - Optional field. Required only for US, CA transfers. 
      purposeCode - Optional field. Required only for AE transfers. 
 ```    
