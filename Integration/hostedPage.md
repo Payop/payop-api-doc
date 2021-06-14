@@ -16,7 +16,7 @@ The control over almost the entire process will be on the side of Payop.
     In order to make checkout you should firstly redirect payer to the invoice preprocessing page.
     This page has builtin functionality to make decision about next processes.
     
-    Invoice preprocessing page url: `https://payop.com/{{locale}}/payment/invoice-preprocessing/{{invoiceId}}`
+    Invoice preprocessing page url: `https://checkout.payop.com/{{locale}}/payment/invoice-preprocessing/{{invoiceId}}`
     
     **Parameters**
     
