@@ -64,21 +64,7 @@ Body
             "country": "BR",
             "holderName": "Snatiago Delcaptcha"
         },
-        "commission": [
-            {
-                "identifier": "20842",
-                "type": 1,
-                "percent": 1.5,
-                "amount": 0,
-                "totalValue": 0,
-                "strategy": 1,
-                "merchantPercent": 0,
-                "payerPercent": 0,
-                "merchantAmount": 0,
-                "payerAmount": 0,
-                "transactionIdentifier": "81962ed0-a65c-4d1a-851b-b3dbf9750399"
-            }
-        ],
+        "commission": [],
         "exchange": [],
         "createdAt": 1567402240,
         "updatedAt": null,
