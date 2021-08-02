@@ -8,20 +8,6 @@
 * [Payment method not enabled](#payment-method-not-enabled)
 * [Server error](#server-error)
 
-## Invalid requests
-    
-Headers
-```
-HTTP/1.1 415 Unsupported Media Type
-Content-Type: application/json
-```
-Body
-```json
-{
-    "message": "Unsupported media type. Only json allowed"
-}
-```
-
 ## Validation fails
 
 Headers

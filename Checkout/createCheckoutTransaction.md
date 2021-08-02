@@ -63,7 +63,7 @@ curl -X POST \
 	"checkStatusUrl": "https://your.site/check-status/{{txid}}",
 	"payCurrency": "EUR",
 	"paymentMethod": 381,
-	"cardToken": "sdffsdfsdf"
+	"cardToken": "1ay4YEZXF75BTraFw\/sPJ9iMJVOr\/bR\/UeEPp"
 }'
 ```
 

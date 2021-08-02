@@ -57,6 +57,7 @@ Body
         "currency": "USD",
         "state": 5,
         "error": "3DS authorization error or 3DS canceled by payer",
+        "errorCode": "",
         "cardMetadata": {
             "bin": "555555",
             "lastDigits": "4444",
@@ -105,6 +106,9 @@ Body
         "resultUrl": "https://your.site/result",
         "failUrl": "https://your.site/fail",
         "pid": "23234523525",
+        "strategy": 3,
+        "chosenAmount": 100,
+        "chosenCurrency": "USD",
         "application": {
             "identifier": "3",
             "name": "Project name",

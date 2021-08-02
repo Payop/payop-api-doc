@@ -46,11 +46,13 @@ curl -X GET \
             "type": 1,
             "currency": "RUB",
             "amount": 100,
+            "payAmount": 111.11,
             "transactionIdentifier": "0000000-0000-0000-0000-00000001",
             "status": 1,
             "method": 4,
             "createdAt": 1568112855,
             "updatedAt": null,
+            "comment": null,
             "additionalData": {
                 "cardNumber": "4444444444444444",
                 "cardHolderName": "Ivan Ivanov"
