@@ -2,11 +2,70 @@
 
 # Fail responses examples
 
-* [Invalid requests](#invalid-requests)
-* [Validation fails](#validation-fails)
 * [Requested resource not found](#requested-resource-not-found)
+* [HTTP Forbidden](#http-forbidden)
 * [Payment method not enabled](#payment-method-not-enabled)
+* [Validation fails](#validation-fails)
 * [Server error](#server-error)
+
+
+## Authentication required
+
+Headers
+```
+HTTP/1.1 401 Unauthorized
+Content-Type: application/json
+```
+Body
+```json
+{
+    "message":"Full authentication is required to access this resource."
+}
+```
+
+## HTTP Forbidden
+
+Headers
+```
+HTTP/1.1 403 HTTP Forbidden
+Content-Type: application/json
+```
+Body
+```json
+{
+    "message": "Access denied."
+}
+```
+
+## Requested resource not found
+
+Headers
+```
+HTTP/1.1 404 Not Found
+Content-Type: application/json
+```
+Body
+```json
+{
+    "message": "Invoice not found"
+}
+```
+
+## Payment method not enabled
+
+Headers
+```
+HTTP/1.1 422 Unprocessable Entity
+Content-Type: application/json
+```
+Body
+```
+{
+    "message": "Method must be enabled to use it"
+}
+```
+
+Please contact [Payop support](https://payop.com/en/contact-us) if you want to enable additional payment methods.
 
 ## Validation fails
 
@@ -28,50 +87,6 @@ Body
     }
 }
 ```
-
-## Requested resource not found
-
-Headers
-```
-HTTP/1.1 404 Not Found
-Content-Type: application/json
-```
-Body
-```json
-{
-    "message": "Invoice not found"
-}
-```
-
-## Authentication is required
-
-Headers
-```
-HTTP/1.1 401 Unauthorized
-Content-Type: application/json
-```
-Body
-```json
-{
-    "message":"Full authentication is required to access this resource."
-}
-```
-
-## Payment method not enabled
-
-Headers
-```
-HTTP/1.1 422 Unprocessable Entity
-Content-Type: application/json
-```
-Body
-```
-{
-    "message": "Method must be enabled to use it"
-}
-```
-
-Please contact [Payop support](https://payop.com/en/contact-us) if you want to enable additional payment methods.
 
 ## Server error
 
