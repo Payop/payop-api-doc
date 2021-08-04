@@ -8,6 +8,7 @@
 * [Validation fails](#validation-fails)
 * [Server error](#server-error)
 
+
 ## Authentication required
 
 Headers
