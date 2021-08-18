@@ -47,7 +47,6 @@ Possible values:
      5 - Webmoney
      6 - Qiwi
      8 - Paypal.
-     11 - Bitcoin.
 
 ### Commission type
 
@@ -141,12 +140,6 @@ Here is the list of possible methods with appropriate structure descriptions (al
 ```
      direction - Description. [A-Za-z0-9].
      email - recipient email
-```
-     
-11 - Bitcoin:
-```     
-     direction - Description. [A-Za-z0-9].
-     data -  bitcoin wallet
 ```
 
 ## Withdrawal Raw Request Data Example
