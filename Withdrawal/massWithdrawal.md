@@ -149,6 +149,10 @@ Here is the list of possible methods with appropriate structure descriptions (al
      referenceId - Receiver identifier.
 ```
 
+To get the PayDo `referenceId` you should click to the top right corner where your email/account ID is.
+
+![](../images/paydo-reference-id.jpg "PayDo referenceID")
+
 ## Withdrawal Raw Request Data Example
 
 **Important!** This data should be [encrypted](withdrawal.md#request-payload-encryptdecrypt) before sending a request.
