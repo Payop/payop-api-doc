@@ -46,7 +46,8 @@ Possible values:
      4 - Visa/MasterCard (RU cards).
      5 - Webmoney
      6 - Qiwi
-     8 - Paypal.
+     8 - Paypal
+     15 - PayDo
 
 ### Commission type
 
@@ -141,6 +142,16 @@ Here is the list of possible methods with appropriate structure descriptions (al
      direction - Description. [A-Za-z0-9].
      email - recipient email
 ```
+
+15 - PayDo:
+```
+     direction - Description. [A-Za-z0-9].
+     referenceId - Receiver identifier.
+```
+
+To get the PayDo `referenceId` you should click to the top right corner where your email/account ID is.
+
+![](../images/paydo-reference-id.jpg "PayDo referenceID")
 
 ## Withdrawal Raw Request Data Example
 
