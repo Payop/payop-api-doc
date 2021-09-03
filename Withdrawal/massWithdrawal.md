@@ -145,10 +145,10 @@ Here is the list of possible methods with appropriate structure descriptions (al
 
 15 - PayDo:
 ```
-     direction - Description. [A-Za-z0-9].
-     referenceId - Receiver identifier.
+   *  direction - Description. [A-Za-z0-9].
+   *  referenceId - Recipient identifier or email. 
+      recipientAccountType - Recipient account type. Specifiy only when using email as a value of the `referenceId`. [personal - 1, business 2]
 ```
-
 To get the PayDo `referenceId` you should click to the top right corner where your email/account ID is.
 
 ![](../images/paydo-reference-id.jpg "PayDo referenceID")
