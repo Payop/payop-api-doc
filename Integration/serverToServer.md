@@ -9,9 +9,10 @@ It is suitable for those who have enough resources for development
 and at the same time want have more controls of the payment.
 
 ----
-**Note:** You can see example of Server-To-Server 
-integration in the [Checkout Demo App repository](https://github.com/Payop/checkout-demo-app) 
-
+**Notes:** 
+* You can see example of Server-To-Server 
+integration in the [Checkout Demo App repository](https://github.com/Payop/checkout-demo-app).
+* Server-To-Server integration can only be used for card methods with ID 381, 480, 482. You can view the list of available methods for the project using the request [getPaymentMethod](../Invoice/getPaymentMethods.md).
 ----
 
 ## Checkout Flow
