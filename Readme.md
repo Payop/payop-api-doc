@@ -9,7 +9,7 @@ Each request to PayOp API should have a `Content-Type` HTTPS header with `applic
 
 ## PayOp integration options
    * [Hosted page](https://github.com/Payop/payop-api-doc/blob/master/Integration/hostedPage.md) – a very simple integration option using default PayOp checkout pages
-   * [Direct integration](https://github.com/Payop/payop-api-doc/blob/master/Integration/direct.md)  - bypassing the PayOp hosted page
+   * [Direct integration](https://github.com/Payop/payop-api-doc/blob/master/Integration/direct.md) – bypassing the PayOp hosted page
    * [Server-To-Server](https://github.com/Payop/payop-api-doc/blob/master/Integration/serverToServer.md) – integration using PayOp API for users having a PCI DSS certificate
    * Pre-setup integration plugins
       * [Woocommerce](https://github.com/Payop/woocommerce-plugin)
