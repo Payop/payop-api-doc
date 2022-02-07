@@ -19,9 +19,13 @@ You should be noted that when creating an invoice you can only use payment metho
 
 ![GET](https://img.shields.io/badge/-GET-blue?style=for-the-badge)
 
-``https://payop.com/v1/instrument-settings/payment-methods/available-for-application/{id}``
+``https://payop.com/v1/instrument-settings/payment-methods/available-for-application/{ID}``
 
-**Headers:**
+> Note: You can find out the project ID in the merchant's admin panel in the Projects -> Project List -> Details section
+
+![APP-ID](../images/application-id.png)
+
+![HEADERS](https://img.shields.io/badge/-HEADERS-yellowgreen?style=for-the-badge)
 
     Content-Type: application/json
     Authorization: Bearer eyJ0eXAiOiJKV...
@@ -30,27 +34,27 @@ You should be noted that when creating an invoice you can only use payment metho
 
 Parameter   |  Type  |           Description           |  Required |
 ------------|--------|---------------------------------|-----------|
-id          | string | Application/Project identifier  |     *     |
+ID          | string | Application/Project identifier  |     *     |
 
 ## Request example
 
 ```shell script
 curl -X GET \
-  https://payop.com/v1/instrument-settings/payment-methods/available-for-application/0a4e9324-1213-4ee2-aa91-15b2b8dfa56d \
+  https://payop.com/v1/instrument-settings/payment-methods/available-for-application/YOUR_PROJECT_ID \
     -H 'Content-Type: application/json' \
     -H 'Authorization: Bearer eyJ0eXAiOiJKV...'
 ```
 
 ## Successful response example
 
-Headers
-```
+![HEADERS](https://img.shields.io/badge/-HEADERS-yellowgreen?style=for-the-badge)
+```shell
 HTTP/1.1 200 OK
 Content-Type: application/json
 token: eyJ0eXAiOiJKV...
 ```
 
-Body
+![BODY](https://img.shields.io/badge/-BODY-blueviolet?style=for-the-badge)
 ```json
 {
     "data":[
@@ -96,13 +100,11 @@ Body
 
 ## Required fields description
 
-As you can see, the `config.fields` section of response contains description of required fields.
-For direct payment (payment without an intermediate checkout form) using this payment method, you must fill out all the required fields when [creating invoice](createInvoice.md).
-Otherwise, during the payment process, payer will be redirected to the checkout form, where he/she will have to manually fill in the required fields.
+As you can see, the `config.fields` section of the response contains a description of required the fields.
+For direct payments (payments without an intermediate checkout form) that rely on this payment method, you must fill out all the required fields when [create an invoice](createInvoice.md).
+Otherwise, during the payment process, the payer will be redirected to the checkout form, where they will have to manually fill in the required fields.
 
----- 
-
-**Note:** Please note the way in which the fields are filled in: fields `email`, `phone`, `name` are contained in the `payer` object, and all other necessary fields are contained in a nested `extraFields` object.
+> Note: Please note the way in which the fields are filled in: fields `email`, `phone`, `name` are contained in the `payer` object, and all other necessary fields are contained in a nested `extraFields` object.
  Example: 
  
  ```json
@@ -118,4 +120,3 @@ Otherwise, during the payment process, payer will be redirected to the checkout 
      }
  }
  ```
-----
