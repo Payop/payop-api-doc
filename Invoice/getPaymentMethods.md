@@ -1,6 +1,6 @@
 * [Back to contents](../Readme.md#contents)
 
-# Merchant payment methods
+# Get available payment methods
 
 * [Endpoint description](#endpoint-description)
 * [Request example](#request-example)
@@ -10,7 +10,7 @@
 
 ## Endpoint description
 
-**Important!** This endpoint requires [authentication](../Authentication/bearerAuthentication.md).
+> **Important!** This endpoint requires [authentication](../Authentication/bearerAuthentication.md).
 
 Get payment methods list available for merchant per application/project.
 
