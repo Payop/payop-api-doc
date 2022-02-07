@@ -14,7 +14,7 @@
 
 Get payment methods list available for merchant per application/project.
 
-You should be noted that when creating an invoice you can only use payment methods available for your application.
+Please note that you can only use payment methods available for your application when creating an invoice.
 
 **Endpoint:**
 
@@ -40,7 +40,7 @@ ID          | string | Application/Project identifier  |     *     |
 ![HEADERS](https://img.shields.io/badge/-HEADERS-yellowgreen?style=for-the-badge)
 ```shell
 Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV...
+Authorization: Bearer YOUR_JWT_TOKEN
 ```
     
 
@@ -50,7 +50,7 @@ Authorization: Bearer eyJ0eXAiOiJKV...
 curl -X GET \
   https://payop.com/v1/instrument-settings/payment-methods/available-for-application/YOUR_PROJECT_ID \
     -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer eyJ0eXAiOiJKV...'
+    -H 'Authorization: Bearer YOUR_JWT_TOKEN'
 ```
 
 ## Successful response example 

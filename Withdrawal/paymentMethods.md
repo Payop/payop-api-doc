@@ -23,7 +23,7 @@ https://payop.com/v1/instrument-settings/payment-methods/available-withdrawal-fo
 
 ```shell
 Content-Type: application/json
-Authorization: Bearer eyJ0eXAiO...
+Authorization: Bearer YOUR_JWT_TOKEN
 ```
 
 ## Request example:
@@ -32,7 +32,7 @@ Authorization: Bearer eyJ0eXAiO...
 curl -X GET \
   https://payop.com/v1/instrument-settings/payment-methods/available-withdrawal-for-user \
     -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer eyJ0eXAiOiJKV...'
+    -H 'Authorization: Bearer YOUR_JWT_TOKEN'
 ```    
 
 ## Successful response example:
