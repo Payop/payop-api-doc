@@ -105,6 +105,22 @@ token: eyJ0eXAiOiJKV...
 }
 ```
 
+## Error response example
+
+![HEADERS](https://img.shields.io/badge/-HEADERS-yellowgreen?style=for-the-badge)
+```shell
+HTTP/1.1 401 Unauthorized
+Content-Type: application/json
+token: eyJ0eXAiOiJKV...
+```
+
+![BODY](https://img.shields.io/badge/-BODY-blueviolet?style=for-the-badge)
+```json
+{
+  "message": "Authorization token invalid"
+}
+```
+
 ## Required fields description
 
 As you can see, the `config.fields` section of the response contains a description of required the fields.
