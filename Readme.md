@@ -1,42 +1,47 @@
-# Payop REST-like API Reference
+# PayOp REST-like API Reference
 
-Payop API is organized around [REST](http://en.wikipedia.org/wiki/Representational_State_Transfer).
+PayOp API is organized around [REST](http://en.wikipedia.org/wiki/Representational_State_Transfer).
 
-Payop API has predictable resource-oriented URLs, accepts [JSON](http://www.json.org/) request bodies,
- returns [JSON](http://www.json.org/) responses, and uses standard HTTP response codes.
+PayOp API has predictable resource-oriented URLs, accepts [JSON](http://www.json.org/) request bodies,
+returns [JSON](http://www.json.org/) responses and uses standard HTTPS response codes.
 
-Each request to Payop API should have **Content-Type HTTP header** with `application/json` value.
+Each request to PayOp API should have a `Content-Type` HTTPS header with `application/json` value.
+
+## PayOp integration options
+   * [Hosted page](https://github.com/Payop/payop-api-doc/blob/master/Integration/hostedPage.md) – a very simple integration option using default PayOp checkout pages
+   * [Direct integration](https://github.com/Payop/payop-api-doc/blob/master/Integration/direct.md)  - bypassing the PayOp hosted page
+   * [Server-To-Server](https://github.com/Payop/payop-api-doc/blob/master/Integration/serverToServer.md) – integration using PayOp API for users having a PCI DSS certificate
+   * Pre-setup integration plugins
+      * [Woocommerce](https://github.com/Payop/woocommerce-plugin)
+
+You can learn more about the difference between the above options here: [Difference description](https://github.com/Payop/payop-api-doc/blob/master/Integration/difference.md).
 
 ## Contents
 
-1. **API Response examples**
-
-    Description of API's responses format, with examples.
-    
-    * [Successful response](Response/successResponse.md)
-    * [Failed responses](Response/failResponse.md)
+1. **Payment and withdrawal methods**
+   
+   With the help of these requests, you can get the methods available for payments and fund [withdrawals](Withdrawal/withdrawal.md).
+   * [Get available payment methods](Invoice/getPaymentMethods.md)
+   * [Get available withdrawal methods](Withdrawal/withdrawal.md)
     
 1. **Authentication**
 
-    Authentication is required to get access to protected API actions.
-    
-    * [Bearer authentication](Authentication/bearerAuthentication.md)
-    
-1. **Integration types**
+   Authentication is required to get access to the protected API actions.
 
-    There are currently 2 options for using the API.
-    
-    * [Hosted page](Integration/hostedPage.md) - very simple integration with showing Payop pages.
-    * [Server-To-Server](Integration/serverToServer.md) - more hard integration using Payop API.
-     
+    * [Bearer authentication](Authentication/bearerAuthentication.md)
+      
+1. **API Response examples**
+   Description of API's response format with examples.
+   * [Successful response](Response/successResponse.md)
+   * [Failed responses](Response/failResponse.md)
+
 1. **Invoice**
 
-    Invoice is a basic entity in each payment. When you start payment, you pay the invoice.
-    Checkout transaction can be created only for invoice. 
+   An invoice is a basic entity in each payment. When you make a payment, you pay an invoice. Checkout transactions can be created only for invoices. 
     
     * [Payment methods](Invoice/getPaymentMethods.md)
     * [Create invoice](Invoice/createInvoice.md)
-    * [Get invoice](Invoice/getInvoice.md)
+    * [Get invoice info](Invoice/getInvoice.md)
    
 1. **Checkout**    
 
@@ -44,20 +49,20 @@ Each request to Payop API should have **Content-Type HTTP header** with `applica
    
     * [Card tokenization](Checkout/createCardToken.md)
     * [Create checkout transaction](Checkout/createCheckoutTransaction.md)
-    * [Check payment status](Checkout/checkInvoiceStatus.md)
-    * [Payment Routing](Checkout/paymentRouting.md)
-    * [Capture Transaction](Checkout/captureTransaction.md)
-    * [Void Transaction](Checkout/voidTransaction.md)
+    * [Check invoice status](Checkout/checkInvoiceStatus.md)
+    * [Payment routing](Checkout/paymentRouting.md)
+    * [Capture transaction](Checkout/captureTransaction.md)
+    * [Void transaction](Checkout/voidTransaction.md)
     * [IPN (instant payment notification)](Checkout/ipn.md)
-    * [Get transaction](Checkout/getTransaction.md)
+    * [Get transaction info](Checkout/getTransaction.md)
     
 1. **Withdrawal**
 
     How to request a withdrawal.
     
     * [Prepare a request](Withdrawal/withdrawal.md)
-    * [Payment methods supporting withdrawal](Withdrawal/paymentMethods.md)
-    * [Create withdrawal request](Withdrawal/massWithdrawal.md)
+    * [Payment methods that support withdrawals](Withdrawal/paymentMethods.md)
+    * [Create a withdrawal request](Withdrawal/massWithdrawal.md)
     * [Get merchant's withdrawals](Withdrawal/getWithdrawalsList.md)
     * [Get concrete withdrawal details](Withdrawal/getWithdrawal.md)
     * [IPN (instant payment notification)](Withdrawal/withdrawalIpn.md)
