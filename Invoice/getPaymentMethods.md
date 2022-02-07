@@ -17,9 +17,8 @@ You should be noted that when creating an invoice you can only use payment metho
 
 **Endpoint:**
 
-![GET](https://img.shields.io/badge/-GET-blue?style=for-the-badge)
-
-```shell
+![GET](https://img.shields.io/badge/-GET-blue?style=for-the-badge) 
+```
 https://payop.com/v1/instrument-settings/payment-methods/available-for-application/{ID}
 ```
 
@@ -29,10 +28,14 @@ https://payop.com/v1/instrument-settings/payment-methods/available-for-applicati
 > 
 > ![APP-ID](../images/application-id.png)
 
-![HEADERS](https://img.shields.io/badge/-HEADERS-yellowgreen?style=for-the-badge)
+<br>
 
-    Content-Type: application/json
-    Authorization: Bearer eyJ0eXAiOiJKV...
+![HEADERS](https://img.shields.io/badge/-HEADERS-yellowgreen?style=for-the-badge)
+```shell
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV...
+```
+    
 
 **Parameters:**
 
@@ -49,7 +52,7 @@ curl -X GET \
     -H 'Authorization: Bearer eyJ0eXAiOiJKV...'
 ```
 
-## Successful response example
+## Successful response example 
 
 ![HEADERS](https://img.shields.io/badge/-HEADERS-yellowgreen?style=for-the-badge)
 ```shell
@@ -109,18 +112,19 @@ For direct payments (payments without an intermediate checkout form) that rely o
 Otherwise, during the payment process, the payer will be redirected to the checkout form, where they will have to manually fill in the required fields.
 
 > Note: Please note the way in which the fields are filled in: fields `email`, `phone`, `name` are contained in the `payer` object, and all other necessary fields are contained in a nested `extraFields` object.
- Example: 
+> 
+> Example:
+```json
+   {
+       "payer": {
+           "email": "PAYER_EMAIL@EMAIL.COM",
+           "phone": "PAYER_PHONE",
+           "name": "PAYER_NAME",
+           "extraFields": {
+               "nationalid": "GB-123456798",
+               "other": "SOME_DATA"
+            }
+       }
+   }
+```
  
- ```json
- {
-     "payer": {
-         "email": "user+1@payop.com",
-         "phone": "",
-         "name": "",
-         "extraFields": {
-           "nationalid": "GB-123456798",
-           "other": "some data"
-         }
-     }
- }
- ```
