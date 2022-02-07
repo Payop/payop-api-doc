@@ -30,7 +30,7 @@ ID          | string | Application/Project identifier  |     *     |
 
 <br>
 
-> Note: You can find out the project ID in the merchant's admin panel in the Projects -> Project List -> Details section
+> Note: You can find out the project ID in the merchant's admin panel in the **Projects -> Project List -> Details section**
 > 
 > ![APP ID](../images/application-id.png)
 
