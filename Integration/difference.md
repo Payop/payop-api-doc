@@ -1,7 +1,7 @@
 * [Back to contents](../Readme.md#contents)
 
 # Integration API types:
-##[1. Hosted Page](hostedPage.md)
+## [1. Hosted Page](hostedPage.md)
 This type of integration is available to everyone by default, this is the most preferable and easiest way. The checkout page is currently available in English and Russian.
 
 The methods on the page in the upper block are displayed in accordance with the localization set in the browser being used. And for this country, payment methods are selected that are available for the country and available to the merchant. 
@@ -26,7 +26,7 @@ Also it is possible to skip the checkout and integrate each method independently
 
 ![Diff-3](../images/diff-3.png)
 
-##[2. Server-to-server (S2S) integration](serverToServer.md)
+## [2. Server-to-server (S2S) integration](serverToServer.md)
 
 This is a direct integration, in which the checkout page and data entry for the PM is made by the merchant himself, using any of his designs and logos, and not our developments.
 
