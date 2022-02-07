@@ -1,6 +1,6 @@
 * [Back to contents](../Readme.md#contents)
 
-# Get available withdrawal methods.
+# Get available withdrawal methods
 
 * [Endpoint description](#endpoint-description)
 * [Request example](#request-example)
