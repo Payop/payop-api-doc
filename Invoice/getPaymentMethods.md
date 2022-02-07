@@ -26,7 +26,7 @@ https://payop.com/v1/instrument-settings/payment-methods/available-for-applicati
 
 > Note: You can find out the project ID in the merchant's admin panel in the Projects -> Project List -> Details section
 > 
-> ![APP ID](../images/application-id.png =400x)
+> ![APP ID](../images/application-id.png)
 
 <br>
 
