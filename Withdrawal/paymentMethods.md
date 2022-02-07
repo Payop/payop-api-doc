@@ -1,6 +1,6 @@
- * [Back to contents](../Readme.md#contents)
+* [Back to contents](../Readme.md#contents)
 
-# Payment methods supporting withdrawal.
+# Get available withdrawal methods.
 
 * [Endpoint description](#endpoint-description)
 * [Request example](#request-example)
@@ -8,20 +8,26 @@
 
 ## Endpoint description
 
-**Important!** This endpoint requires [authentication](../Authentication/bearerAuthentication.md).
+> **Important!** This endpoint requires [authentication](../Authentication/bearerAuthentication.md).
 
 **Endpoint**:
 
-    GET https://payop.com/v1/instrument-settings/payment-methods/available-withdrawal-for-user
+![GET](https://img.shields.io/badge/-GET-blue?style=for-the-badge)
 
-**Headers**:
- 
-    Content-Type: application/json
-    Authorization: Bearer eyJ0eXAiO...
-    
+```
+https://payop.com/v1/instrument-settings/payment-methods/available-withdrawal-for-user
+```
+
+![HEADERS](https://img.shields.io/badge/-HEADERS-yellowgreen?style=for-the-badge)
+
+```shell
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiO...
+```
+
 ## Request example:
 
-```shell script
+```shell
 curl -X GET \
   https://payop.com/v1/instrument-settings/payment-methods/available-withdrawal-for-user \
     -H 'Content-Type: application/json' \
@@ -30,45 +36,72 @@ curl -X GET \
 
 ## Successful response example:
 
+![HEADERS](https://img.shields.io/badge/-HEADERS-yellowgreen?style=for-the-badge)
+
+```shell
+HTTP/1.1 200 OK
+Content-Type: application/json
+token: eyJ0eXAiOiJKV...
+```
+
+![BODY](https://img.shields.io/badge/-BODY-blueviolet?style=for-the-badge)
+
 ```json
 {
-    "data": [
-        {
-            "identifier": 1000008,
-            "type": 4,
-            "name": "manual_visa_ru_cards",
-            "title": "Visa/MasterCard (Russian cards)",
-            "currencies": [
-                "RUB"
-            ]
-        },
-        {
-            "identifier": 1000005,
-            "type": 1,
-            "name": "manual_bank_transfer",
-            "title": "Bank Transfer",
-            "currencies": [
-                "CAD",
-                "CHF",
-                "DKK",
-                "EUR",
-                "GBP",
-                "JPY",
-                "NZD",
-                "SEK",
-                "USD"
-            ]
-        },
-        {
-            "identifier": 1000003,
-            "type": 6,
-            "name": "manual_qiwi",
-            "title": "Qiwi",
-            "currencies": [
-                "RUB"
-            ]
-        }
-    ],
-    "status": 1
+  "data": [
+    {
+      "identifier": 10010015,
+      "type": 15,
+      "name": "manual_paydo",
+      "title": "PayDo",
+      "currencies": [
+        "EUR"
+      ]
+    },
+    {
+      "identifier": 1001005,
+      "type": 1,
+      "name": "manual_bank_transfer",
+      "title": "Bank Transfer",
+      "currencies": [
+        "USD",
+        "EUR",
+        "AUD"
+      ]
+    },
+    {
+      "identifier": 1001006,
+      "type": 8,
+      "name": "manual_paypal",
+      "title": "PayPal",
+      "currencies": [
+        "USD",
+        "AUD"
+      ]
+    }
+  ],
+  "status": 1
 }
 ```
+
+## Error response example
+
+![401](https://img.shields.io/badge/401-Unauthorized-red?style=for-the-badge)
+
+![HEADERS](https://img.shields.io/badge/-HEADERS-yellowgreen?style=for-the-badge)
+
+```shell
+HTTP/1.1 401 Unauthorized
+Content-Type: application/json
+token: eyJ0eXAiOiJKV...
+```
+
+![BODY](https://img.shields.io/badge/-BODY-blueviolet?style=for-the-badge)
+
+```json
+{
+  "message": "Authorization token invalid"
+}
+```
+
+You can create a withdrawal request, using the type of withdrawal method from this page.
