@@ -5,6 +5,7 @@
 * [Endpoint description](#endpoint-description)
 * [Request example](#request-example)
 * [Successful response example](#successful-response-example)
+* [Error response example](#error-response-example)
 * [Required fields description](#required-fields-description)
 
 ## Endpoint description
