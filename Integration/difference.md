@@ -14,7 +14,9 @@ Methods are displayed in accordance with the payer's IP in the lower block.
 
 The checkout page can be customized: admin panel `PayOp -> Customize`. After customization, the panel asks for confirmation from the PayOp team. 
 
-Also it is possible to skip the checkout and integrate each method independently by passing the Method ID in the request. This will redirect the user directly to the payment data entry page using a specific method. The payer by clicking on the button of the payment method, for example, Cards International, will be taken directly to the page for entering card data for payment. 
+Also it is possible to skip the checkout and integrate each method independently by passing the Method ID in the request. This will redirect the user directly to the payment data entry page using a specific method. The payer by clicking on the button of the payment method, for example, Cards International, will be taken directly to the page for entering card data for payment.
+
+<em>
 
 ### Features of this type of integration:
 
@@ -23,6 +25,8 @@ Also it is possible to skip the checkout and integrate each method independently
 * no need to obtain a special certificate to be able to make payments (PCI DSS lvl 1 or 2 (AOC form) compliance)
 * it will not be possible to immediately transfer the payer's card data for card methods in order to minimize the payment path
 * checkout occurs on the PayOp page (there is a redirect from your domain name to payop.com) 
+
+</em> 
 
 ![Diff-3](../images/diff-3.png)
 
@@ -34,6 +38,8 @@ To access this type of integration, the merchant must provide a document on PCI 
 The merchant on his side processes and stores the necessary data for payment.
 A special token is generated for card methods.
 
+<em> 
+
 ### Features of this type of integration:
 
 * you can immediately transfer the payer's card data from your side for card methods (if you collect or store) in order to minimize the payment path
@@ -41,3 +47,5 @@ A special token is generated for card methods.
 * displaying the checkout page in the language you need
 * you will need to use more requests when making payments (to create a card token and checkout transactions) for card methods in the integration settings
 * it is mandatory to obtain a PCI DSS lvl 1 or 2 (AOC form) compliance certificate for card methods
+
+</em>
