@@ -22,6 +22,12 @@ You should be noted that when creating an invoice you can only use payment metho
 https://payop.com/v1/instrument-settings/payment-methods/available-for-application/{ID}
 ```
 
+**Parameters:**
+
+Parameter   |  Type  |           Description           |  Required |
+------------|--------|---------------------------------|-----------|
+ID          | string | Application/Project identifier  |     *     |
+
 <br>
 
 > Note: You can find out the project ID in the merchant's admin panel in the Projects -> Project List -> Details section
@@ -36,12 +42,6 @@ Content-Type: application/json
 Authorization: Bearer eyJ0eXAiOiJKV...
 ```
     
-
-**Parameters:**
-
-Parameter   |  Type  |           Description           |  Required |
-------------|--------|---------------------------------|-----------|
-ID          | string | Application/Project identifier  |     *     |
 
 ## Request example
 
