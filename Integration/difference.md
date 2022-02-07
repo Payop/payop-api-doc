@@ -16,7 +16,7 @@ The checkout page can be customized: admin panel `PayOp -> Customize`. After cus
 
 Also it is possible to skip the checkout and integrate each method independently by passing the Method ID in the request. This will redirect the user directly to the payment data entry page using a specific method. The payer by clicking on the button of the payment method, for example, Cards International, will be taken directly to the page for entering card data for payment. 
 
-###Features of this type of integration:
+### Features of this type of integration:
 
 * no need to create your own checkout page, data entry form for card methods
 * you don’t need to implement data processing for redirecting to the 3DS page - you can customize the standard checkout page
@@ -34,7 +34,7 @@ To access this type of integration, the merchant must provide a document on PCI 
 The merchant on his side processes and stores the necessary data for payment.
 A special token is generated for card methods.
 
-###Features of this type of integration:
+### Features of this type of integration:
 
 * you can immediately transfer the payer's card data from your side for card methods (if you collect or store) in order to minimize the payment path
 * payment takes place on your side, without redirecting the payer to a third-party domain
