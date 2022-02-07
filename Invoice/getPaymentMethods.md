@@ -17,7 +17,7 @@ You should be noted that when creating an invoice you can only use payment metho
 
 **Endpoint:**
 
- ![GET](https://img.shields.io/badge/-GET-blue) `https://payop.com/v1/instrument-settings/payment-methods/available-for-application/{id} `
+<code>![GET](https://img.shields.io/badge/-GET-blue) https://payop.com/v1/instrument-settings/payment-methods/available-for-application/{id} </code>
 
 **Headers:**
 
