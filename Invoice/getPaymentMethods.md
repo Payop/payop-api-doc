@@ -21,9 +21,9 @@ You should be noted that when creating an invoice you can only use payment metho
 
 ``https://payop.com/v1/instrument-settings/payment-methods/available-for-application/{ID}``
 
-> Note: You can find out the project ID in the merchant's admin panel in the Projects -> Project List -> Details section
 
-![APP-ID](../images/application-id.png)
+> Note: You can find out the project ID in the merchant's admin panel in the Projects -> Project List -> Details section 
+> ![APP-ID](../images/application-id.png)
 
 ![HEADERS](https://img.shields.io/badge/-HEADERS-yellowgreen?style=for-the-badge)
 
