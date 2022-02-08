@@ -50,12 +50,12 @@ this request, receives the HTTP status code `200 OK`.
 
 ----
 
-## IPN request description
+## IPN message description
 
 ![POST](https://img.shields.io/badge/-POST-green?style=for-the-badge)
 
 ```shell
-https://IPN-url-from-your-project
+https://{IPN_URL_from_your_project}
 ```
 
 ![HEADERS](https://img.shields.io/badge/-Headers-yellowgreen?style=for-the-badge)
@@ -64,7 +64,7 @@ https://IPN-url-from-your-project
 Content-Type: application/json
 ```
 
-**Payload:**
+![BODY](https://img.shields.io/badge/-BODY-blueviolet?style=for-the-badge)
 
 ```json
 {
