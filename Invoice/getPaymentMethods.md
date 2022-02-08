@@ -18,8 +18,9 @@ Please note that you can only use payment methods available for your application
 
 **Endpoint:**
 
-![GET](https://img.shields.io/badge/-GET-blue?style=for-the-badge) 
-```
+![GET](https://img.shields.io/badge/-GET-blue?style=for-the-badge)
+
+```shell
 https://payop.com/v1/instrument-settings/payment-methods/available-for-application/{ID}
 ```
 
@@ -42,7 +43,6 @@ ID          | string | Application/Project identifier  |     *     |
 Content-Type: application/json
 Authorization: Bearer YOUR_JWT_TOKEN
 ```
-    
 
 ## Request example
 
@@ -58,12 +58,14 @@ curl -X GET \
 ![HEADERS](https://img.shields.io/badge/200-ok-blue?style=for-the-badge)
 
 ![HEADERS](https://img.shields.io/badge/-HEADERS-yellowgreen?style=for-the-badge)
+
 ```shell
 HTTP/1.1 200 OK
 Content-Type: application/json
 ```
 
 ![BODY](https://img.shields.io/badge/-BODY-blueviolet?style=for-the-badge)
+
 ```json
 {
     "data":[
