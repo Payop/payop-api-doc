@@ -2,7 +2,7 @@
 
 # Success response example
 
-![HEADERS](https://img.shields.io/badge/200-OK-blue?style=for-the-badge)
+![200](https://img.shields.io/badge/200-OK-blue?style=for-the-badge)
 
 ![HEADERS](https://img.shields.io/badge/-Headers-yellowgreen?style=for-the-badge)
 ```shell
@@ -28,15 +28,17 @@ Content-Type: application/json
 
 ## Successful creation
 
-![HEADERS](https://img.shields.io/badge/201-Created-blue?style=for-the-badge)
+![201](https://img.shields.io/badge/201-Created-blue?style=for-the-badge)
 
 ![HEADERS](https://img.shields.io/badge/-Headers-yellowgreen?style=for-the-badge)
+
 ```shell
 HTTP/1.1 201 Created
 Content-Type: application/json
 ```
 
 ![BODY](https://img.shields.io/badge/-Body-blueviolet?style=for-the-badge)
+
 ```json
 {
   "data": {

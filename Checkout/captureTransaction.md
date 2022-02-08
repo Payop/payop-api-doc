@@ -1,4 +1,4 @@
- * [Back to contents](../Readme.md#contents)
+* [Back to contents](../Readme.md#contents)
 
 # Capture Transaction
 
@@ -7,7 +7,9 @@
 * [Successful response example](#successful-response-example)
 
 ----
-***Note:** The longest period between auth and capture operations is 72 hours. Therefore, if no capture request comes within 72 hours since auth is received, it will be performed anyway.*
+
+**Note:** The longest period between auth and capture operations is 72 hours. Therefore, if no capture request comes
+within 72 hours since auth is received, it will be performed anyway.
 
 ----
 
@@ -15,11 +17,17 @@
 
 **Endpoint:**
 
-    POST https://payop.com/v1/checkout/capture
+![POST](https://img.shields.io/badge/-POST-green?style=for-the-badge)
 
-**Headers:**
+```shell
+https://payop.com/v1/checkout/capture
+```
 
-    Content-Type: application/json
+![HEADERS](https://img.shields.io/badge/-Headers-yellowgreen?style=for-the-badge)
+
+```shell
+Content-Type: application/json
+```
 
 **Parameters:**
 
@@ -29,30 +37,35 @@ invoiceIdentifier     | string           | Invoice identifier                   
 
 ## Request example
 
-```shell script
+```shell
 curl -X POST \
   https://payop.com/v1/checkout/capture \
   -H 'Content-Type: application/json' \
   -d '{
-	"invoiceIdentifier": "e61dfa44-4987-400a-b58e-cd550aae9613"
-}'
+	"invoiceIdentifier": "{INVOICE_IDENTIFIER}"
+  }'
 ```
 
 ## Successful response example
-Headers
-```
+
+![200](https://img.shields.io/badge/200-OK-blue?style=for-the-badge)
+
+![HEADERS](https://img.shields.io/badge/-Headers-yellowgreen?style=for-the-badge)
+
+```shell
 HTTP/1.1 200 OK
 Content-Type: application/json
 ```
 
-Body
+![BODY](https://img.shields.io/badge/-BODY-blueviolet?style=for-the-badge)
+
 ```json
 {
-    "data": {
-        "isSuccess": true,
-        "message": "",
-        "txid": "e6c8ba69-b961-4e93-a083-2097f30dfbd9"
-    },
-    "status": 1
+  "data": {
+    "isSuccess": true,
+    "message": "",
+    "txid": "e6c8ba69-b961-4e93-a083-2097f30dfbd9"
+  },
+  "status": 1
 }
 ```
