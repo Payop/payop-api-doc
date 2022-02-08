@@ -37,12 +37,13 @@ curl -X GET \
 
 ## Successful response example:
 
+![HEADERS](https://img.shields.io/badge/200-ok-blue?style=for-the-badge)
+
 ![HEADERS](https://img.shields.io/badge/-HEADERS-yellowgreen?style=for-the-badge)
 
 ```shell
 HTTP/1.1 200 OK
 Content-Type: application/json
-token: eyJ0eXAiOiJKV...
 ```
 
 ![BODY](https://img.shields.io/badge/-BODY-blueviolet?style=for-the-badge)
@@ -94,7 +95,6 @@ token: eyJ0eXAiOiJKV...
 ```shell
 HTTP/1.1 401 Unauthorized
 Content-Type: application/json
-token: eyJ0eXAiOiJKV...
 ```
 
 ![BODY](https://img.shields.io/badge/-BODY-blueviolet?style=for-the-badge)

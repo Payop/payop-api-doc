@@ -1,6 +1,6 @@
 * [Back to contents](../Readme.md#contents)
 
-# Fail responses examples
+# Error responses examples
 
 * [Requested resource not found](#requested-resource-not-found)
 * [HTTP Forbidden](#http-forbidden)
@@ -11,12 +11,14 @@
 
 ## Authentication required
 
-Headers
-```
+![401](https://img.shields.io/badge/401-Unauthorized-red?style=for-the-badge)
+
+![HEADERS](https://img.shields.io/badge/-HEADERS-yellowgreen?style=for-the-badge)
+```shell
 HTTP/1.1 401 Unauthorized
 Content-Type: application/json
 ```
-Body
+![BODY](https://img.shields.io/badge/-BODY-blueviolet?style=for-the-badge)
 ```json
 {
     "message":"Full authentication is required to access this resource."
@@ -25,12 +27,14 @@ Body
 
 ## HTTP Forbidden
 
-Headers
-```
+![403](https://img.shields.io/badge/403-Forbidden-red?style=for-the-badge)
+
+![HEADERS](https://img.shields.io/badge/-HEADERS-yellowgreen?style=for-the-badge)
+```shell
 HTTP/1.1 403 HTTP Forbidden
 Content-Type: application/json
 ```
-Body
+![BODY](https://img.shields.io/badge/-BODY-blueviolet?style=for-the-badge)
 ```json
 {
     "message": "Access denied."
@@ -39,12 +43,14 @@ Body
 
 ## Requested resource not found
 
-Headers
-```
+![404](https://img.shields.io/badge/404-Not%20Found-red?style=for-the-badge)
+
+![HEADERS](https://img.shields.io/badge/-HEADERS-yellowgreen?style=for-the-badge)
+```shell
 HTTP/1.1 404 Not Found
 Content-Type: application/json
 ```
-Body
+![BODY](https://img.shields.io/badge/-BODY-blueviolet?style=for-the-badge)
 ```json
 {
     "message": "Invoice not found"
@@ -53,13 +59,15 @@ Body
 
 ## Payment method not enabled
 
-Headers
-```
+![422](https://img.shields.io/badge/422-Unprocessable%20Entity-red?style=for-the-badge)
+
+![HEADERS](https://img.shields.io/badge/-HEADERS-yellowgreen?style=for-the-badge)
+```shell
 HTTP/1.1 422 Unprocessable Entity
 Content-Type: application/json
 ```
-Body
-```
+![BODY](https://img.shields.io/badge/-BODY-blueviolet?style=for-the-badge)
+```json
 {
     "message": "Method must be enabled to use it"
 }
@@ -69,12 +77,14 @@ Please contact [Payop support](https://payop.com/en/contact-us) if you want to e
 
 ## Validation fails
 
-Headers
-```
+![422](https://img.shields.io/badge/422-Unprocessable%20Entity-red?style=for-the-badge)
+
+![HEADERS](https://img.shields.io/badge/-HEADERS-yellowgreen?style=for-the-badge)
+```shell
 HTTP/1.1 422 Unprocessable Entity
 Content-Type: application/json
 ```
-Body
+![BODY](https://img.shields.io/badge/-BODY-blueviolet?style=for-the-badge)
 ```json
 {
     "message": {
@@ -90,16 +100,18 @@ Body
 
 ## Server error
 
-Headers
-```
+![500](https://img.shields.io/badge/500-Internal%20Server%20Error-red?style=for-the-badge)
+
+![HEADERS](https://img.shields.io/badge/-HEADERS-yellowgreen?style=for-the-badge)
+```shell
 HTTP/1.1 500 Internal Server Error
 Content-Type: application/json
 ```
-Body
-```
+![BODY](https://img.shields.io/badge/-BODY-blueviolet?style=for-the-badge)
+```json
 {
     "message": "Something went wrong, try again or contact support."
 }
 ```
 
-Please contact [Payop support](https://payop.com/en/contact-us) if you faced such cases.
+Please contact [Payop support](https://payop.com/en/contact-us)  if you face such cases.
