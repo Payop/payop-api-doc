@@ -22,10 +22,10 @@ Click on the **“Show payment page”** button to view the **Checkout Page**:
 
 ![REST](../images/rest-3.png)
 
-Please note that you can either create an invoice that will redirect 
-the payer to the checkout page with all the payments available 
-o them (for your project and the payer’s IP address and/or browser locale), 
-or an invoice redirecting the payer to a specific payment method of your choice.
+> Please note that you can either create an invoice that will redirect 
+> the payer to the checkout page with all the payments available 
+> to them (for your project and the payer’s IP address and/or browser locale), 
+> or an invoice redirecting the payer to a specific payment method of your choice.
 
 For this, make use of the `paymentMethod` field of your request :
 
@@ -68,7 +68,7 @@ language                      | string          | Language  (en, ru)            
 resultUrl                     | string          | Successful payment link. Allowed to use [template expression](#template-expressions).                    | *        |
 failPath                      | string          | Unsuccessful payment link. Allowed to use [template expression](#template-expressions).                  | *        |
 signature                     | string          | [Signature](#signature)                                                                                  | *        |
-paymentMethod                 | string          | Payment method id selected for this invoice. One of [merchant's payment methods](getPaymentMethods.md)   |          |
+paymentMethod                 | string          | Payment method id selected for this invoice. One of [available payment methods](getPaymentMethods.md)   |          |
 metadata                      | **JSON object** | Arbitrary structure object to store any additional merchant data. Result JSON should be less than 800 kB |          |
 
 
