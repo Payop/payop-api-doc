@@ -22,7 +22,7 @@ You can learn more about the difference between the above options here: [Differe
    
    With the help of these requests, you can get the methods available for payments and fund [withdrawals](Withdrawal/withdrawal.md).
    * [Get available payment methods](Invoice/getPaymentMethods.md)
-   * [Get available withdrawal methods](Withdrawal/withdrawal.md)
+   * [Get available withdrawal methods](Withdrawal/paymentMethods.md)
     
 1. **Authentication**
 
