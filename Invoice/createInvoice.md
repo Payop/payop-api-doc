@@ -8,6 +8,7 @@
     * [Signature](#signature)
 * [Request example](#request-example)
 * [Successful response example](#successful-response-example)
+* [Error response example](#error-response-example)
 
 You can create an example request in the personal merchant account in the section **Projects -> REST**.
 ![REST](../images/rest.png)
@@ -241,6 +242,8 @@ curl -X POST \
 
 In the case of a successful response, you can get a refund identifier from the `identifier` header.
 
+![HEADERS](https://img.shields.io/badge/200-OK-blue?style=for-the-badge)
+
 ![HEADERS](https://img.shields.io/badge/-HEADERS-yellowgreen?style=for-the-badge)
 
 ```shell
@@ -261,5 +264,26 @@ identifier: 81962ed0-a65c-4d1a-851b-b3dbf9750399
 {
     "data": "",
     "status": 1
+}
+```
+
+### Error response example
+
+In case of incorrect signature generation, you will receive the following response:
+
+![422](https://img.shields.io/badge/422-Unprocessable%20Entity-red?style=for-the-badge)
+
+![HEADERS](https://img.shields.io/badge/-HEADERS-yellowgreen?style=for-the-badge)
+
+```shell
+HTTP/1.1 422 Unprocessable Entity
+Content-Type: application/json
+```
+
+![BODY](https://img.shields.io/badge/-BODY-blueviolet?style=for-the-badge)
+
+```json
+{
+  "message": "Wrong signature"
 }
 ```
