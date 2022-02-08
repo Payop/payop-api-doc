@@ -5,27 +5,34 @@
 * [Endpoint description](#endpoint-description)
 * [Request example](#request-example)
 * [Successful response example](#successful-response-example)
+* [Error response example](#error-response-example)
 * [Possible invoice statuses](#possible-invoice-statuses)
 
 ## Endpoint description
 
 **Endpoint:**
 
-    GET https://payop.com/v1/invoices/{{invoiceId}}
+![GET](https://img.shields.io/badge/-GET-blue?style=for-the-badge)
 
-**Headers:**
+```shell
+https://payop.com/v1/invoices/{invoiceID}
+```
 
-    Content-Type: application/json
+![HEADERS](https://img.shields.io/badge/-HEADERS-yellowgreen?style=for-the-badge)
+
+```shell
+Content-Type: application/json
+```
 
 **Parameters:**
 
 Parameter   |  Type  |  Required |
 ------------|--------|-----------|
-invoiceId   | string |     *     |
+invoiceID   | string |     *     |
 
 ## Request example
 
-```shell script
+```shell
 curl -X GET \
     https://payop.com/v1/invoices/81962ed0-a65c-4d1a-851b-b3dbf9750399 \
     -H 'Content-Type: application/json'
@@ -33,13 +40,17 @@ curl -X GET \
 
 ## Successful response example
 
-Headers
-```
+![HEADERS](https://img.shields.io/badge/200-OK-blue?style=for-the-badge)
+
+![HEADERS](https://img.shields.io/badge/-HEADERS-yellowgreen?style=for-the-badge)
+
+```shell
 HTTP/1.1 200 OK
 Content-Type: application/json
 ```
 
-Body
+![BODY](https://img.shields.io/badge/-BODY-blueviolet?style=for-the-badge)
+
 ```json
 {
     "data": {
@@ -105,6 +116,27 @@ Body
         }
     },
     "status": 1
+}
+```
+
+## Error response example
+
+Error when the invoice is not found or does not exist
+
+![422](https://img.shields.io/badge/422-Unprocessable%20Entity-red?style=for-the-badge)
+
+![HEADERS](https://img.shields.io/badge/-HEADERS-yellowgreen?style=for-the-badge)
+
+```shell
+HTTP/1.1 422 Unprocessable Entity
+Content-Type: application/json
+```
+
+![BODY](https://img.shields.io/badge/-BODY-blueviolet?style=for-the-badge)
+
+```json
+{
+  "message": "Invoice (Invoice_ID) not found"
 }
 ```
 

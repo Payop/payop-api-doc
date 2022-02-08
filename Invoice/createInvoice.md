@@ -10,7 +10,8 @@
 * [Successful response example](#successful-response-example)
 * [Error response example](#error-response-example)
 
-You can create an example request in the personal merchant account in the section **Projects -> REST**.
+You can create an example request in the personal merchant account in the section **Projects -> REST**:
+
 ![REST](../images/rest.png)
 
 You must fill in the order data into the respective fields to generate a page:
