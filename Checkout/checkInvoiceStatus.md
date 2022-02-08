@@ -70,7 +70,7 @@ Based on the responses below, you can choose from several flows to proceed:
 ![GET](https://img.shields.io/badge/-GET-blue?style=for-the-badge)
 
 ```shell
-https://payop.com/v1/checkout/check-invoice-status/{invoiceID}"
+https://payop.com/v1/checkout/check-invoice-status/{invoiceID}
 ```
 
 ![HEADERS](https://img.shields.io/badge/-Headers-yellowgreen?style=for-the-badge)

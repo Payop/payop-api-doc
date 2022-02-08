@@ -1,5 +1,4 @@
-
- * [Back to contents](../Readme.md#contents)
+* [Back to contents](../Readme.md#contents)
 
 # IPN
 
@@ -8,81 +7,91 @@
 
 ## Intro
 
-After finishing the payment and assigning a transaction
-one of the [final statuses](getTransaction.md#transaction-states),
-the payment gateway sends to the Merchant's server an Instant Payment Notification (IPN).
+After finishing the payment and assigning one of the
+[final statuses](getTransaction.md#transaction-states)
+to the transaction, the payment gateway sends an Instant Payment Notification
+(IPN) to the Merchant's server.
 
-IPN will be send only in case of successfully created transaction.
-Internal Payop transaction is created only after successful request to Acquirer.
-IPN request will be send to **ipn url** which you setup for selected project.
+An IPN will be sent only in cases when a transaction is created successfully. On the PayOp side, a transaction is
+created only after a successful request to the Acquirer. IPN requests will be sent to the **IPN URL** set up for your
+selected project.
 
-For greater security, we highly recommend that you accept IPN only from our IP addresses:
-* 52.49.204.201 
+For greater security, we highly recommend that you accept IPNs from our IP addresses only:
+
+* 52.49.204.201
 * 54.229.170.212
 
 ----
-**Note:** Sometimes IPN that is related to a particular order may be sent multiple times. If you are receiving multiple IPNs with the same status and data (order ID, transaction ID etc.) that refer to the order, **please make sure the payment has been credited only once**.
+**Note:** Sometimes IPNs related to a particular order may be sent multiple times. If you are receiving multiple IPNs
+with the same status and data (order ID, transaction ID etc.)
+that refer to the order, please make sure the payment has been credited only once. Otherwise, just accept the first
+notification only and ignore all others.
 
-So, what do you need to check: if you received IPNs with the same status and data (order ID, transaction ID etc.) related to a transaction, you have to accept only the first notification and ignore all others.
+Still, several IPN notifications should be accepted for a particular transaction if they carry different statuses. In
+this case, proceed with updating the current transaction state.
 
-However, several IPN notifications should be accepted for a particular transaction if they carry different statuses. In this case, you don't need to ignore them, but update the current transaction state.
+**For instance:**
 
-**For instance:** 
+**CASE 1.** You received several IPNs with the same data and the `success` state for the order ID 1111;
 
-**case 1.** You received several IPNs with the same data and "success" state for the order ID 1111; 
+**CASE 2.** You received an IPN for the order ID 1111 with the `failed` status; later on you received another IPN
+notification with the same transaction data for the order ID 1111 but with the `success` state.
 
-**case 2.** You received IPN for the order ID 1111 with status 'failed'; later on you received the other IPN notification with the same transaction data for the order ID 1111 but with the other state "success".
+**Solution:**
 
-**Solution:** 
+**CASE 1.** You only need to accept the first notification and ignore the others;
 
-**case 1.** You need to accept only the first notification and ignore the others;
-
-**case 2.** You shouldn't ignore notification with a different state to let the transaction status become updated.
+**CASE 2.** You shouldn't ignore notifications with a different state to let the transaction status become updated.
 
 ----
-**Note:** Please note! A notification is sent to the merchant's server within 24 hours
- and until the Payop server, upon this request, receives the HTTP status code "200 OK".
+
+**Note:** Please note! A notification is sent to the merchant's server within 24 hours and until the PayOp server, upon
+this request, receives the HTTP status code `200 OK`.
 
 ----
 
-## IPN Request description
+## IPN request description
 
-**URL:**
+![POST](https://img.shields.io/badge/-POST-green?style=for-the-badge)
 
-    POST https://IPN-url-from-your-project
-    
-**Headers:**
+```shell
+https://IPN-url-from-your-project
+```
 
-    Content-Type: application/json
+![HEADERS](https://img.shields.io/badge/-Headers-yellowgreen?style=for-the-badge)
+
+```shell
+Content-Type: application/json
+```
 
 **Payload:**
 
 ```json
 {
-    "invoice": {
-        "id": "d024f697-ba2d-456f-910e-4d7fdfd338dd",
-        "status": 1,
-        "txid": "dca59ca5-be19-470d-9494-9b76944e0241",
-        "metadata": {
-            "internal merchant id": "example",
-            "any other merchant data which were passed to invoice on create it": {
-                "orderId": "test",
-                "amount": 3,
-                "customerId": 15487            
-            }
-        }
-    }, 
-    "transaction": {
-        "id": "dca59ca5-be19-470d-9494-9b76944e0241",
-        "state": 2,
-        "order": {
-            "id": "ANY_ORDER_ID"        
-        },
-        "error": {
-            "message": "3DS authorization error or 3DS canceled by payer",
-            "code": ""
-        }
+  "invoice": {
+    "id": "d024f697-ba2d-456f-910e-4d7fdfd338dd",
+    "status": 1,
+    "txid": "dca59ca5-be19-470d-9494-9b76944e0241",
+    "metadata": {
+      "internal merchant id": "example",
+      "any other merchant data which were passed to invoice on create it": {
+        "orderId": "test",
+        "amount": 3,
+        "customerId": 15487
+      }
     }
+  },
+  "transaction": {
+    "id": "dca59ca5-be19-470d-9494-9b76944e0241",
+    "state": 2,
+    "order": {
+      "id": "ANY_ORDER_ID"
+    },
+    "error": {
+      "message": "3DS authorization error or 3DS canceled by payer",
+      "code": ""
+    }
+  }
 }
 ```
 
@@ -98,7 +107,7 @@ transaction.state         | number | Transaction state         |
 transaction.error.message | string | Transaction error message |
 transaction.error.code    | string | Always empty string       |
 
-Using transaction id (invoice.txid) you [can get transaction](getTransaction.md),
-find there your order id and process this order in your system.
+Using transaction id (invoice.txid) you [can get transaction](getTransaction.md), find there your order id and process
+this order in your system.
 
-Invoice status is one of [Invoice statuses](../Invoice/getInvoice.md).
+Invoice status is one of [invoice statuses](../Invoice/getInvoice.md).
