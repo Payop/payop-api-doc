@@ -31,7 +31,9 @@ You can learn more about the difference between the above options here: [Differe
     * [Bearer authentication](Authentication/bearerAuthentication.md)
       
 1. **API Response examples**
+   
    Description of API's response format with examples.
+   
    * [Successful response](Response/successResponse.md)
    * [Failed responses](Response/failResponse.md)
 
