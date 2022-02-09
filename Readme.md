@@ -76,5 +76,5 @@ How to make refunds.
 
 * [Create refund](Refund/createRefund.md)
 * [Get merchant's refunds](Refund/getRefundsList.md)
-* [Get concrete refund details](Refund/getRefund.md)
+* [Get refund details](Refund/getRefund.md)
 * [IPN (instant payment notification)](Refund/refundIpn.md)

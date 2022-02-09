@@ -67,7 +67,7 @@ Content-Type: application/json
       "additionalData": {
         "direction": "Dm PENDING test withdrawal",
         "cardNumber": "4444444444444444",
-        "cardHolderName": "Ivan Ivanov"
+        "cardHolderName": "HOLDER NAME"
       },
       "metadata": {
         "internal merchant id": "example"
@@ -90,7 +90,7 @@ Content-Type: application/json
       "additionalData": {
         "direction": "Dm PENDING test withdrawal",
         "cardNumber": "4444444444444444",
-        "cardHolderName": "Ivan Ivanov"
+        "cardHolderName": "HOLDER NAME"
       },
       "metadata": {
         "internal merchant id": "example"

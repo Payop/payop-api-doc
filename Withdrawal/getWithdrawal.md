@@ -28,9 +28,7 @@ Authorization: Bearer YOUR_JWT_TOKEN
 
 **Parameters:**
 
-`[identifier]` - field search
-
-`payopWithdrawalId` - identifier of withdrawal.
+`payopWithdrawalId` - identifier of withdrawal
 
 ## Request example
 
@@ -73,7 +71,7 @@ Content-Type: application/json
       "comment": null,
       "additionalData": {
         "cardNumber": "4444444444444444",
-        "cardHolderName": "Ivan Ivanov"
+        "cardHolderName": "HOLDER NAME"
       },
       "metadata": {
         "internal merchant id": "example"
