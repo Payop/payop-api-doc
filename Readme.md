@@ -18,60 +18,63 @@ You can learn more about the difference between the above options here: [Differe
 
 ## Contents
 
-1. **Payment and withdrawal methods**
+### 1. Payment and withdrawal methods
    
-   With the help of these requests, you can get the methods available for payments and fund [withdrawals](Withdrawal/withdrawal.md).
-   * [Get available payment methods](Invoice/getPaymentMethods.md)
-   * [Get available withdrawal methods](Withdrawal/paymentMethods.md)
+With the help of these requests, you can get the methods available for payments and fund [withdrawals](Withdrawal/withdrawal.md).
+
+* [Get available payment methods](Invoice/getPaymentMethods.md)
+* [Get available withdrawal methods](Withdrawal/paymentMethods.md)
     
-1. **Authentication**
+### 2. Authentication
 
-   Authentication is required to get access to the protected API actions.
+Authentication is required to get access to the protected API actions.
 
-    * [Bearer authentication](Authentication/bearerAuthentication.md)
+* [Bearer authentication](Authentication/bearerAuthentication.md)
       
-1. **API Response examples**
-   Description of API's response format with examples.
-   * [Successful response](Response/successResponse.md)
-   * [Failed responses](Response/failResponse.md)
-
-1. **Invoice**
-
-   An invoice is a basic entity in each payment. When you make a payment, you pay an invoice. Checkout transactions can be created only for invoices. 
-    
-    * [Payment methods](Invoice/getPaymentMethods.md)
-    * [Create invoice](Invoice/createInvoice.md)
-    * [Get invoice info](Invoice/getInvoice.md)
+### 3. API Response examples
    
-1. **Checkout**    
-
-    How to make payments.
+Description of API's response format with examples.
    
-    * [Card tokenization](Checkout/createCardToken.md)
-    * [Create checkout transaction](Checkout/createCheckoutTransaction.md)
-    * [Check invoice status](Checkout/checkInvoiceStatus.md)
-    * [Payment routing](Checkout/paymentRouting.md)
-    * [Capture transaction](Checkout/captureTransaction.md)
-    * [Void transaction](Checkout/voidTransaction.md)
-    * [IPN (instant payment notification)](Checkout/ipn.md)
-    * [Get transaction info](Checkout/getTransaction.md)
-    
-1. **Withdrawal**
+* [Successful response](Response/successResponse.md)
+* [Failed responses](Response/failResponse.md)
 
-    How to request a withdrawal.
+### 4. Invoice
+
+An invoice is a basic entity in each payment. When you make a payment, you pay an invoice. Checkout transactions can be created only for invoices. 
     
-    * [Prepare a request](Withdrawal/withdrawal.md)
-    * [Payment methods that support withdrawals](Withdrawal/paymentMethods.md)
-    * [Create a withdrawal request](Withdrawal/massWithdrawal.md)
-    * [Get merchant's withdrawals](Withdrawal/getWithdrawalsList.md)
-    * [Get concrete withdrawal details](Withdrawal/getWithdrawal.md)
-    * [IPN (instant payment notification)](Withdrawal/withdrawalIpn.md)
+* [Payment methods](Invoice/getPaymentMethods.md)
+* [Create invoice](Invoice/createInvoice.md)
+* [Get invoice info](Invoice/getInvoice.md)
    
-1. **Refund**
+### 5. Checkout    
+
+ How to make payments.
+
+ * [Card tokenization](Checkout/createCardToken.md)
+ * [Create checkout transaction](Checkout/createCheckoutTransaction.md)
+ * [Check invoice status](Checkout/checkInvoiceStatus.md)
+ * [Payment routing](Checkout/paymentRouting.md)
+ * [Capture transaction](Checkout/captureTransaction.md)
+ * [Void transaction](Checkout/voidTransaction.md)
+ * [IPN (instant payment notification)](Checkout/ipn.md)
+ * [Get transaction info](Checkout/getTransaction.md)
+
+### 6. Withdrawal
+
+How to request a withdrawal.
+
+* [Prepare a request](Withdrawal/withdrawal.md)
+* [Payment methods that support withdrawals](Withdrawal/paymentMethods.md)
+* [Create a withdrawal request](Withdrawal/massWithdrawal.md)
+* [Get merchant's withdrawals](Withdrawal/getWithdrawalsList.md)
+* [Get withdrawal details](Withdrawal/getWithdrawal.md)
+* [IPN (instant payment notification)](Withdrawal/withdrawalIpn.md)
+   
+### 7. Refund
     
-    How to make refunds.
-    
-    * [Create refund](Refund/createRefund.md)
-    * [Get merchant's refunds](Refund/getRefundsList.md)
-    * [Get concrete refund details](Refund/getRefund.md)
-    * [IPN (instant payment notification)](Refund/refundIpn.md)
+How to make refunds.
+
+* [Create refund](Refund/createRefund.md)
+* [Get merchant's refunds](Refund/getRefundsList.md)
+* [Get concrete refund details](Refund/getRefund.md)
+* [IPN (instant payment notification)](Refund/refundIpn.md)
