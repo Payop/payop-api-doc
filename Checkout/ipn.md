@@ -1,6 +1,6 @@
 * [Back to contents](../Readme.md#contents)
 
-# IPN
+# IPN - Checkout
 
 * [Intro](#intro)
 * [IPN Request description](#ipn-request-description)

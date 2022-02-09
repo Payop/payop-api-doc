@@ -1,4 +1,4 @@
-# IPN
+# IPN - Withdrawal
 
 After the withdrawal has received the final status (Successful or Rejected), the payment gateway sends an Instant
 Payment Notification (IPN) to the Merchant’s server.
