@@ -108,11 +108,11 @@ Content-Type: application/json
           }
         ],
         "geoInformation": {
-          "ip": "31.223.121.126",
+          "ip": "31.223.121.234",
           "city": {
             "id": 703448,
-            "lat": 50.45466,
-            "lon": 30.5238,
+            "lat": 44.45466,
+            "lon": 23.2234,
             "name_en": "Test",
             "name_ru": "Тест"
           },
