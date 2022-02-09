@@ -66,7 +66,7 @@ You can learn more about the difference between the above options here: [Differe
     * [Payment methods that support withdrawals](Withdrawal/paymentMethods.md)
     * [Create a withdrawal request](Withdrawal/massWithdrawal.md)
     * [Get merchant's withdrawals](Withdrawal/getWithdrawalsList.md)
-    * [Get concrete withdrawal details](Withdrawal/getWithdrawal.md)
+    * [Get withdrawal details](Withdrawal/getWithdrawal.md)
     * [IPN (instant payment notification)](Withdrawal/withdrawalIpn.md)
    
 1. **Refund**
