@@ -70,7 +70,7 @@ Their structure and data depend on the selected method (all fields are required 
 
 You can find some examples of data that needs to be encrypted for each withdrawal method below.
 
-#### 1. Bank transfer withdrawal data to encrypt
+### 1. Bank transfer withdrawal data to encrypt
 
 ```
 beneficiary  - JSON object
@@ -138,7 +138,7 @@ $data = [
     * the 3 digit Bank Code (XXX)
     * the 5 digit Branch Code (YYYYY)
 
-#### 4 - Visa/MasterCard (RU cards) withdrawal data to encrypt
+### 4 - Visa/MasterCard (RU cards) withdrawal data to encrypt
 
 ```
 cardNumber      — card number. Example: 5555555555554444
@@ -165,7 +165,7 @@ $data = [
 ];
 ```
 
-#### 5 - Webmoney withdrawal data to encrypt
+### 5 - Webmoney withdrawal data to encrypt
 
 ```
 direction   - Description. [A-Za-z0-9].
@@ -194,7 +194,7 @@ $data = [
 ];
 ```
 
-#### 6 - Qiwi withdrawal data to encrypt
+### 6 - Qiwi withdrawal data to encrypt
 
 ```
 direction     - Description. [A-Za-z0-9].
@@ -221,7 +221,7 @@ $data = [
 ];
 ```
 
-#### 12 - Payoneer withdrawal data to encrypt
+### 12 - Payoneer withdrawal data to encrypt
 
 An example of data that needs to be encrypted:
 
@@ -241,7 +241,7 @@ $data = [
  ];
 ```
 
-#### 15 - PayDo withdrawal data to encrypt
+### 15 - PayDo withdrawal data to encrypt
 
 ```
 direction   - Description. [A-Za-z0-9].
@@ -288,6 +288,15 @@ curl -X POST \
 
 ![200](https://img.shields.io/badge/200-OK-blue?style=for-the-badge)
 
+![HEADERS](https://img.shields.io/badge/-Headers-yellowgreen?style=for-the-badge)
+
+```shell
+HTTP/1.1 200 OK
+Content-Type: application/json
+```
+
+![BODY](https://img.shields.io/badge/-BODY-blueviolet?style=for-the-badge)
+
 ```json
 {
   "data": [
@@ -319,6 +328,8 @@ HTTP/1.1 422 Unprocessable Entity
 Content-Type: application/json
 ```
 
+![BODY](https://img.shields.io/badge/-BODY-blueviolet?style=for-the-badge)
+
 ```json
 {
     "message": "Method must be enabled to use it"
@@ -338,6 +349,8 @@ Withdrawal methods is not available for your account. Please contact
 HTTP/1.1 400 Bad Request
 Content-Type: application/json
 ```
+
+![BODY](https://img.shields.io/badge/-BODY-blueviolet?style=for-the-badge)
 
 ```json
 {
