@@ -15,7 +15,7 @@
 ![GET](https://img.shields.io/badge/-GET-blue?style=for-the-badge)
 
 ```shell
-https://payop.com/v1/refunds/user-refunds?query[identifier]={payopRefundId}`
+https://payop.com/v1/refunds/user-refunds?query[identifier]={payopRefundId}
 ```
 
 ![HEADERS](https://img.shields.io/badge/-HEADERS-yellowgreen?style=for-the-badge)

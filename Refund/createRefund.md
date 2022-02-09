@@ -1,4 +1,4 @@
- * [Back to contents](../Readme.md#contents)
+* [Back to contents](../Readme.md#contents)
 
 # Create Refund
 
@@ -47,15 +47,19 @@ There are 2 variants possible:
 
 ## Request example
 
-```json
-{
-    "transactionIdentifier": "d839c714-7743-47cf-8f9d-73592597c6e1",
-    "refundType": 2,
-    "amount": "10",
-    "metadata": {
-        "internal merchant id": "example"
-    }
-}
+```shell
+curl -X POST \
+  https://payop.com/v1/refunds/create \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer YOUR_JWT_TOKEN' \
+  -d '{
+        "transactionIdentifier": "d839c714-7743-47cf-8f9d-73592597c6e1",
+        "refundType": 2,
+        "amount": 10,
+        "metadata": {
+            "internal merchant id": "example"
+        }
+      }'
 ```
 
 ### Successful response example
@@ -76,8 +80,8 @@ identifier: 81962ed0-a65c-4d1a-851b-b3dbf9750399
 
 ```json
 {
-    "data": "",
-    "status": 1
+  "data": "",
+  "status": 1
 }
 ```
 
