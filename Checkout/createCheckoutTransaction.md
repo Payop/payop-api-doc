@@ -72,7 +72,7 @@ curl -X POST \
   -H 'Content-Type: application/json' \
   -d '{
 	"invoiceIdentifier": "INVOICE_IDENTIFIER",
-	"customer": {"email": "test@email.com", "ip": "127.0.0.1"},
+	"customer": {"email": "test@email.com", "name":"CUSTOMER_NAME"},
 	"checkStatusUrl": "https://your.site/check-status/{{txid}}",
 	"payCurrency": "EUR",
 	"paymentMethod": 381,
@@ -82,13 +82,14 @@ curl -X POST \
 
 2. If `paymentMethod.formType` is **not cards**:
 
+
 ```shell
 curl -X POST \
   https://payop.com/v1/checkout/create \
   -H 'Content-Type: application/json' \
   -d '{
 	"invoiceIdentifier": "INVOICE_IDENTIFIER",
-	"customer": {"email": "test@email.com", "ip": "127.0.0.1"},
+	"customer": {"email": "test@email.com", "name":"CUSTOMER_NAME"},
 	"checkStatusUrl": "https://your.site/check-status/{{txid}}",
 	"payCurrency": "EUR",
 	"paymentMethod": 381
