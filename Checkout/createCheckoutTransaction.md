@@ -82,6 +82,7 @@ curl -X POST \
 
 2. If `paymentMethod.formType` is **not cards**:
 
+
 ```shell
 curl -X POST \
   https://payop.com/v1/checkout/create \
