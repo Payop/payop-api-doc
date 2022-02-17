@@ -88,7 +88,7 @@ curl -X POST \
   -H 'Content-Type: application/json' \
   -d '{
 	"invoiceIdentifier": "INVOICE_IDENTIFIER",
-	"customer": {"email": "test@email.com", "ip": "127.0.0.1"},
+	"customer": {"email": "test@email.com", "ip": "127.0.0.1", "name":"CUSTOMER_NAME"},
 	"checkStatusUrl": "https://your.site/check-status/{{txid}}",
 	"payCurrency": "EUR",
 	"paymentMethod": 381
