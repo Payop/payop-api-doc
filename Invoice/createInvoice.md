@@ -241,7 +241,7 @@ curl -X POST \
 
 ### Successful response example
 
-In the case of a successful response, you can get a refund identifier from the `identifier` header.
+In the case of a successful response, you can get a invoice identifier from the `identifier` header.
 
 ![HEADERS](https://img.shields.io/badge/200-OK-blue?style=for-the-badge)
 
