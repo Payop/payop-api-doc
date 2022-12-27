@@ -7,8 +7,10 @@ A notification is sent to the URL that you have specified in your account settin
 
 For greater security, we highly recommend that you accept IPN from our IP addresses only:
 
-* 52.49.204.201
-* 54.229.170.212
+* 3.125.109.58
+* 3.127.103.117
+* 18.143.40.196 
+* 54.179.10.165
 
 ----
 

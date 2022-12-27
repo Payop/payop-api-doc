@@ -18,8 +18,10 @@ selected project.
 
 For greater security, we highly recommend that you accept IPNs from our IP addresses only:
 
-* 52.49.204.201
-* 54.229.170.212
+* 3.125.109.58
+* 3.127.103.117
+* 18.143.40.196 
+* 54.179.10.165
 
 ----
 **Note:** Sometimes IPNs related to a particular order may be sent multiple times. If you are receiving multiple IPNs
