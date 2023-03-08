@@ -139,7 +139,7 @@ Content-Type: application/json
   "message": "Invoice (Invoice_ID) not found"
 }
 ```
-> **Important!** The following statuses are invoice statuses, transaction statuses are described here (If you are using [IPN](../Checkout/ipn.md) you will get final transaction statuses)  [Get transaction info](../Checkout/getTransaction.md). 
+> **Important!** The following statuses are invoice statuses, **transaction** statuses are described here (If you are using [IPN](../Checkout/ipn.md) you will get final **transaction** statuses)  [Get transaction info](../Checkout/getTransaction.md). 
 ## Possible invoice statuses
 
 Status      |  Type    |  Description                        |
