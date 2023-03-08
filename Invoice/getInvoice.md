@@ -141,7 +141,7 @@ Content-Type: application/json
 ```
 
 ## Possible invoice statuses
-> **Important!** The following statuses are invoice statuses, **transaction** statuses are described here [Get transaction info](../Checkout/getTransaction.md) (If you are using [IPN](../Checkout/ipn.md) you will get final **transaction** statuses)  
+> **Important!** The following statuses are invoice statuses, **transaction** statuses are described in the following section [Gпet transaction info](../Checkout/getTransaction.md) (If you are using [IPN](../Checkout/ipn.md) you will get final **transaction** statuses)  
 
 Status      |  Type    |  Description                        |
 ------------|----------|-------------------------------------|
