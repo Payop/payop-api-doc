@@ -171,10 +171,10 @@ Content-Type: application/json
 
 Status | Type     | Description                       |
 -------|----------|-----------------------------------|
-1      | new      | New transaction                   |
+1      | new      | New transaction, no actions were taken                   |
 2      | accepted | Transaction was paid successfully |
-4      | pending  | Transaction pending               |
-3, 5   | failed   | Transaction failed                |
+4      | pending  | Transaction pending, has not yet been paid and is expected to be paid               |
+3, 5   | failed   | Transaction failed, has not been paid for technical or financial reasons                |
 
 ## Transaction types
 
