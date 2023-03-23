@@ -146,7 +146,7 @@ Content-Type: application/json
 Status      |  Type    |  Description                        |
 ------------|----------|-------------------------------------|
 0           | new      |  New invoice, the invoice was created, no actions were taken                        |
-1           | accepted |  Invoice was paid successfully      |
-1           | overdue  |  Invoice was not paid on time. By default, the deadline for invoice payment is 24 hours.      |
+1           | paid |  Invoice was paid successfully      |
+2           | overdue  |  Invoice was not paid on time. By default, the deadline for invoice payment is 24 hours.      |
 4           | pending  |  Invoice pending, a transaction has been created on the basis of the invoice, which has not yet been paid and is expected to be paid                    |
 5           | failed   |  Invoice failed, invoice has not been paid for technical reasons (the server does not respond, etc.) or financial reasons (insufficient funds on the account, etc.)                     |
