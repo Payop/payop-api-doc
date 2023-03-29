@@ -122,7 +122,7 @@ identifier: 81962ed0-a65c-4d1a-851b-b3dbf9750399
 ```
 
 Add the generated transaction ID to the waiting 
-page and redirect the user to that page. 
+page https://checkout.payop.com/en/payment/wait-page/{{txid}} and redirect the user to that page. 
 You can then use the check invoice status 
 query to track the transaction's progress.
 
