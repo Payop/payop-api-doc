@@ -278,7 +278,7 @@ To get the PayDo `referenceId` you should click on the top right corner where yo
 
 ```shell
 curl -X POST \
-  https://payop.com/v1/invoices/create \
+  https://payop.com/v1/withdrawals/create-mass \
     -H 'Content-Type: application/json' \
     -H 'Authorization: Bearer YOUR_JWT_TOKEN' \
     -d '{"data":  "9kQ7v9nXLHjeOyIqi+hIJfEKuOCQZ2C5WWVcnmfPHUxh1EbK5g="}'
