@@ -42,6 +42,7 @@ amount         | number      | Withdrawal amount                                
 currency       | string      | Withdrawal currency                                                                                      | *        |
 additionalData | JSON object | [Additional data](#additional-data), depends on the selected method.                                     | *        |
 metadata       | JSON object | Arbitrary structure object to store any additional merchant data. Result JSON should be less than 800 kB |          |
+clientId       | string      | Unique withdrawal ID in client system                                                                    |          |
 
 ### Withdrawal methods
 
