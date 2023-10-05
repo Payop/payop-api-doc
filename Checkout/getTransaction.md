@@ -19,7 +19,7 @@
 ![GET](https://img.shields.io/badge/-GET-blue?style=for-the-badge)
 
 ```shell
-https://payop.com/v2/transactions/{id}
+https://payop.com/v2/transactions/{transactionID}
 ```
 
 ![HEADERS](https://img.shields.io/badge/-Headers-yellowgreen?style=for-the-badge)
