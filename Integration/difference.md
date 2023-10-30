@@ -30,7 +30,22 @@ Also it is possible to skip the checkout and integrate each method independently
 
 ![Diff-3](../images/diff-3.png)
 
-## [2. Server-to-server (S2S) integration](serverToServer.md)
+## [2. Direct integration](../Integration/direct.md)
+
+This type of integration is more suitable for businesses experienced in development.
+
+Using this type of integration it is possible to skip the initial Payop checkout page and integrate each method independently by passing the Method ID in the request. This will redirect the payer directly to the payment data entry page for a specific method. Therefore, by using this integration type, you can use several payment methods on your own checkout page and redirect the payer directly to the page to enter the payment data.
+
+Features of this type of integration:
+
+
+
+* _you can create your own checkout page and customize it according to your needs_
+* _no need to obtain a special certificate to be able to make payments (PCI DSS LVL 1 or 2 (AOC form) compliance)_
+* _you can minimize the amount of actions needed to be done by client in order to complete the payment_
+* _you will need to use more requests when making payments (as compared with hosted page)_
+
+<!--## [2. Server-to-server (S2S) integration](serverToServer.md)
 
 This is a direct integration, in which the checkout page and data entry for the PM is made by the merchant himself, using any of his designs and logos, and not our developments.
 
@@ -48,4 +63,4 @@ A special token is generated for card methods.
 * you will need to use more requests when making payments (to create a card token and checkout transactions) for card methods in the integration settings
 * it is mandatory to obtain a PCI DSS lvl 1 or 2 (AOC form) compliance certificate for card methods
 
-</em>
+</em> -->
