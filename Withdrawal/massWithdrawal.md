@@ -126,7 +126,7 @@ $data = [
 
 To get the PayDo `referenceId`, click on your email/account ID in the top right corner.
 
-![](../images/paydo-reference-id.jpg "PayDo referenceID")
+![](../images/newpaydoreferenceid.png "PayDo referenceID")
 
 ### 16. PerfectMoney withdrawal data to encrypt
 
