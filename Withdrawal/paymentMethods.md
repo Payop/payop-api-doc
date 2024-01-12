@@ -9,6 +9,8 @@
 
 ## Endpoint description
 
+You can get a list of available withdrawal payout methods.
+
 > **Important!** This endpoint requires [authentication](../Authentication/bearerAuthentication.md).
 
 **Endpoint**:
@@ -50,39 +52,33 @@ Content-Type: application/json
 
 ```json
 {
-  "data": [
-    {
-      "identifier": 10010015,
-      "type": 15,
-      "name": "manual_paydo",
-      "title": "PayDo",
-      "currencies": [
-        "EUR"
-      ]
-    },
-    {
-      "identifier": 1001005,
-      "type": 1,
-      "name": "manual_bank_transfer",
-      "title": "Bank Transfer",
-      "currencies": [
-        "USD",
-        "EUR",
-        "AUD"
-      ]
-    },
-    {
-      "identifier": 1001006,
-      "type": 8,
-      "name": "manual_paypal",
-      "title": "PayPal",
-      "currencies": [
-        "USD",
-        "AUD"
-      ]
-    }
-  ],
-  "status": 1
+    "data": [
+        {
+            "type": 14,
+            "name": "Advcash",
+            "currencies": [
+                "EUR",
+                "USD"
+            ]
+        },
+        {
+            "type": 15,
+            "name": "PayDo",
+            "currencies": [
+                "EUR",
+                "USD"
+            ]
+        },
+        {
+            "type": 16,
+            "name": "PerfectMoney",
+            "currencies": [
+                "EUR",
+                "USD"
+            ]
+        }
+    ],
+    "status": 1
 }
 ```
 
