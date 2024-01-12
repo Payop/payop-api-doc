@@ -6,7 +6,7 @@
 
 > **Important!** Prior to creating a withdrawal request, you need to create a certificate and [encrypt request payload](#request-payload-encryptdecrypt). You can **download** your personal certificate to [your account](https://payop.com/en/profile/settings/certificate). When you generate the certificate, you receive the 2 Factor Authentication code on your registered email/application. This 6-digit verification code should be entered in the required field to create a token.
 
-![Payop API Certificate page](../images/api-certificate.png)
+![Payop API Certificate page](../images/newcertificate.png)
 
 ## Withdrawal flow
 
