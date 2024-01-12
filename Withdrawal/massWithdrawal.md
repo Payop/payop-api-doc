@@ -99,11 +99,11 @@ $data = [
 
 Required parameters:
 
-Parameters           |  Description                                                                          |
----------------------|---------------------------------------------------------------------------------------|
-direction            | Payment reference. Information about the purpose of the payment should be specified   |
-referenceId          | Recipient identifier or email                                                         |
-recipientAccountType | Recipient account type. Specify only when using email as a value of the `referenceId` |
+Parameters           |  Description                                                                                                      |
+---------------------|-------------------------------------------------------------------------------------------------------------------|
+direction            | Payment reference. Information about the purpose of the payment should be specified                               |
+referenceId          | Recipient identifier or email                                                                                     |
+recipientAccountType | Recipient account type. Specify only when using email as a value of the `referenceId`. [personal - 1, business 2] |
 
 An example of data that needs to be encrypted before creating a PayDo withdrawal request:
 
