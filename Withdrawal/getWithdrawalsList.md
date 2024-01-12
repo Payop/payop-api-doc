@@ -8,6 +8,8 @@
 
 ## Endpoint description
 
+You can see a list of initiated withdrawals on your PayOp account.
+
 > **Important!** This endpoint requires [authentication](../Authentication/bearerAuthentication.md).
 
 **Endpoint:**
@@ -55,7 +57,7 @@ Content-Type: application/json
       "groupIdentifier": null,
       "userIdentifier": "10043",
       "type": 1,
-      "currency": "RUB",
+      "currency": "USD",
       "amount": 100,
       "payAmount": 111.11,
       "transactionIdentifier": "0000000-0000-0000-0000-00000001",
@@ -78,7 +80,7 @@ Content-Type: application/json
       "groupIdentifier": null,
       "userIdentifier": "10043",
       "type": 1,
-      "currency": "RUB",
+      "currency": "EUR",
       "amount": 100,
       "payAmount": 111.11,
       "transactionIdentifier": "0000000-0000-0000-0000-00000001",
@@ -101,7 +103,7 @@ Content-Type: application/json
       "groupIdentifier": null,
       "userIdentifier": "10043",
       "type": 1,
-      "currency": "RUB",
+      "currency": "USD",
       "amount": 65,
       "payAmount": 70,
       "transactionIdentifier": "0000000-0000-0000-0000-00000002",
@@ -122,7 +124,7 @@ Content-Type: application/json
       "groupIdentifier": null,
       "userIdentifier": "10043",
       "type": 1,
-      "currency": "RUB",
+      "currency": "USD",
       "amount": 65,
       "payAmount": 70,
       "transactionIdentifier": "0000000-0000-0000-0000-00000003",
