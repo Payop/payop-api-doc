@@ -2,7 +2,8 @@
 
 # Mass (batch) withdrawal requests
 
-This instrument allows automizing payments (for example, payments to employees, clients, partners, etc.). Currently, API supports batch withdrawal requests only. You can create one or more withdrawals using batch requests.
+This instrument allows automizing payments (for example, payments to employees, clients, partners, etc.). 
+Currently, API supports batch withdrawal requests only. You can create one or more withdrawals using batch requests.
 
 * [Endpoint description](#endpoint-description)
     * [Withdrawal method](#withdrawal-method)
