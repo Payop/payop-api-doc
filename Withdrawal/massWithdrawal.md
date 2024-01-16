@@ -2,6 +2,7 @@
 
 # Mass (batch) withdrawal requests
 
+This instrument allows automizing payments (for example, payments to employees, clients, partners, etc.). 
 Currently, API supports batch withdrawal requests only. You can create one or more withdrawals using batch requests.
 
 * [Endpoint description](#endpoint-description)
@@ -48,12 +49,9 @@ clientId       | string      | Unique withdrawal ID in client system            
 
 Possible values:
 
-     1  - Bank transfer
-     4  - Visa/MasterCard (RU cards)
-     5  - Webmoney
-     6  - Qiwi
-     12 - Payoneer
-     15 - PayDo
+   14 - AdvCash
+   15 - PayDo
+   16 - PerfectMoney 
 
 You can get the full list of methods available for withdrawal by making this [request](paymentMethods.md).
 
@@ -66,189 +64,46 @@ Possible values:
 
 ### Additional data
 
-For some of the withdrawal methods, when you create a withdrawal request, you need to transfer additional parameters.
+When you create a withdrawal request, you must transfer additional parameters for some withdrawal methods. 
 Their structure and data depend on the selected method (all fields are required unless other is indicated).
 
-You can find some examples of data that needs to be encrypted for each withdrawal method below.
+You can find examples of data that need to be encrypted for each withdrawal method below.
 
-### 1. Bank transfer withdrawal data to encrypt
+### 14. AdvCash withdrawal data to encrypt
 
-```
-beneficiary  - JSON object
-  - account - Receiver's account (IBAN or local account number). [A-Za-z0-9]. Max. length: 34 
-  - name    - Receiver's name. [A-Za-z0-9]. Max. length: 34
-  - country - Receiver's country of residence. ISO 3166-1 alpha-2 code
-  - city    - Receiver's city. [A-Za-z0-9]. Max. length: 34
-  - state   - State or province. [A-Za-z0-9]. Required for US, CA beneficiary. Max. length: 34. 
-  - address - Receiver's address. [A-Za-z0-9]. Max. length: 34
-  - zipCode - Receiver's zip code. Max. length: 34
-  - registrationNumber - Optional field. Registration number of the receiver. [A-Za-z0-9]. Max. length: 34
-beneficiaryBank - JSON object
-  - name    - Name of the Beneficiary Bank. [A-Za-z0-9]. Max. length: 34 
-  - bic     - SWIFT code of the Beneficiary Bank. [A-Za-z0-9]. Max. length: 11
-  - city    - Bank city. [A-Za-z0-9]. Max. length: 34
-  - address - Bank address. [A-Za-z0-9]. Max. length: 68
-  - zipCode - Optional field. Bank zip code. Max. length: 34 
-direction    - Description. [A-Za-z0-9].
-ifsc         - Optional field. Required only for IN transfers. 
-routingNumber - Optional field. Required only for US, CA transfers. 
-purposeCode   - Optional field. Required only for AE transfers. 
-```
+Required parameters:
 
-An example of data that needs to be encrypted before creating a Bank transfer withdrawal request:
+Parameters |  Description                                                                        |
+-----------|-------------------------------------------------------------------------------------|
+direction  | Payment reference. Information about the purpose of the payment should be specified |
+email      | Recipient's e-mail to which the account in the AdvCash system is registered         |
+
+An example of data that needs to be encrypted before creating an AdvCash withdrawal request:
 
 ```php
 $data = [
    [
-       'method' => 1,
+       'method' => 14,
        'type' => 1,
        'amount' => 1000,
        'currency' => 'EUR',
        'additionalData' => [
-           'direction' => 'direction one',
-           'email' => 'example@email.com',
-           'beneficiary' => [
-               'account' => '12345',    // Receiver's account (IBAN or local account number). [A-Za-z0-9]. Max. length: 34
-               'name' => 'Test',        // Receiver's name. [A-Za-z0-9]. Max. length: 34
-               'country' => 'FR',       // Receiver's country of residence. ISO 3166-1 alpha-2 code
-               'city' => 'City',        // Receiver's city. [A-Za-z0-9]. Max. length: 34
-               'state' => 'test',       // State or province. [A-Za-z0-9]. Required for US, CA beneficiary. Max. length: 34
-               'address' => 'Address 1', // Receiver's address. [A-Za-z0-9]. Max. length: 34
-               'zipCode' => '12345',     // Optional field. Bank zip code. Max. length: 34
-               'registrationNumber' => '12345' // Optional field. Registration number of the receiver. [A-Za-z0-9]. Max. length: 34
-           ],
-           'beneficiaryBank' => [
-               'bic' => '12345',    // SWIFT code of the Beneficiary Bank. [A-Za-z0-9]. Max. length: 11
-               'name' => 'Bank',    // Name of the Beneficiary Bank. [A-Za-z0-9]. Max. length: 34
-               'country' => 'FR',   // Bank country. [A-Za-z0-9]. Max. length: 34
-               'city' => 'City',    // Bank city. [A-Za-z0-9]. Max. length: 34
-               'address' => 'Address 2', // Bank address. [A-Za-z0-9]. Max. length: 68
-               'zipCode' => '12345',    // Optional field. Bank zip code. Max. length: 34
-               'direction'  => '12345', // Description. [A-Za-z0-9].
-               'ifsc' => '12345',       // Optional field. Required only for IN transfers.
-               'routingNumber' => '',  // Optional field. Required only for US, CA transfers.
-               'purposeCode' => '12345',    // Optional field. Required only for AE transfers.
-           ]
+           'direction' => 'direction one',          // Description. [A-Za-z0-9]
+           'email' => 'example_account@email.com'   // Recipient email
        ]
    ]
 ];
-```
-
-* For **CA** transfers **routingNumber** takes the format *0XXXYYYYY* and is made up of:
-    * a leading 0
-    * the 3 digit Bank Code (XXX)
-    * the 5 digit Branch Code (YYYYY)
-
-### 4 - Visa/MasterCard (RU cards) withdrawal data to encrypt
-
-```
-cardNumber      — card number. Example: 5555555555554444
-cardHolderName  — [A-Za-z0-9]. Max. length: 50
-direction       — Description. [A-Za-z0-9].
-```
-
-An example of data that needs to be encrypted before creating a cards withdrawal request:
-
-```php
-$data = [
-   [
-       'method' => 4,
-       'type' => 1,
-       'amount' => 1000,
-       'currency' => 'RUB',
-       'additionalData' => [
-           'direction' => 'direction one',      // Description. [A-Za-z0-9].
-           'email' => 'example@email.com',
-           'cardNumber' => '5555555555554444',  // Card number. Example: 5555555555554444
-           'cardHolderName' => 'Test'           // [A-Za-z0-9]. Max. length: 50
-       ]
-   ]
-];
-```
-
-### 5 - Webmoney withdrawal data to encrypt
-
-```
-direction   - Description. [A-Za-z0-9].
-holderName  - Holder name. [A-Za-z0-9].
-country     - Country code. Must be in ISO 3166-1 alpha-2 format. Example: RU
-walletNumber - Wallet number. Example: Z432423894723947823
-```
-
-An example of data that needs to be encrypted before creating a Webmoney withdrawal request:
-
-```php
-$data = [
-   [
-      'method' => 5,
-      'type' => 1,
-      'amount' => 1000,
-      'currency' => 'EUR',
-      'additionalData' => [
-         'email' => 'example@email.com',
-         'direction' => 'direction one',  // Description. [A-Za-z0-9]
-         'holderName' => 'name',          // Holder name. [A-Za-z0-9]
-         'country' => 'DE',               // Country code. Must be in ISO 3166-1 alpha-2 format. Example: DE
-         'walletNumber' => 'Z432423894723947823' // Wallet number. Example: Z432423894723947823
-      ]
-   ]
-];
-```
-
-### 6 - Qiwi withdrawal data to encrypt
-
-```
-direction     - Description. [A-Za-z0-9].
-walletNumber  - Wallet number. Example: +7451684153189138
-country       - Country code. Must be in ISO 3166-1 alpha-2 format. Example: RU
-```
-
-An example of data that needs to be encrypted:
-
-```php
-$data = [
-   [
-       'method' => 6,
-       'type' => 1,
-       'amount' => 1000,
-       'currency' => 'RUB',
-       'additionalData' => [
-           'direction' => 'direction one',          // Description. [A-Za-z0-9].
-           'email' => 'example@email.com',
-           'walletNumber' => '+7451684153189138',   // Wallet number. Example: +7451684153189138
-           'country' => 'DE'                        // Country code. Must be in ISO 3166-1 alpha-2 format. Example: DE
-       ]
-   ]
-];
-```
-
-### 12 - Payoneer withdrawal data to encrypt
-
-An example of data that needs to be encrypted:
-
-```php
-$data = [
-    [
-       'method' => 12,
-       'type' => 1,
-       'amount' => 100,
-       'currency' => 'EUR',
-       'additionalData' => [
-            'direction' => 'direction one',   // Description. [A-Za-z0-9]
-            'payeeId' => 'example@email.com', // Payoneer ID,  Example: 324344332 or test@gmail.com
-            'accountType' => 'account'
-       ]
-    ]
- ];
 ```
 
 ### 15 - PayDo withdrawal data to encrypt
 
-```
-direction   - Description. [A-Za-z0-9].
-referenceId - Recipient identifier or email. 
-recipientAccountType - Recipient account type. Specifiy only when using email as a value of the `referenceId`. [personal - 1, business 2]
-```
+Required parameters:
+
+Parameters           |  Description                                                                                                       |
+---------------------|--------------------------------------------------------------------------------------------------------------------|
+direction            | Payment reference. Information about the purpose of the payment should be specified                                |
+referenceId          | Recipient identifier or email                                                                                      |
+recipientAccountType | Recipient account type [personal - 1, business 2]. Specify only when using email as a value of the `referenceId`.  |
 
 An example of data that needs to be encrypted before creating a PayDo withdrawal request:
 
@@ -268,12 +123,35 @@ $data = [
    ]
 ];
 ```
-
 > **Important!** This data should be [encrypted](withdrawal.md#request-payload-encryptdecrypt) before sending a request.
 
-To get the PayDo `referenceId` you should click on the top right corner where your email/account ID is.
+To get the PayDo `referenceId`, click on your email/account ID in the top right corner.
 
-![](../images/paydo-reference-id.jpg "PayDo referenceID")
+![](../images/newpaydoreferenceid.png "PayDo referenceID")
+
+### 16. PerfectMoney withdrawal data to encrypt
+
+Parameters |  Description                                                                        |
+-----------|-------------------------------------------------------------------------------------|
+direction  | Payment reference. Information about the purpose of the payment should be specified |
+account    | Recipient's e-mail to which the account in the PerfectMoney system is registered    |
+
+An example of data that needs to be encrypted before creating a PerfectMoney withdrawal request:
+
+```php
+$data = [
+   [
+       'method' => 16,
+       'type' => 1,
+       'amount' => 1000,
+       'currency' => 'EUR',
+       'additionalData' => [
+           'direction' => 'direction one',           // Description. [A-Za-z0-9]
+           'account' => 'example_account@email.com'  // Recipient account
+       ]
+   ]
+];
+```
 
 ## Full request example
 
@@ -304,13 +182,13 @@ Content-Type: application/json
     {
       "id": "eab40b05-805b-5dbb-8900-a634a9ecaf57",
       "metadata": {
-        "description": "Test bank transfer payout"
+        "description": "Test advcash payout"
       }
     },
     {
       "id": "19b60564-e75e-5c51-988d-9b7bf69ae240",
       "metadata": {
-        "description": "Test international cards payout"
+        "description": "Test paydo payout"
       }
     }
   ],
@@ -376,7 +254,44 @@ Content-Type: application/json
 
 ```json
 {
-  "message": "Full authentication is required to access this resource."
+    "message": "Unfortunately, the selected method 2 is not supported for the payouts. Please get in touch with our support or select another method.",
+    "status": 0
+}
+{
+    "message": "The specified amount 140000 exceeds the permissible limit - 100000.00 Euro",
+    "status": 0
+}
+{
+    "message": "The specified amount 5 is less than the permissible minimum for the selected currency - 10.00 Euro",
+    "status": 0
+}
+{
+    "message": "The total amount of funds on the balances is insufficient to process the payment - 13213.01 EUR",
+    "status": 0
+}
+{
+    "message": "The selected currency GBP is not supported by method 14. To find out which currencies are available for this method, go to the 'Withdrawals' section in the merchant's cabinet.",
+    "status": 0
+}
+{
+    "message": "Decoded batch withdrawal request should be a collection of withdrawal objects",
+    "status": 0
+}
+{
+    "message": {
+        "data": [
+            "Incorrect withdrawal data on element with index 0: param 'method' must be integer"
+        ]
+    },
+    "status": 0
+}
+{
+    "message": {
+        "data": [
+            "Incorrect withdrawal data on element with index 0: param 'additionalData[email]' should not be empty"
+        ]
+    },
+    "status": 0
 }
 ```
 
