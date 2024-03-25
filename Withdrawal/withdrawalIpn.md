@@ -87,8 +87,8 @@ Parameter                       |  Type   |                 Description     |
 --------------------------------|---------|---------------------------------| 
 transaction.withdrawId          | string  | Withdraw identifier             |
 transaction.state               | number  | Withdraw state                  |
-transaction.amount              | number  | Currency                        |
-transaction.currency            | number  | Amount                          |
+transaction.amount              | number  | Amount                          |
+transaction.currency            | string  | Currency                        |
 transaction.comment             | string  | Manager's comment               |
 transaction.metadata            | array   | Key-value array of metadata     |
 transaction.error.message       | string  | Transaction error message       |
