@@ -169,14 +169,14 @@ Content-Type: application/json
 
 ## Transaction states
 
-Status | Type         | Description                                                                                                               |
--------|--------------|---------------------------------------------------------------------------------------------------------------------------|
-1      | new          | New transaction, no actions were taken                                                                                    |
-2      | accepted     | Transaction was paid successfully                                                                                         |
-4      | pending      | Transaction pending, has not yet been paid and is expected to be paid                                                     |
-3, 5  | failed       | Transaction failed, has not been paid for technical or financial reasons                                                  |
-9     | pre-approved | Transaction has been submitted through the bank, however, we are still awaiting the funds to be credited to our account.* |
-15    | timeout      | Transaction timed out due to lack of final confirmation from the payer after initiation.                                  |
+Status | Type         | Description                                                                                                              |
+-------|--------------|--------------------------------------------------------------------------------------------------------------------------|
+1      | new          | New transaction, no actions were taken                                                                                   |
+2      | accepted     | Transaction was paid successfully                                                                                        |
+4      | pending      | Transaction pending, has not yet been paid and is expected to be paid                                                    |
+3, 5  | failed       | Transaction failed, has not been paid for technical or financial reasons                                                 |
+9     | pre-approved | Transaction has been submitted through the bank, however, we are still awaiting the funds to be credited to our account* |
+15    | timeout      | Transaction timed out due to lack of final confirmation from the payer after initiation                                  |
 
 > **Important!** *"Pre-approved" status may change to "Accepted" status or "Failed" status, in case funds are not received or the payer has canceled the transaction. While it is quite a rare scenario, in some cases it is still possible to cancel the payment on the payer's side, **please use "Pre-approved" for goods/service delivery at your own risk. Only the final "Accepted" status is guaranteed**
 
