@@ -20,7 +20,7 @@ and tries to make the best decision about where to send the payment based on the
 
 ## Enable payment routing
 
-To enable payment routing for your application, please contact [PayOp support](https://payop.com/en/contact-us)
+To enable payment routing for your application, please contact [Payop support](https://payop.com/en/contact-us)
 
 ## Payment routing usage
 

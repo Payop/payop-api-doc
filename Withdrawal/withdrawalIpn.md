@@ -40,7 +40,7 @@ notification with the same transaction data for the withdrawal ID 1111, but with
 
 ----
 
-**Note:** Please note! A notification is sent to the merchant's server within 24 hours and until the PayOp server, upon
+**Note:** Please note! A notification is sent to the merchant's server within 24 hours and until the Payop server, upon
 this request, receives the HTTP status code `200 OK`.
 
 ----

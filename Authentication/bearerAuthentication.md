@@ -2,9 +2,9 @@
 
 # Bearer Authentication
 
-Some requests to PayOp API require authentication.
+Some requests to Payop API require authentication.
 
-PayOp API Authentication is based on JWT tokens and uses [Bearer Authentication](https://swagger.io/docs/specification/authentication/bearer-authentication/).
+Payop API Authentication is based on JWT tokens and uses [Bearer Authentication](https://swagger.io/docs/specification/authentication/bearer-authentication/).
 The client must send this token in the `Authorization` header when making requests to protected resources.
 
 ![HEADERS](https://img.shields.io/badge/-HEADERS-yellowgreen?style=for-the-badge)

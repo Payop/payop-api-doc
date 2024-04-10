@@ -2,7 +2,7 @@
 
 # Direct integration (hosted page) 
 
-Direct integration is a type of hosted page integration that allows to bypass the PayOp hosted page.
+Direct integration is a type of hosted page integration that allows to bypass the Payop hosted page.
 Workflow is the same as Hosted Page, except when you make an invoice you need to add in your request required field: ''Payment methods'' with a specific number.
 
 ![Direct](../images/direct.png)

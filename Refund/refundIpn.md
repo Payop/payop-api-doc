@@ -35,7 +35,7 @@ However, several IPN notifications should be accepted for a particular refund if
 
 ----
 
-**Note:** Please note! A notification is sent to the merchant's server within 24 hours and until the PayOp server, upon this request, receives the HTTP status code `200 OK`.
+**Note:** Please note! A notification is sent to the merchant's server within 24 hours and until the Payop server, upon this request, receives the HTTP status code `200 OK`.
 
 ----
 

@@ -23,7 +23,7 @@
 ----
 
 **Note:** Your application has to change the withdrawal status on your side only in case you get the final status from
-PayOp (2 or 3). For example, if you get a 500 HTTP error code (or something similar) when you make a 
+Payop (2 or 3). For example, if you get a 500 HTTP error code (or something similar) when you make a 
 request to get withdrawal details, you don't need to change the withdrawal
 status. Just leave it pending and repeat the request later.
 

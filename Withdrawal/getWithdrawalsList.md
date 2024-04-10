@@ -8,7 +8,7 @@
 
 ## Endpoint description
 
-You can see a list of initiated withdrawals on your PayOp account.
+You can see a list of initiated withdrawals on your Payop account.
 
 > **Important!** This endpoint requires [authentication](../Authentication/bearerAuthentication.md).
 

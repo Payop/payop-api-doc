@@ -61,7 +61,7 @@ Based on the responses below, you can choose from several flows to proceed:
    executing the request within an hour at intervals of 1 minute, 5 minutes, 10 minutes, and so on. 
    A `data.status` response field is `success` - redirect to the URL specified in field `data.url`.
 4. A `data.status` responsive field is `fail` - redirect to the URL specified in the `data.url` field.
-5. Exceptional case: Something went wrong on the PayOp side. Contact [Payop support](https://payop.com/en/contact-us).
+5. Exceptional case: Something went wrong on the Payop side. Contact [Payop support](https://payop.com/en/contact-us).
 
 ## Endpoint description
 

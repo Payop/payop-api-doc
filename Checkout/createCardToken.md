@@ -10,7 +10,7 @@
 
 ## Intro
 
-PayOp provides you with an opportunity to 
+Payop provides you with an opportunity to 
 independently initiate a money debit from payers’ 
 payment cards and takes care of certification and compliance 
 with the PCI-DSS standards. The standard declares a ban on 
@@ -20,7 +20,7 @@ the processing and storage of cardholder data (DDC) on the merchant's side.
 ----
 
 **Note:** Access to card token generation is available only upon request. 
-Please contact  [PayOp support](https://payop.com/en/contact-us) if you want to use card tokenization.
+Please contact  [Payop support](https://payop.com/en/contact-us) if you want to use card tokenization.
 
 ----
 
@@ -130,7 +130,7 @@ HTTP/1.1 403 Forbidden
 Content-Type: application/json
 ```
 
-If you get this error, you should contact [PayOp support](https://payop.com/en/contact-us).
+If you get this error, you should contact [Payop support](https://payop.com/en/contact-us).
 
 ![BODY](https://img.shields.io/badge/-BODY-blueviolet?style=for-the-badge)
 

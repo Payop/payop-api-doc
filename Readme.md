@@ -1,16 +1,16 @@
-# PayOp REST-like API Reference
+# Payop REST-like API Reference
 
-PayOp API is organized around [REST](http://en.wikipedia.org/wiki/Representational_State_Transfer).
+Payop API is organized around [REST](http://en.wikipedia.org/wiki/Representational_State_Transfer).
 
-PayOp API has predictable resource-oriented URLs, accepts [JSON](http://www.json.org/) request bodies,
+Payop API has predictable resource-oriented URLs, accepts [JSON](http://www.json.org/) request bodies,
 returns [JSON](http://www.json.org/) responses and uses standard HTTPS response codes.
 
-Each request to PayOp API should have a `Content-Type` HTTPS header with `application/json` value.
+Each request to Payop API should have a `Content-Type` HTTPS header with `application/json` value.
 
-## PayOp integration options
-   * [Hosted page](https://github.com/Payop/payop-api-doc/blob/master/Integration/hostedPage.md) – a very simple integration option using default PayOp checkout pages
-   * [Direct integration](https://github.com/Payop/payop-api-doc/blob/master/Integration/direct.md) – bypassing the PayOp hosted page
- <!--  * [Server-To-Server](https://github.com/Payop/payop-api-doc/blob/master/Integration/serverToServer.md) – integration using PayOp API for users having a PCI DSS certificate -->
+## Payop integration options
+   * [Hosted page](https://github.com/Payop/payop-api-doc/blob/master/Integration/hostedPage.md) – a very simple integration option using default Payop checkout pages
+   * [Direct integration](https://github.com/Payop/payop-api-doc/blob/master/Integration/direct.md) – bypassing the Payop hosted page
+ <!--  * [Server-To-Server](https://github.com/Payop/payop-api-doc/blob/master/Integration/serverToServer.md) – integration using Payop API for users having a PCI DSS certificate -->
    * Pre-setup integration plugins
       * [Woocommerce](https://github.com/Payop/woocommerce-plugin)
 

@@ -12,7 +12,7 @@ After finishing the payment and assigning one of the
 to the transaction, the payment gateway sends an Instant Payment Notification
 (IPN) to the Merchant's server.
 
-An IPN will be sent only in cases when a transaction is created successfully. On the PayOp side, a transaction is
+An IPN will be sent only in cases when a transaction is created successfully. On the Payop side, a transaction is
 created only after a successful request to the Acquirer. IPN requests will be sent to the **IPN URL** set up for your
 selected project.
 
@@ -47,7 +47,7 @@ notification with the same transaction data for the order ID 1111 but with the `
 
 ----
 
-**Note:** Please note! A notification is sent to the merchant's server within 24 hours and until the PayOp server, upon
+**Note:** Please note! A notification is sent to the merchant's server within 24 hours and until the Payop server, upon
 this request, receives the HTTP status code `200 OK`.
 
 ----
