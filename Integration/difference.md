@@ -12,20 +12,18 @@ Methods are displayed in accordance with the payer's IP in the lower block.
 
 ![Diff-2](../images/diff-2.png)
 
-The checkout page can be customized: admin panel `Payop -> Customize`. After customization, the panel asks for confirmation from the Payop team. 
+<!--The checkout page can be customized: admin panel `Payop -> Customize`. After customization, the panel asks for confirmation from the Payop team.--> 
 
-Also it is possible to skip the checkout and integrate each method independently by passing the Method ID in the request. This will redirect the user directly to the payment data entry page using a specific method. The payer by clicking on the button of the payment method, for example, Cards International, will be taken directly to the page for entering card data for payment.
-
+Also it is possible to skip the checkout and integrate each method independently by passing the Method ID in the request. This will redirect the user directly to the payment data entry page using a specific method. When the payer clicks on the eWallet payment method, they will be redirected to a page where they can enter their eWallet account details to authorize the payment.
 <em>
 
 ### Features of this type of integration:
 
-* no need to create your own checkout page, data entry form for card methods
-* you don’t need to implement data processing for redirecting to the 3DS page - you can customize the standard checkout page
-* no need to obtain a special certificate to be able to make payments (PCI DSS lvl 1 or 2 (AOC form) compliance)
-* it will not be possible to immediately transfer the payer's card data for card methods in order to minimize the payment path
-* checkout occurs on the Payop page (there is a redirect from your domain name to payop.com) 
-
+* no need to create your own checkout page
+* checkout occurs on the Payop page (there is a redirect from your domain name to payop.com)
+* it will not be possible to immediately transfer the payer's details in order to minimize the payment path
+<!--* you don’t need to implement data processing for redirecting to the 3DS page - you can customize the standard checkout page-->
+<!--* no need to obtain a special certificate to be able to make payments (PCI DSS lvl 1 or 2 (AOC form) compliance)-->
 </em> 
 
 ![Diff-3](../images/diff-3.png)
@@ -43,7 +41,7 @@ Features of this type of integration:
 * _you can create your own checkout page and customize it according to your needs_
 * _no need to obtain a special certificate to be able to make payments (PCI DSS LVL 1 or 2 (AOC form) compliance)_
 * _you can minimize the amount of actions needed to be done by client in order to complete the payment_
-* _you will need to use more requests when making payments (as compared with hosted page)_
+* _you will need to add more details to your request when making payments (as compared with hosted page)_
 
 <!--## [2. Server-to-server (S2S) integration](serverToServer.md)
 
