@@ -48,16 +48,16 @@ An invoice is a basic entity in each payment. When you make a payment, you pay a
    
 ### 5. Checkout    
 
- How to make payments.
+ How to handle checkout payments.
 
 <!-- * [Card tokenization](Checkout/createCardToken.md)-->
 <!-- * [Create checkout transaction](Checkout/createCheckoutTransaction.md)-->
 <!-- * [Check invoice status](Checkout/checkInvoiceStatus.md)-->
 <!-- * [Payment routing](Checkout/paymentRouting.md)-->
- * [Capture transaction](Checkout/captureTransaction.md)
-<!--* [Void transaction](Checkout/voidTransaction.md)-->
+<!-- * [Capture transaction](Checkout/captureTransaction.md)-->
  * [IPN (instant payment notification)](Checkout/ipn.md)
  * [Get transaction info](Checkout/getTransaction.md)
+ * [Void transaction](Checkout/voidTransaction.md)
 
 ### 6. Withdrawal
 
