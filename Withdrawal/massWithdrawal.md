@@ -51,7 +51,7 @@ Possible values:
 
    14 - AdvCash
    15 - PayDo
-   16 - PerfectMoney 
+<!--16 - PerfectMoney-->
 
 You can get the full list of methods available for withdrawal by making this [request](paymentMethods.md).
 
@@ -129,7 +129,7 @@ To get the PayDo `referenceId`, click on your email/account ID in the top right 
 
 ![](../images/newpaydoreferenceid.png "PayDo referenceID")
 
-### 16. PerfectMoney withdrawal data to encrypt
+<!--### 16. PerfectMoney withdrawal data to encrypt
 
 Parameters |  Description                                                                        |
 -----------|-------------------------------------------------------------------------------------|
@@ -151,7 +151,7 @@ $data = [
        ]
    ]
 ];
-```
+```-->
 
 ## Full request example
 
