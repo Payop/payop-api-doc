@@ -23,7 +23,7 @@ This functionality may be removed in the next major API version.*
 
 ## Get authentication token
 
-You can **create** and **view** your API keys in [your account](https://payop.com/en/profile/settings/jwt-token).
+You can **create** your JWT token  in [your account](https://payop.com/en/profile/settings/jwt-token).
 
 ![Payop JWT Tokens page](../images/newtoken.png)
 
