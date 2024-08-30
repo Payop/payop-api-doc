@@ -76,7 +76,7 @@ curl -X POST \
 	"payCurrency": "EUR",
 	"paymentMethod": 381,
 }'
-```-->
+```
 
 2. If `paymentMethod.formType` is **not cards**:-->
 
