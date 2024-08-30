@@ -49,7 +49,7 @@ clientId       | string      | Unique withdrawal ID in client system            
 
 Possible values:
 
-   14 - AdvCash
+  <!-- 14 - AdvCash-->
    15 - PayDo
 <!--16 - PerfectMoney-->
 
