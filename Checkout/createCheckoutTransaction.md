@@ -58,13 +58,12 @@ invoiceIdentifier               | string          | Invoice identifier          
 &emsp; ...                      | string          | Any data related to the payer/customer                                                                                                                                                                                                                             |          |
 checkStatusUrl                  | string          | [URL to check payment status](checkInvoiceStatus.md)                                                                                                                                                                                                              | *        |
 payCurrency                     | string          | Currency code. Should be passed in case of the payment currency is different from the order currency                                                                                                                                                               |          |
-paymentMethod                   | string          | Payment method id. Required if invoice doesn't have payment method                                                                                                                                                                                                 |          |
-cardToken                       | string          | [Bank card token](createCardToken.md). Required if paymentMethod.formType equal "cards" (bank card payment method)                                                                                                                                                 |          |
+paymentMethod                   | string          | Payment method id. Required if invoice doesn't have payment method                                                                                                                                                                                                 |          |   
 authOnly                        | bool            | If this parameter is equal to `true`, then authorization places the funds on hold with the customer's bank. When the transaction is [captured](captureTransaction.md), the funds transfer process will occur.                                                      |          |
 
 
 ## Request example
-1. If `paymentMethod.formType` is **cards**:
+<!--1. If `paymentMethod.formType` is **cards**:
 
 ```shell
 curl -X POST \
@@ -76,11 +75,10 @@ curl -X POST \
 	"checkStatusUrl": "https://your.site/check-status/{{txid}}",
 	"payCurrency": "EUR",
 	"paymentMethod": 381,
-	"cardToken": "CARD_TOKEN"
 }'
-```
+```-->
 
-2. If `paymentMethod.formType` is **not cards**:
+2. If `paymentMethod.formType` is **not cards**:-->
 
 
 ```shell
