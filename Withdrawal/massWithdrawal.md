@@ -69,7 +69,7 @@ Their structure and data depend on the selected method (all fields are required 
 
 You can find examples of data that need to be encrypted for each withdrawal method below.
 
-### 14. AdvCash withdrawal data to encrypt
+<!--### 14. AdvCash withdrawal data to encrypt
 
 Required parameters:
 
@@ -93,7 +93,7 @@ $data = [
        ]
    ]
 ];
-```
+```-->
 
 ### 15 - PayDo withdrawal data to encrypt
 
