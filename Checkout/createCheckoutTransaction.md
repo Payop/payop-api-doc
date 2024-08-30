@@ -140,7 +140,7 @@ CDN hosted script to ensure you always load the latest available version.
 <html>
     <head>
         ...
-        <script src="https://cdn.seon.io/js/v4/agent.js"></script>
+        <script src="https://cdn.seon.io/js/v6/agent.js"></script>
     </head>
   	<body>
     	...
