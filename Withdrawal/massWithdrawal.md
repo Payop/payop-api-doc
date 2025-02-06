@@ -31,7 +31,11 @@ https://payop.com/v1/withdrawals/create-mass
 ```shell
 Content-Type: application/json
 Authorization: Bearer YOUR_JWT_TOKEN
+idempotency-key: YOUR_UNIQUE_UUID
 ```
+To ensure the reliability and consistency of API requests, it is recommended to include the **idempotency-key** header in every request. This key should be a unique UUID for each request and helps prevent duplicate transactions in case of network issues or retries.
+
+>**Important!** Please note the idempotency-key is an optional header.
 
 **Parameters:**
 
@@ -160,6 +164,7 @@ curl -X POST \
   https://payop.com/v1/withdrawals/create-mass \
     -H 'Content-Type: application/json' \
     -H 'Authorization: Bearer YOUR_JWT_TOKEN' \
+    -H 'idempotency-key: YOUR_UNIQUE_UUID' \
     -d '{"data":  "9kQ7v9nXLHjeOyIqi+hIJfEKuOCQZ2C5WWVcnmfPHUxh1EbK5g="}'
 ```
 
@@ -238,6 +243,27 @@ Content-Type: application/json
 ```
 
 You are using an invalid certificate or encrypting data incorrectly.
+
+<br>
+
+![409](https://img.shields.io/badge/409-Conflict-red?style=for-the-badge)
+
+![HEADERS](https://img.shields.io/badge/-HEADERS-yellowgreen?style=for-the-badge)
+
+```shell
+HTTP/1.1 409 Conflict
+Content-Type: application/json
+```
+
+![BODY](https://img.shields.io/badge/-BODY-blueviolet?style=for-the-badge)
+
+```json
+{
+  "message": "Not unique idempotency key"
+}
+```
+
+Ensure the idempotency key is a unique UUID
 
 <br>
 
