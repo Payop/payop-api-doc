@@ -19,7 +19,7 @@
 ![GET](https://img.shields.io/badge/-GET-blue?style=for-the-badge)
 
 ```shell
-https://payop.com/v2/transactions/{transactionID}
+https://api.payop.com/v2/transactions/{transactionID}
 ```
 
 ![HEADERS](https://img.shields.io/badge/-Headers-yellowgreen?style=for-the-badge)
@@ -39,7 +39,7 @@ id        | string | *        |
 
 ```shell
 curl -X GET \
-  https://payop.com/v2/transactions/{id} \
+  https://api.payop.com/v2/transactions/{id} \
     -H 'Content-Type: application/json' \
     -H 'Authorization: Bearer eyJ0eXAiOiJKV...'
 ```
