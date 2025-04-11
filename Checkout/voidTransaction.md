@@ -13,7 +13,7 @@
 ![POST](https://img.shields.io/badge/-POST-green?style=for-the-badge)
 
 ```shell
-https://payop.com/v1/checkout/void
+https://api.payop.com/v1/checkout/void
 ```
 
 ![HEADERS](https://img.shields.io/badge/-Headers-yellowgreen?style=for-the-badge)
@@ -32,7 +32,7 @@ invoiceIdentifier     | string           | Invoice identifier                |  
 
 ```shell
 curl -X POST \
-  https://payop.com/v1/checkout/void \
+  https://api.payop.com/v1/checkout/void \
   -H 'Content-Type: application/json' \
   -d '{
 	"invoiceIdentifier": "{INVOICE_IDENTIFIER}"

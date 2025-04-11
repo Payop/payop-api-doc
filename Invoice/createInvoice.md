@@ -40,7 +40,7 @@ You can refer to a request example in [this section](#request-example).
 ![POST](https://img.shields.io/badge/-POST-green?style=for-the-badge)
 
 ```shell
-https://payop.com/v1/invoices/create
+https://api.payop.com/v1/invoices/create
 ```
 
 ![HEADERS](https://img.shields.io/badge/-HEADERS-yellowgreen?style=for-the-badge)
@@ -202,7 +202,7 @@ Result: 15c4c6ee83285dd82e1d7d29984a718cc527f218b8a0bb7e9b951b08ea1f30cd
 
 ```shell
 curl -X POST \
-  https://payop.com/v1/invoices/create \
+  https://api.payop.com/v1/invoices/create \
   -H 'Content-Type: application/json' \
   -d '{
     "publicKey": "YOUR_PUBLIC_KEY",

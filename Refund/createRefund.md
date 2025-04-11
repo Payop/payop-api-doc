@@ -17,7 +17,7 @@
 ![POST](https://img.shields.io/badge/-POST-green?style=for-the-badge)
 
 ```shell
-https://payop.com/v1/refunds/create
+https://api.payop.com/v1/refunds/create
 ```
 
 ![HEADERS](https://img.shields.io/badge/-HEADERS-yellowgreen?style=for-the-badge)
@@ -49,7 +49,7 @@ There are 2 variants possible:
 
 ```shell
 curl -X POST \
-  https://payop.com/v1/refunds/create \
+  https://api.payop.com/v1/refunds/create \
   -H 'Content-Type: application/json' \
   -H 'Authorization: Bearer YOUR_JWT_TOKEN' \
   -d '{

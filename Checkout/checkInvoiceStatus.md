@@ -52,7 +52,7 @@ Based on the responses below, you can choose from several flows to proceed:
          'fields' => [
             'PaReq' => 'fmn3o8usfjlils', 
             'MD' => '8ec777d6-685d-4e06-b356-d7673acb47ba', 
-            'TermUrl' => 'https://payop.com/v1/url'
+            'TermUrl' => 'https://api.payop.com/v1/url'
          ]
       ]
       ```
@@ -70,7 +70,7 @@ Based on the responses below, you can choose from several flows to proceed:
 ![GET](https://img.shields.io/badge/-GET-blue?style=for-the-badge)
 
 ```shell
-https://payop.com/v1/checkout/check-invoice-status/{invoiceID}
+https://api.payop.com/v1/checkout/check-invoice-status/{invoiceID}
 ```
 
 ![HEADERS](https://img.shields.io/badge/-Headers-yellowgreen?style=for-the-badge)
@@ -89,7 +89,7 @@ invoiceID | string | *        |
 
 ```shell
 curl -X GET \
-  https://payop.com/v1/checkout/check-invoice-status/{invoiceID}
+  https://api.payop.com/v1/checkout/check-invoice-status/{invoiceID}
     -H 'Content-Type: application/json'
 ```
 

@@ -36,7 +36,7 @@ After that, the invoice will expire.
 ![POST](https://img.shields.io/badge/-POST-green?style=for-the-badge)
 
 ```shell
-https://payop.com/v1/checkout/create
+https://api.payop.com/v1/checkout/create
 ```    
 
 ![HEADERS](https://img.shields.io/badge/-Headers-yellowgreen?style=for-the-badge)
@@ -66,7 +66,7 @@ authOnly                        | bool            | If this parameter is equal t
 
 ```shell
 curl -X POST \
-  https://payop.com/v1/checkout/create \
+  https://api.payop.com/v1/checkout/create \
   -H 'Content-Type: application/json' \
   -d '{
 	"invoiceIdentifier": "INVOICE_IDENTIFIER",
@@ -82,7 +82,7 @@ curl -X POST \
 
 ```shell
 curl -X POST \
-  https://payop.com/v1/checkout/create \
+  https://api.payop.com/v1/checkout/create \
   -H 'Content-Type: application/json' \
   -d '{
 	"invoiceIdentifier": "INVOICE_IDENTIFIER",

@@ -15,7 +15,7 @@
 ![GET](https://img.shields.io/badge/-GET-blue?style=for-the-badge)
 
 ```shell
-https://payop.com/v1/refunds/user-refunds?query[identifier]={payopRefundId}
+https://api.payop.com/v1/refunds/user-refunds?query[identifier]={payopRefundId}
 ```
 
 ![HEADERS](https://img.shields.io/badge/-HEADERS-yellowgreen?style=for-the-badge)
@@ -33,7 +33,7 @@ Authorization: Bearer YOUR_JWT_TOKEN
 
 ```shell
 curl -X GET \
-  https://payop.com/v1/refunds/user-refunds?query[identifier]=7ede204f-0d2a-55c4-9b84-8877720c9f6 \
+  https://api.payop.com/v1/refunds/user-refunds?query[identifier]=7ede204f-0d2a-55c4-9b84-8877720c9f6 \
   -H 'Content-Type: application/json' \
   -H 'Authorization: Bearer YOUR_JWT_TOKEN
 ```

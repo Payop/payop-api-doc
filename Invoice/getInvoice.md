@@ -15,7 +15,7 @@
 ![GET](https://img.shields.io/badge/-GET-blue?style=for-the-badge)
 
 ```shell
-https://payop.com/v1/invoices/{invoiceID}
+https://api.payop.com/v1/invoices/{invoiceID}
 ```
 
 ![HEADERS](https://img.shields.io/badge/-HEADERS-yellowgreen?style=for-the-badge)
@@ -34,7 +34,7 @@ invoiceID   | string |     *     |
 
 ```shell
 curl -X GET \
-    https://payop.com/v1/invoices/81962ed0-a65c-4d1a-851b-b3dbf9750399 \
+    https://api.payop.com/v1/invoices/81962ed0-a65c-4d1a-851b-b3dbf9750399 \
     -H 'Content-Type: application/json'
 ```
 

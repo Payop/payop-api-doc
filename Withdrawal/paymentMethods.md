@@ -18,7 +18,7 @@ You can get a list of available withdrawal payout methods.
 ![GET](https://img.shields.io/badge/-GET-blue?style=for-the-badge)
 
 ```
-https://payop.com/v1/instrument-settings/payment-methods/available-withdrawal-for-user
+https://api.payop.com/v1/instrument-settings/payment-methods/available-withdrawal-for-user
 ```
 
 ![HEADERS](https://img.shields.io/badge/-HEADERS-yellowgreen?style=for-the-badge)
@@ -32,7 +32,7 @@ Authorization: Bearer YOUR_JWT_TOKEN
 
 ```shell
 curl -X GET \
-  https://payop.com/v1/instrument-settings/payment-methods/available-withdrawal-for-user \
+  https://api.payop.com/v1/instrument-settings/payment-methods/available-withdrawal-for-user \
     -H 'Content-Type: application/json' \
     -H 'Authorization: Bearer YOUR_JWT_TOKEN'
 ```    

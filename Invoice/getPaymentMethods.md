@@ -21,7 +21,7 @@ Please note that you can only use payment methods available for your application
 ![GET](https://img.shields.io/badge/-GET-blue?style=for-the-badge)
 
 ```shell
-https://payop.com/v1/instrument-settings/payment-methods/available-for-application/{ID}
+https://api.payop.com/v1/instrument-settings/payment-methods/available-for-application/{ID}
 ```
 
 **Parameters:**
@@ -48,7 +48,7 @@ Authorization: Bearer YOUR_JWT_TOKEN
 
 ```shell script
 curl -X GET \
-  https://payop.com/v1/instrument-settings/payment-methods/available-for-application/YOUR_PROJECT_ID \
+  https://api.payop.com/v1/instrument-settings/payment-methods/available-for-application/YOUR_PROJECT_ID \
     -H 'Content-Type: application/json' \
     -H 'Authorization: Bearer YOUR_JWT_TOKEN'
 ```

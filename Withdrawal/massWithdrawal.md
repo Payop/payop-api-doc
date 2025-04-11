@@ -23,7 +23,7 @@ Currently, API supports batch withdrawal requests only. You can create one or mo
 ![POST](https://img.shields.io/badge/-POST-green?style=for-the-badge)
 
 ```shell
-https://payop.com/v1/withdrawals/create-mass
+https://api.payop.com/v1/withdrawals/create-mass
 ```
 
 ![HEADERS](https://img.shields.io/badge/-HEADERS-yellowgreen?style=for-the-badge)
@@ -161,7 +161,7 @@ $data = [
 
 ```shell
 curl -X POST \
-  https://payop.com/v1/withdrawals/create-mass \
+  https://api.payop.com/v1/withdrawals/create-mass \
     -H 'Content-Type: application/json' \
     -H 'Authorization: Bearer YOUR_JWT_TOKEN' \
     -H 'idempotency-key: YOUR_UNIQUE_UUID' \
