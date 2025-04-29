@@ -6,75 +6,49 @@ Payop API has predictable resource-oriented URLs, accepts [JSON](http://www.json
 returns [JSON](http://www.json.org/) responses and uses standard HTTPS response codes.
 
 Each request to Payop API should have a `Content-Type` HTTPS header with `application/json` value.
-
-## Payop integration options
-   * [Hosted page](https://github.com/Payop/payop-api-doc/blob/master/Integration/hostedPage.md) – a very simple integration option using default Payop checkout pages
-   * [Direct integration](https://github.com/Payop/payop-api-doc/blob/master/Integration/direct.md) – bypassing the Payop hosted page
- <!--  * [Server-To-Server](https://github.com/Payop/payop-api-doc/blob/master/Integration/serverToServer.md) – integration using Payop API for users having a PCI DSS certificate -->
-   * Pre-setup integration plugins
-      * [Woocommerce](https://github.com/Payop/woocommerce-plugin)
-
-You can learn more about the difference between the above options here: [Difference description](https://github.com/Payop/payop-api-doc/blob/master/Integration/difference.md).
-
+    
 ## Contents
 
-### 1. Payment and withdrawal methods
-   
-With the help of these requests, you can get the methods available for payments and fund [withdrawals](Withdrawal/withdrawal.md).
+### 0. Integration
 
-* [Get available payment methods](Invoice/getPaymentMethods.md)
-* [Get available withdrawal methods](Withdrawal/paymentMethods.md)
+* Integration via API 
+  * [API Integration Types](0.Integration/integrationApiTypes.md)  
+   * Pre-setup integration plugins  
+      * [Woocommerce](https://github.com/Payop/woocommerce-plugin)  
+          
+* [Response examples](0.Integration/responses.md)  
+* [Signature generation](0.Integration/signatureGenerator.md)  
+
+### 1. Invoice
+
+An invoice is the core element of any payment. Every payment is made against an invoice, and checkout transactions can only be initiated for existing invoices.
+
+* [Invoice](1.Invoice/invoice.md)
+
+   
+### 2. Checkout    
+
+ Handling Payments Through the Checkout Flow
+
+ * [Checkout](2.Checkout/checkout.md)
+
+
+### 3. Withdrawal
+
+Steps to prepare and request a withdrawal.
+
+* [Encrypt withdrawal data](3.Withdrawal/withdrawalEncrypt.md)
+* [Send withdrawal](3.Withdrawal/withdrawal.md)
+   
+### 4. Refund
     
-### 2. Authentication
+How to process and handle refunds.
 
-Authentication is required to get access to the protected API actions.
+* [Refund](4.Refund/refund.md)
 
-* [Bearer authentication](Authentication/bearerAuthentication.md)
-      
-### 3. API Response examples
-   
-Description of API's response format with examples.
-   
-* [Successful response](Response/successResponse.md)
-* [Failed responses](Response/failResponse.md)
 
-### 4. Invoice
+### 5. IPN (Instant Payment Notification)
 
-An invoice is a basic entity in each payment. When you make a payment, you pay an invoice. Checkout transactions can be created only for invoices. 
-    
-* [Payment methods](Invoice/getPaymentMethods.md)
-* [Create invoice](Invoice/createInvoice.md)
-* [Get invoice info](Invoice/getInvoice.md)
-   
-### 5. Checkout    
+Learn to receive and handle Instant Payment Notifications. 
 
- How to handle checkout payments.
-
-<!-- * [Card tokenization](Checkout/createCardToken.md)-->
-<!-- * [Create checkout transaction](Checkout/createCheckoutTransaction.md)-->
-<!-- * [Check invoice status](Checkout/checkInvoiceStatus.md)-->
-<!-- * [Payment routing](Checkout/paymentRouting.md)-->
-<!-- * [Capture transaction](Checkout/captureTransaction.md)-->
- * [IPN (instant payment notification)](Checkout/ipn.md)
- * [Get transaction info](Checkout/getTransaction.md)
- * [Void transaction](Checkout/voidTransaction.md)
-
-### 6. Withdrawal
-
-How to request a withdrawal.
-
-* [Prepare a request](Withdrawal/withdrawal.md)
-* [Payment methods that support withdrawals](Withdrawal/paymentMethods.md)
-* [Create a withdrawal request](Withdrawal/massWithdrawal.md)
-* [Get merchant's withdrawals](Withdrawal/getWithdrawalsList.md)
-* [Get withdrawal details](Withdrawal/getWithdrawal.md)
-* [IPN (instant payment notification)](Withdrawal/withdrawalIpn.md)
-   
-### 7. Refund
-    
-How to make refunds.
-
-* [Create refund](Refund/createRefund.md)
-* [Get merchant's refunds](Refund/getRefundsList.md)
-* [Get refund details](Refund/getRefund.md)
-* [IPN (instant payment notification)](Refund/refundIpn.md)
+* [IPN](5.IPN/ipn.md)
