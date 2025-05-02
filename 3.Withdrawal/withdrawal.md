@@ -241,7 +241,9 @@ curl -X POST "https://api.payop.com/v1/withdrawals/create-mass" \
 
 ### **Purpose:**
 
-**Retrieve a list of withdrawal methods supported for the authenticated user.**
+**Retrieve a list of withdrawal methods supported for the authenticated user and available for payouts via API.** 
+
+**To check the methods available for settlements, please visit your merchant account and the “Withdrawals” section.**
 
 
 ### **Endpoint:**
