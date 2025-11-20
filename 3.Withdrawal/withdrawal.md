@@ -232,6 +232,26 @@ curl -X POST "https://api.payop.com/v1/withdrawals/create-mass" \
  -d '{"data": "9kQ7v9nXLHjeOyIqi+hIJfEKuOCQZ2C5WWVcnmfPHUxh1EbK5g=="}'
 ```
 
+![response](https://img.shields.io/badge/success-response-green?style=for-the-badge)
+
+
+```json
+{
+  "data": [
+    {
+      "id": "eab40b05-805b-5dbb-8900-a634a9ecaf57",
+      "metadata": []
+    },
+    {
+      "id": "19b60564-e75e-5c51-988d-9b7bf69ae240",
+      "metadata": []
+    }
+  ],
+  "status": 1
+}
+
+```
+
 
 ** **
 
