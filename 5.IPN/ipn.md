@@ -55,7 +55,7 @@ A **Checkout IPN (Instant Payment Notification)** is a server-to-server message 
 
 
 ```shell
-POST https://{your_withdrawal_ipn_url}
+POST https://{your-server.com/ipn-endpoint}
 Content-Type: application/json
 {
  "invoice": {
@@ -471,4 +471,5 @@ Content-Type: application/json
    </td>
   </tr>
 </table>
+
 
