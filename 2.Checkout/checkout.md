@@ -34,7 +34,7 @@ Authorization: Bearer YOUR_JWT_TOKEN
 
 | # | Endpoint                                                                     | Method                                                                 | Auth Required | Purpose                                                                 |
 |---|------------------------------------------------------------------------------|------------------------------------------------------------------------|----------------|-------------------------------------------------------------------------|
-| 1 | [`/v1/checkout/create`](#1-create-checkout)                                  | ![POST](https://img.shields.io/badge/-POST-yellow?style=for-the-badge) | ✅ Yes         | Create a new checkout transaction using invoice details.               |
+| 1 | [`/v1/checkout/create`](#1-create-checkout)                                  | ![POST](https://img.shields.io/badge/-POST-yellow?style=for-the-badge) | ❌ No          | Create a new checkout transaction using invoice details.               |
 | 2 | [`/v1/checkout/check-invoice-status/{invoiceID}`](#2-check-invoice-status)  | ![GET](https://img.shields.io/badge/-GET-darkgreen?style=for-the-badge)    | ✅ Yes         | Check the current status of a specific invoice.                        |
 | 3 | [`/v2/transactions/{transactionID}`](#3-get-transaction-details)            | ![GET](https://img.shields.io/badge/-GET-darkgreen?style=for-the-badge)    | ✅ Yes         | Retrieve detailed information about a specific transaction.           |
 | 4 | [`{Checkout IPN URL configured in project settings}`](#4-ipn)      | ![POST](https://img.shields.io/badge/-POST-yellow?style=for-the-badge) | ❌ No          | Receive IPNs for transaction status updates (e.g., success, fail).     |
@@ -353,3 +353,4 @@ https://api.payop.com/v1/checkout/void
  "status": 1
 }
 ```
+
