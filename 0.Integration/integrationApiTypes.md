@@ -83,7 +83,7 @@ The response includes method identifiers and the required payer fields for each 
 {
  "data": [
    {
-     "identifier": 30000018,
+     "identifier": 203822,
      "type": "bank_transfer",
      "title": "Pay by bank",
      "currencies": ["EUR", "GBP"],
@@ -92,15 +92,12 @@ The response includes method identifiers and the required payer fields for each 
        "fields": [
          { "name": "email", "type": "email", "required": true },
          { "name": "name", "type": "text", "required": true },
-         { "name": "date_of_birth", "type": "text", "required": true },
-         { "name": "bank_code", "type": "bank_code", "required": true },
-         { "name": "bank_type", "type": "bank_type", "required": true },
-         { "name": "bank_country", "type": "bank_country", "required": true }
-       ]
+         { "name": "date_of_birth", "type": "text", "required": true }       ]
      }
    }
  ]
 }
+
 
 ```
 
