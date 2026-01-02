@@ -66,49 +66,17 @@ This method is ideal for businesses with development resources who want to embed
 
 ### **How It Works**
 
-**🔹1. Create invoice**
+**🔹1. Retrieve Available Payment Methods**
 
-Use your **public key and signature** to create invoice via the API:
-
-*You can generate signature using the script ( [See signature generation instruction section for more details](signatureGenerator.md) )*
-
-```shell
-curl -X POST "https://api.payop.com/v1/invoices/create" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "publicKey": "application-xxx",
-    "order": {
-      "id": "12345",
-      "amount": "3",
-      "currency": "EUR",
-      "description": "Test payment",
-      "items": []
-    },
-    "signature": "GENERATED_SIGNATURE",
-    "payer": {
-      "email": "test.user@payop.com"
-    },
-    "language": "en",
-    "resultUrl": "https://your.site/result",
-    "failPath": "https://your.site/fail"
-  }'
- 
-```
-
-
-**🔹2. Retrieve Available Payment Methods**
-
-Use your **application ID** to retrieve a list of available payment methods via the API:
+Use your application ID to retrieve a list of available payment methods via the API:
 
 ```shell
 curl -X GET "https://api.payop.com/v1/instrument-settings/payment-methods/available-for-application/{APPLICATION_ID}" \
  -H "Content-Type: application/json" \
  -H "Authorization: Bearer YOUR_JWT_TOKEN"
-
 ```
 
-The response includes method identifiers and the required payer fields for each method. Example response for "Pay by bank":
-
+The response includes method identifiers and the required payer fields for each method. 
 ![response](https://img.shields.io/badge/success-response-green?style=for-the-badge)
 
 ```json
@@ -137,21 +105,57 @@ The response includes method identifiers and the required payer fields for each 
 ```
 
 
-**🔹3. Collect Payer Data** 
+**🔹2. Collect Payer Data**
 
-Based on the payment method selected, request the required fields from the payer.  
+Based on the selected payment method, collect the required fields from the payer. For example:
+    • `email`
+    • `name`
+    • `date_of_birth`
 
-For the example above, the required fields are:  
-  * `email`
-  * `name`
-  * `date_of_birth`
-  * `bank_code`
-  * `bank_type`
-  * `bank_country`
+>⚠️ Important: For payment methods that include the fields `bank_code`, `bank_type`, and `bank_country`, visiting the Payop checkout page is mandatory. On the checkout page, the payer must select the bank through which the payment will be processed.
+>Therefore, these fields should generally not be passed directly from the merchant’s side, as they must reflect the payer’s own bank selection on checkout.
+>Considering the information above, in this case, bypassing the checkout page is not possible.
+
+**🔹3. Create Invoice** 
+
+Use your public key and signature to create an invoice:
+*You can generate a signature using the script ( [See signature generation instruction section for more details](signatureGenerator.md) )*
+
+```shell
+curl -X POST "https://api.payop.com/v1/invoices/create" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "publicKey": "application-xxx",
+    "order": {
+      "id": "12345",
+      "amount": "3",
+      "currency": "EUR",
+      "description": "Test payment",
+      "items": []
+    },
+    "signature": "GENERATED_SIGNATURE",
+    "payer": {
+      "email": "test.user@payop.com"
+    },
+    "language": "en",
+    "resultUrl": "https://your.site/result",
+    "failPath": "https://your.site/fail"
+  }'
+
+```
+![response](https://img.shields.io/badge/success-response-green?style=for-the-badge)
+
+```json
+{
+    "data": "invoice_unique_id",
+    "status": 1
+}
+```
+
 
 **🔹4. Create Checkout Transaction** 
 
-Once all required data is collected, send a POST request to create the transaction:
+Once required data is collected and the invoice is created, initiate the transaction with a POST request:
 
 
 ```shell
@@ -164,13 +168,10 @@ curl -X POST "https://api.payop.com/v1/checkout/create" \
      "name": "John Doe",
      "ip": "192.168.1.1",
      "extraFields": {
-       "date_of_birth": "01.01.1990",
-       "bank_code": "DEUTDEFF",
-       "bank_type": "SEPA",
-       "bank_country": "DE"
+       "date_of_birth": "01.01.1990"
      }
    },
-   "paymentMethod": 30000018,
+   "paymentMethod": 203822,
    "checkStatusUrl": "https://your.site/check-status/{{txid}}"
  }'
 
@@ -187,15 +188,13 @@ curl -X POST "https://api.payop.com/v1/checkout/create" \
    "name": "John Doe",
    "ip": "192.168.1.1",
    "extraFields": {
-     "date_of_birth": "01.01.1990",
-     "bank_code": "DEUTDEFF",
-     "bank_type": "SEPA",
-     "bank_country": "DE"
-   }
+     "date_of_birth": "01.01.1990"   
+}
  },
- "paymentMethod": 30000018,
+ "paymentMethod": 203822,
  "checkStatusUrl": "https://your.site/check-status/{{txid}}"
 }
+
 ```
 
 
@@ -213,17 +212,21 @@ curl -X POST "https://api.payop.com/v1/checkout/create" \
 
 ```
 
+>Please Note
+>When using a custom Waiting Page, you only need to redirect the user to it once — after calling /v1/checkout/create. 
+>All subsequent redirects to the custom Waiting Page (after the bank page, 3ds, etc.) will be processed automatically by the system, i.e., the payer will be returned to the Waiting Page automatically.
+
 
 **🔹5. Check Invoice Status (Polling)**  
 
-Use long-polling to check the status of the transaction using:
+Use this endpoint to determine when to move forward in the flow. This does not reflect the transaction result but simply indicates that a redirect to the payment provider page is available.
 
 ```shell
 curl -X GET "https://api.payop.com/v1/checkout/check-invoice-status/{invoiceID}" \
  -H "Content-Type: application/json" \
 ```
 
-![response](https://img.shields.io/badge/possible-response-blue?style=for-the-badge)
+![possible response](https://img.shields.io/badge/possible-response-blue?style=for-the-badge)
 
 
 ```json
@@ -243,33 +246,70 @@ curl -X GET "https://api.payop.com/v1/checkout/check-invoice-status/{invoiceID}"
 
 ```
 
+```json
+{
+"data": {
+  "isSuccess": true,
+  "status": "pending",
+  "form": {
+    "method": "GET",
+    "url": "https://example.com",
+    "fields": []
+  },
+  "url": "https://example.com"
+},
+"status": 1
+}
+
+
+```
+
 **Status-Based Actions**
 
 
 * **If** `status = success` → Redirect the user to the URL provided in `data.form.url` (e.g., the success page).
 * **If** `status = fail` → Redirect the user to the URL provided in `data.form.url`, which will lead to the fail page.
-* **If** `status = pending`→ Redirect the user to the URL in `data.form.url`, which points to the payment provider's page. 
+* **If** `status = pending`→ Redirect the user to the URL in `data.form.url`,  which points either to the payment provider's page or to the Payop checkout page, where the payer can fill in the missing or invalid fields. 
 
 Use the `method` and `fields` returned in the `data.form` object to construct a form and submit it from the browser. After the user completes the payment on the provider's side, they will be redirected back to either the success or fail page based on the final result.
 
 **🔹6. Receive IPN (Instant Payment Notification)** 
 
-If IPNs are configured, Payop will automatically notify your server when the transaction status changes. This ensures your backend is updated even if the user does not return to your site. \
+If IPNs are configured, Payop will automatically notify your server when the transaction status changes to final. This ensures your backend is updated even if the user does not return to your site. \
 
-*[See Checkout->IPN for more details](../2.Checkout/checkout.md#4-ipn)*
+*[Refer to Checkout->IPN section for more details](../2.Checkout/checkout.md#4-ipn)*
 
 
 ---
 ### **Checkout Flow Summary**
 
-1. **Call payment methods list endpoint** to get available methods with required payer fields.
-2. **Collect required data** from the payer depending on the selected method.
-3. **Create a transaction** using the `/checkout/create` endpoint.
-4. **Check invoice status** by polling `/checkout/check-invoice-status/{invoiceID}` or wait for an IPN.
-5. **Redirect the user** based on the status:
-    * `success` → Success page
-    * `fail` → Fail page
-    * `pending` → Payment provider page → then redirected to final status page
+  1. **Call the payment methods list endpoint** to get available methods with the required payer fields.
+  2. **Collect payer data** depending on the selected method.
+  3. **Create an invoice** using the `/invoices/create` endpoint.
+  4. **Create a transaction** using the `/checkout/create` endpoint.
+  5. **Poll** `/checkout/check-invoice-status/{invoiceID}` and consider redirecting the user based on status:
+      * `success` → Success page
+      * `fail`         → Fail page
+      * `pending` → Payment provider page → then redirected to final status page
+  6. Listen for [IPN](../2.Checkout/checkout.md#4-ipn) callbacks to confirm final transaction status.
+
+---
+### **Simplified Checkout Flow Summary**
+
+This is a simplified direct integration flow designed to minimize the effort required from your side. You don’t need to create a checkout transaction, implement status polling, or manually handle redirects. All you need to do is create an invoice with a predefined payment method and payer data, and redirect the payer to the invoice preprocessing page. From that point onward, the Payop system automatically manages the rest, including transaction creation and redirecting the user to the appropriate pages. You can still embed payments directly into your UI. However, this flow will be much more similar to the Hosted Page integration (Payop-hosted pages won’t be bypassed).
+
+  1. Call the payment methods list endpoint to get available methods with the required payer fields.
+    2. Collect payer data depending on the selected method.
+    3. Fill in the required payer fields, indicate the selected method in the paymentMethod field, and create an invoice using the /invoices/create endpoint.
+    4. Redirect the payer to the invoice preprocessing page: `https://checkout.payop.com/{{locale}}/payment/invoice-preprocessing/{{invoiceId}}`
+     *  `{{locale}}` → Language of the invoice (e.g., en, ru, etc.).
+     *  `{{invoiceId}}` → Unique invoice identifier.
+    5. Flow logic:
+     * If all required fields are filled correctly, the system attempts to process the payment.
+     * If some required fields are missing, the payer is redirected to the checkout form for completion.
+     * If additional authentication is needed, the payer is redirected to the relevant authentication form.
+    6. Redirection will be handled depending on whether the payment is successful or failed, and the payer will be sent to the appropriate `resultUrl` or `failPath` specified upon the invoice creation. 
+    7. Receive [IPN](../2.Checkout/checkout.md#4-ipn) (Instant Payment Notification). Payop automatically sends a notification to your configured URL whenever the transaction status changes to final. This allows your backend to stay updated with the final payment result.
 
 ---
 ### **Advantages of Direct Integration**
