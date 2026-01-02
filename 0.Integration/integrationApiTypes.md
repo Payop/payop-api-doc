@@ -77,6 +77,8 @@ curl -X GET "https://api.payop.com/v1/instrument-settings/payment-methods/availa
 ```
 
 The response includes method identifiers and the required payer fields for each method. 
+
+
 ![response](https://img.shields.io/badge/success-response-green?style=for-the-badge)
 
 ```json
