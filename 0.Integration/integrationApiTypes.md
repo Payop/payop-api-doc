@@ -245,6 +245,8 @@ curl -X GET "https://api.payop.com/v1/checkout/check-invoice-status/{invoiceID}"
 
 ```
 
+![possible response](https://img.shields.io/badge/possible-response-blue?style=for-the-badge)
+
 ```json
 {
 "data": {
