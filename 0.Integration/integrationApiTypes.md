@@ -105,9 +105,9 @@ The response includes method identifiers and the required payer fields for each 
 **🔹2. Collect Payer Data**
 
 Based on the selected payment method, collect the required fields from the payer. For example:
-    • `email`
-    • `name`
-    • `date_of_birth`
+  * `email`
+  * `name`
+  * `date_of_birth`
 
 >⚠️ Important: For payment methods that include the fields `bank_code`, `bank_type`, and `bank_country`, visiting the Payop checkout page is mandatory. On the checkout page, the payer must select the bank through which the payment will be processed.
 >Therefore, these fields should generally not be passed directly from the merchant’s side, as they must reflect the payer’s own bank selection on checkout.
