@@ -299,18 +299,18 @@ If IPNs are configured, Payop will automatically notify your server when the tra
 
 This is a simplified direct integration flow designed to minimize the effort required from your side. You don’t need to create a checkout transaction, implement status polling, or manually handle redirects. All you need to do is create an invoice with a predefined payment method and payer data, and redirect the payer to the invoice preprocessing page. From that point onward, the Payop system automatically manages the rest, including transaction creation and redirecting the user to the appropriate pages. You can still embed payments directly into your UI. However, this flow will be much more similar to the Hosted Page integration (Payop-hosted pages won’t be bypassed).
 
-    1. Call the payment methods list endpoint to get available methods with the required payer fields.
-    2. Collect payer data depending on the selected method.
-    3. Fill in the required payer fields, indicate the selected method in the paymentMethod field, and create an invoice using the /invoices/create endpoint.
-    4. Redirect the payer to the invoice preprocessing page: `https://checkout.payop.com/{{locale}}/payment/invoice-preprocessing/{{invoiceId}}`
+   1. Call the payment methods list endpoint to get available methods with the required payer fields.
+   2. Collect payer data depending on the selected method.
+   3. Fill in the required payer fields, indicate the selected method in the paymentMethod field, and create an invoice using the /invoices/create endpoint.
+   4. Redirect the payer to the invoice preprocessing page: `https://checkout.payop.com/{{locale}}/payment/invoice-preprocessing/{{invoiceId}}`
      *  `{{locale}}` → Language of the invoice (e.g., en, ru, etc.).
      *  `{{invoiceId}}` → Unique invoice identifier.
-    5. Flow logic:
+   5. Flow logic:
      * If all required fields are filled correctly, the system attempts to process the payment.
      * If some required fields are missing, the payer is redirected to the checkout form for completion.
      * If additional authentication is needed, the payer is redirected to the relevant authentication form.
-    6. Redirection will be handled depending on whether the payment is successful or failed, and the payer will be sent to the appropriate `resultUrl` or `failPath` specified upon the invoice creation. 
-    7. Receive [IPN](../2.Checkout/checkout.md#4-ipn) (Instant Payment Notification). Payop automatically sends a notification to your configured URL whenever the transaction status changes to final. This allows your backend to stay updated with the final payment result.
+   6. Redirection will be handled depending on whether the payment is successful or failed, and the payer will be sent to the appropriate `resultUrl` or `failPath` specified upon the invoice creation. 
+   7. Receive [IPN](../2.Checkout/checkout.md#4-ipn) (Instant Payment Notification). Payop automatically sends a notification to your configured URL whenever the transaction status changes to final. This allows your backend to stay updated with the final payment result.
 
 ---
 ### **Advantages of Direct Integration**
@@ -427,3 +427,4 @@ Perfect for platforms and systems that require tighter integration or more advan
 * **Choose Hosted Page** if you want a **simple, fast, and secure** way to accept payments with minimal development effort.
 
 * **Choose Direct Integration** if you **want full control** over your checkout flow and **optimize** the payment process for better conversion rates.
+
