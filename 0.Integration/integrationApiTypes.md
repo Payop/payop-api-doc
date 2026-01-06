@@ -303,12 +303,14 @@ This is a simplified direct integration flow designed to minimize the effort req
    2. Collect payer data depending on the selected method.
    3. Fill in the required payer fields, indicate the selected method in the paymentMethod field, and create an invoice using the /invoices/create endpoint.
    4. Redirect the payer to the invoice preprocessing page: `https://checkout.payop.com/{{locale}}/payment/invoice-preprocessing/{{invoiceId}}`
-     *  `{{locale}}` → Language of the invoice (e.g., en, ru, etc.).
-     *  `{{invoiceId}}` → Unique invoice identifier.
+                
+    *  `{{locale}}` → Language of the invoice (e.g., en, ru, etc.).
+    *  `{{invoiceId}}` → Unique invoice identifier.
    5. Flow logic:
-     * If all required fields are filled correctly, the system attempts to process the payment.
-     * If some required fields are missing, the payer is redirected to the checkout form for completion.
-     * If additional authentication is needed, the payer is redirected to the relevant authentication form.
+     
+    * If all required fields are filled correctly, the system attempts to process the payment.
+    * If some required fields are missing, the payer is redirected to the checkout form for completion.
+    * If additional authentication is needed, the payer is redirected to the relevant authentication form.
    6. Redirection will be handled depending on whether the payment is successful or failed, and the payer will be sent to the appropriate `resultUrl` or `failPath` specified upon the invoice creation. 
    7. Receive [IPN](../2.Checkout/checkout.md#4-ipn) (Instant Payment Notification). Payop automatically sends a notification to your configured URL whenever the transaction status changes to final. This allows your backend to stay updated with the final payment result.
 
