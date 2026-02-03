@@ -73,7 +73,7 @@ Accept: application/json
 | Parameter | Type | Required | Description |
 |----------|------|----------|-------------|
 | includeTotal | boolean | No | Includes the calculated <code>total</code> balance for each currency. |
-| currency | string | No | Optional (if enabled). Filter balances only for selected currencies (e.g. <code>EUR,USD</code>). |
+| currency | string | No | Optional. Filter balances only for selected currencies (e.g. <code>EUR,USD</code>). |
 
 ### **Behavior:**
 
