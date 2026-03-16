@@ -37,8 +37,9 @@ Authorization: Bearer YOUR_JWT_TOKEN
 | 1 | [`/v1/checkout/create`](#1-create-checkout)                                  | ![POST](https://img.shields.io/badge/-POST-yellow?style=for-the-badge) | ❌ No          | Create a new checkout transaction using invoice details.               |
 | 2 | [`/v1/checkout/check-invoice-status/{invoiceID}`](#2-check-invoice-status)  | ![GET](https://img.shields.io/badge/-GET-darkgreen?style=for-the-badge)    | ✅ Yes         | Check the current status of a specific invoice.                        |
 | 3 | [`/v2/transactions/{transactionID}`](#3-get-transaction-details)            | ![GET](https://img.shields.io/badge/-GET-darkgreen?style=for-the-badge)    | ✅ Yes         | Retrieve detailed information about a specific transaction.           |
-| 4 | [`{Checkout IPN URL configured in project settings}`](#4-ipn)      | ![POST](https://img.shields.io/badge/-POST-yellow?style=for-the-badge) | ❌ No          | Receive IPNs for transaction status updates (e.g., success, fail).     |
-| 5 | [`/v1/checkout/void`](#5-void-transaction)                                      | ![POST](https://img.shields.io/badge/-POST-yellow?style=for-the-badge) | ❌ No          | Void (cancel) a previously created but not completed checkout transaction. |
+| 4 | [`/v1/transactions/filter?query[identifiers]={transactionID.1},{transactionID.2},...,{transactionID.N}`](#4-get-transactions-by-ids)   | ![GET](https://img.shields.io/badge/-GET-darkgreen?style=for-the-badge)    | ✅ Yes   | Retrieves detailed information about multiple transactions by IDs.         |
+| 5 | [`{Checkout IPN URL configured in project settings}`](#4-ipn)      | ![POST](https://img.shields.io/badge/-POST-yellow?style=for-the-badge) | ❌ No          | Receive IPNs for transaction status updates (e.g., success, fail).     |
+| 6 | [`/v1/checkout/void`](#5-void-transaction)                                      | ![POST](https://img.shields.io/badge/-POST-yellow?style=for-the-badge) | ❌ No          | Void (cancel) a previously created but not completed checkout transaction. |
 
 
 ### **1. Create Checkout**
@@ -252,10 +253,84 @@ Status | Type         | Description                                             
 
 > **🧾Please Note:** *"Pre-approved" status may change to "Accepted" status or "Failed" status, in case funds are not received or the payer has canceled the transaction. While it is quite a rare scenario, in some cases it is still possible to cancel the payment on the payer's side, **please use "Pre-approved" for goods/service delivery at your own risk. Only the final "Accepted" status is guaranteed**
 
+** **
+
+### **4. Get Transactions by IDs**
+
+
+#### **Purpose:**
+
+
+
+* **Retrieves detailed information about multiple transactions by IDs.**
+* **Can be used for monitoring payments and identifying errors.**
+* **Allows retrieving transaction details by providing a list of transaction IDs.**
+
+
+#### **How It Works:**
+
+
+
+* **A <code>GET</code> request is sent with a comma-separated list of transaction IDs.**
+* **The number of transaction IDs is not limited.**
+* **The response includes transaction status, amount, error messages (if applicable), and payment method details.**
+
+
+#### **Endpoint:**
+
+![GET](https://img.shields.io/badge/-get-darkgreen?style=for-the-badge)
+
+
+```shell
+ https://api.payop.com/v1/transactions/filter?query[identifiers]={transactionID.1},{transactionID.2},...,{transactionID.N}
+```
+
+
+
+![HEADERS](https://img.shields.io/badge/-headers-purple?style=for-the-badge)
+
+
+```shell
+Content-Type: application/
+Authorization: Bearer YOUR_JWT_TOKEN
+```
+
+
+![response](https://img.shields.io/badge/success-response-green?style=for-the-badge)
+
+
+```json
+{
+ "data": {
+   "identifier": "transaction_id",
+   "amount": 100,
+   "currency": "USD",
+   "state": 5,
+   "error": "error message",
+   "createdAt": 1567402240,
+   "orderId": "134666",
+   "resultUrl": "https://your.site/result"
+ }
+
+}
+```
+
+### **Transaction states**
+
+Status | Type         | Description                                                                                                              |
+-------|--------------|--------------------------------------------------------------------------------------------------------------------------|
+1      | new          | New transaction, no actions were taken                                                                                   |
+2      | accepted     | Transaction was paid successfully                                                                                        |
+4      | pending      | Transaction pending, has not yet been paid and is expected to be paid                                                    |
+3, 5  | failed       | Transaction failed, has not been paid for technical or financial reasons                                                 |
+9     | pre-approved | Transaction has been submitted through the bank, however, we are still awaiting the funds to be credited to our account* |
+15    | timeout      | Transaction timed out due to lack of final confirmation from the payer after initiation                                  |
+
+> **🧾Please Note:** *"Pre-approved" status may change to "Accepted" status or "Failed" status, in case funds are not received or the payer has canceled the transaction. While it is quite a rare scenario, in some cases it is still possible to cancel the payment on the payer's side, **please use "Pre-approved" for goods/service delivery at your own risk. Only the final "Accepted" status is guaranteed**
+
 ---
 
-
-### **4. IPN**
+### **5. IPN**
 
 
 #### **Purpose:**
@@ -311,7 +386,7 @@ Status | Type         | Description                                             
 ---
 
 
-### **5. Void Transaction**
+### **6. Void Transaction**
 
 
 #### **Purpose:**
