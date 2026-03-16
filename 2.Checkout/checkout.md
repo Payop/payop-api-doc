@@ -302,13 +302,33 @@ Authorization: Bearer YOUR_JWT_TOKEN
 ```json
 {
  "data": {
-   "identifier": "transaction_id",
+   "identifier": "transaction_id.1",
    "amount": 100,
    "currency": "USD",
    "state": 5,
    "error": "error message",
    "createdAt": 1567402240,
    "orderId": "134666",
+   "resultUrl": "https://your.site/result"
+ },
+ {
+   "identifier": "transaction_id.2",
+   "amount": 150,
+   "currency": "USD",
+   "state": 1,
+   "error": "",
+   "createdAt": 1567403151,
+   "orderId": "134712",
+   "resultUrl": "https://your.site/result"
+ },
+ {
+   "identifier": "transaction_id.N",
+   "amount": 275,
+   "currency": "USD",
+   "state": 5,
+   "error": "error message",
+   "createdAt": 1567405434,
+   "orderId": "134865",
    "resultUrl": "https://your.site/result"
  }
 
