@@ -216,7 +216,7 @@ https://api.payop.com/v1/checkout/check-invoice-status/{invoiceID}
 
 
 ```shell
-Content-Type: application/
+Content-Type: application/json
 Authorization: Bearer YOUR_JWT_TOKEN
 ```
 
