@@ -291,7 +291,7 @@ Status | Type         | Description                                             
 
 
 ```shell
-Content-Type: application/
+Content-Type: application/json
 Authorization: Bearer YOUR_JWT_TOKEN
 ```
 
@@ -301,17 +301,100 @@ Authorization: Bearer YOUR_JWT_TOKEN
 
 ```json
 {
- "data": {
-   "identifier": "transaction_id",
-   "amount": 100,
-   "currency": "USD",
-   "state": 5,
-   "error": "error message",
-   "createdAt": 1567402240,
-   "orderId": "134666",
-   "resultUrl": "https://your.site/result"
- }
-
+    "data": [
+        {
+            "identifier": "transaction_id_1",
+            "userIdentifier": 10215,
+            "pid": "9",
+            "type": 7,
+            "state": 2,
+            "error": "",
+            "orderIdentifier": "117",
+            "amount": "0.53",
+            "currency": "EUR",
+            "paymentMethod": 37000000,
+            "totalCommission": "0.47",
+            "totalCommissionCurrency": "EUR",
+            "createdAt": 1773131689,
+            "updatedAt": 1773131824,
+            "schedules": [
+                {
+                    "from": 4,
+                    "to": 2,
+                    "time": 1771318824
+                },
+                {
+                    "from": 6,
+                    "to": 2,
+                    "time": 1771318824
+                }
+            ],
+            "canResendIpn": true,
+            "hasChargeback": false,
+            "mcc": null,
+            "payAmount": "1",
+            "payCurrency": "EUR",
+            "attributes": [
+                {
+                    "type": 2,
+                    "value": "FR7631133000015145453760000"
+                }
+            ],
+            "refundsExternal": [],
+            "credit": null
+        },
+        {
+            "identifier": "transaction_id_2",
+            "userIdentifier": 10215,
+            "pid": "a136cd71-ccde-15e9-d7db-a992xxx11xx1",
+            "type": 7,
+            "state": 5,
+            "error": "Payop. Transaction rejected by security reason.",
+            "orderIdentifier": "331",
+            "amount": "3",
+            "currency": "EUR",
+            "paymentMethod": 37000000,
+            "totalCommission": "0.13",
+            "totalCommissionCurrency": "EUR",
+            "createdAt": 1763749070,
+            "updatedAt": 1763749070,
+            "schedules": [],
+            "canResendIpn": true,
+            "hasChargeback": false,
+            "mcc": null,
+            "payAmount": "3.13",
+            "payCurrency": "EUR",
+            "attributes": [],
+            "refundsExternal": [],
+            "credit": null
+        },
+        {
+            "identifier": "transaction_id_N",
+            "userIdentifier": 10215,
+            "pid": "a431cd71-ccde-15e9-d7db-a999xxx21xx3",
+            "type": 7,
+            "state": 5,
+            "error": "Payop. Transaction rejected by security reason.",
+            "orderIdentifier": "371",
+            "amount": "5",
+            "currency": "EUR",
+            "paymentMethod": 37000000,
+            "totalCommission": "0.15",
+            "totalCommissionCurrency": "EUR",
+            "createdAt": 1763851070,
+            "updatedAt": 1763851070,
+            "schedules": [],
+            "canResendIpn": true,
+            "hasChargeback": false,
+            "mcc": null,
+            "payAmount": "5.15",
+            "payCurrency": "EUR",
+            "attributes": [],
+            "refundsExternal": [],
+            "credit": null
+        }
+    ],
+    "status": 1
 }
 ```
 
