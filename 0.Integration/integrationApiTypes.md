@@ -106,7 +106,8 @@ The response includes method identifiers and the required payer fields for each 
 
 **🔹2. Collect Payer Data**
 
-Based on the selected payment method, collect the required fields from the payer. For example:
+Based on the selected payment method, collect the required fields from the payer and pass these fields in both `/invoices/create` and `/checkout/create` requests. For example:
+For example:
   * `email`
   * `name`
   * `date_of_birth`
@@ -134,7 +135,11 @@ curl -X POST "https://api.payop.com/v1/invoices/create" \
     },
     "signature": "GENERATED_SIGNATURE",
     "payer": {
-      "email": "test.user@payop.com"
+      "email": "test.user@payop.com",
+      "name": "John Doe",
+      "extraFields": {
+         "date_of_birth": "01.01.1990"
+      }
     },
     "language": "en",
     "resultUrl": "https://your.site/result",
