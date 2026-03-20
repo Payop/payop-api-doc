@@ -170,7 +170,6 @@ curl -X POST "https://api.payop.com/v1/checkout/create" \
    "customer": {
      "email": "test.user@payop.com",
      "name": "John Doe",
-     "ip": "192.168.1.1",
      "extraFields": {
        "date_of_birth": "01.01.1990"
      }
@@ -190,7 +189,6 @@ curl -X POST "https://api.payop.com/v1/checkout/create" \
  "customer": {
    "email": "test.user@payop.com",
    "name": "John Doe",
-   "ip": "192.168.1.1",
    "extraFields": {
      "date_of_birth": "01.01.1990"   
 }
