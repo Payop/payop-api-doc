@@ -38,8 +38,9 @@ Authorization: Bearer YOUR_JWT_TOKEN
 | 2 | [`/v1/checkout/check-invoice-status/{invoiceID}`](#2-check-invoice-status)  | ![GET](https://img.shields.io/badge/-GET-darkgreen?style=for-the-badge)    | ✅ Yes         | Check the current status of a specific invoice.                        |
 | 3 | [`/v2/transactions/{transactionID}`](#3-get-transaction-details)            | ![GET](https://img.shields.io/badge/-GET-darkgreen?style=for-the-badge)    | ✅ Yes         | Retrieve detailed information about a specific transaction.           |
 | 4 | [`/v1/transactions/filter?query[identifiers]={transactionID.1},{transactionID.2},...,{transactionID.N}`](#4-get-transactions-by-ids)   | ![GET](https://img.shields.io/badge/-GET-darkgreen?style=for-the-badge)    | ✅ Yes   | Retrieves detailed information about multiple transactions by IDs.         |
-| 5 | [`{Checkout IPN URL configured in project settings}`](#4-ipn)      | ![POST](https://img.shields.io/badge/-POST-yellow?style=for-the-badge) | ❌ No          | Receive IPNs for transaction status updates (e.g., success, fail).     |
-| 6 | [`/v1/checkout/void`](#5-void-transaction)                                      | ![POST](https://img.shields.io/badge/-POST-yellow?style=for-the-badge) | ❌ No          | Void (cancel) a previously created but not completed checkout transaction. |
+| 5 | [`/v1/transactions/ibans?query[identifiers]={transaction_id_1},{transaction_id_2}`](#5-get-transaction-ibans) | ![GET](https://img.shields.io/badge/-GET-darkgreen?style=for-the-badge)  | ✅ Yes    | Retrieves IBANs used for specific transactions.           |
+| 6 | [`{Checkout IPN URL configured in project settings}`](#6-ipn)      | ![POST](https://img.shields.io/badge/-POST-yellow?style=for-the-badge) | ❌ No          | Receive IPNs for transaction status updates (e.g., success, fail).     |
+| 7 | [`/v1/checkout/void`](#7-void-transaction)                                      | ![POST](https://img.shields.io/badge/-POST-yellow?style=for-the-badge) | ❌ No          | Void (cancel) a previously created but not completed checkout transaction. |
 
 
 ### **1. Create Checkout**
@@ -282,7 +283,7 @@ Status | Type         | Description                                             
 
 
 ```shell
- https://api.payop.com/v1/transactions/filter?query[identifiers]={transactionID.1},{transactionID.2},...,{transactionID.N}
+ https://api.payop.com/v1/transactions/filter?query[identifiers]={transaction_id_1},{transaction_id_2},...,{transaction_id_N}
 ```
 
 
@@ -411,9 +412,65 @@ Status | Type         | Description                                             
 
 > **🧾Please Note:** *"Pre-approved" status may change to "Accepted" status or "Failed" status, in case funds are not received or the payer has canceled the transaction. While it is quite a rare scenario, in some cases it is still possible to cancel the payment on the payer's side, **please use "Pre-approved" for goods/service delivery at your own risk. Only the final "Accepted" status is guaranteed**
 
+** **
+
+### **5. Get Transaction IBANs**
+
+
+#### **Purpose:**
+
+
+
+* **Retrieves IBANs used for specific transactions.**
+* **Allows merchants to request IBANs for multiple transactions in a single request.**
+
+
+#### **How It Works:**
+
+
+
+* **A <code>GET</code> request is sent with a list of transaction IDs separated by commas.**
+* **The response returns a mapping of transaction IDs to the IBANs used for the payments.**
+* **If an IBAN is not available for a transaction, the value will be returned as null.**
+
+
+#### **Endpoint:**
+
+![GET](https://img.shields.io/badge/-get-darkgreen?style=for-the-badge)
+
+
+```shell
+ https://api.payop.com/v1/transactions/ibans?query[identifiers]={transaction_id_1},{transaction_id_2}
+```
+
+
+
+![HEADERS](https://img.shields.io/badge/-headers-purple?style=for-the-badge)
+
+
+```shell
+Content-Type: application/json
+Authorization: Bearer YOUR_JWT_TOKEN
+```
+
+
+![response](https://img.shields.io/badge/success-response-green?style=for-the-badge)
+
+
+```json
+{
+    "data": {
+        "707ca351-eab7-50e0-85f1-aa420b5d6fef": null,
+        "cc1d2e83-49a6-54f5-a929-eb3bd2d97bbb": "GB00000000000000000000",
+        "5363c906-48f5-59a5-a9a5-bb9718f9940d": "GB00000000000000000000"
+    },
+    "status": 1
+}
+```
+
 ---
 
-### **5. IPN**
+### **6. IPN**
 
 
 #### **Purpose:**
@@ -469,7 +526,7 @@ Status | Type         | Description                                             
 ---
 
 
-### **6. Void Transaction**
+### **7. Void Transaction**
 
 
 #### **Purpose:**
