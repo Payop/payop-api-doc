@@ -7,7 +7,7 @@
 Server-To-Server (S2S) integration allows you to interact directly with the Payop API and control each step of the payment on your side — from collecting card data to handling 3DS authentication. Use this integration if you are collecting card details on your own checkout page and want full control over the payment flow.
 
 > 🧾 **Please Note:**
-> * You can see an example of Server-To-Server integration in the [Checkout Demo App repository](https://github.com/Payop/checkout-demo-app).
+> * You can see an example of Server-To-Server integration in the [Checkout Demo App repository](https://github.com/Payop/payop-api-doc/new/master/0.Integration#1-get-available-payment-methods).
 > * Server-To-Server integration can only be used for card payment methods with ID **381**, **480**, **481**. You can view the list of available methods for your project using the [Get available payment methods](#1-get-available-payment-methods) request.
 
 ---
