@@ -49,7 +49,6 @@ https://payop.com/v1/instrument-settings/payment-methods/available-for-applicati
 > 🧾 **Please Note:**
 > * This endpoint requires authentication. Pass your JWT token in the `Authorization` header.
 > * You can find your Project ID in the merchant admin panel under **Projects → Projects List → Details**.
-> * When calling this endpoint, the `formType` field may appear empty at the group level (e.g. for method 381). This is expected — the system uses the specific payment method within the group, which has `formType = cards` set internally. S2S tokenization works correctly without any additional configuration on your side.
 
 ![Key Parameters](https://img.shields.io/badge/key_parameters-lightgray?style=for-the-badge)
 
