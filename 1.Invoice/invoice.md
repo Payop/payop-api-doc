@@ -62,6 +62,23 @@ https://api.payop.com/v1/invoices/create
 | `paymentMethod`       | `string`         | Specific payment method ID.                                                     | ❌           |
 | `metadata`            | `JSON object`    | Additional data for merchant use.                                               | ❌           |
 
+### List of available languages for checkout page
+
+| Code | Language |
+|------|----------|
+| En | English |
+| Ru | Russian |
+| Es | Spanish |
+| It | Italiano |
+| Pt | Portuguese |
+| De | German |
+| Fr | French |
+| Sv | Swedish |
+| Fi | Finnish |
+| Tr | Turkish |
+| Pl | Polish |
+| Nl | Dutch |
+
 
 ![POST](https://img.shields.io/badge/request-post-yellow?style=for-the-badge)
 
@@ -99,8 +116,11 @@ curl -X POST "https://api.payop.com/v1/invoices/create" \
    "failPath": "https://your.site/fail"
 }'
 
+
+
 ```
 
+> **Note:** To ensure accurate testing results, please use real payer information, such as a valid email address (without “test” keywords) and the payer’s real full name.
 
 ![response](https://img.shields.io/badge/success-response-green?style=for-the-badge)
 
