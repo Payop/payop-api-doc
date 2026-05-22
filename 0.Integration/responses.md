@@ -204,3 +204,6 @@
 | ![404](https://img.shields.io/badge/404-red?style=for-the-badge) | Not Found                              | Check if resource ID is correct                       |
 | ![422](https://img.shields.io/badge/422-red?style=for-the-badge) | Validation or unsupported method      | Validate input or enable missing method               |
 | ![500](https://img.shields.io/badge/500-darkred?style=for-the-badge)  | Internal error                         | Retry or contact support if persistent                |
+
+
+If you are using integrators (PaymentIQ, Praxis, etc), please ensure that full logging is enabled for your account to ensure a comprehensive investigation and to significantly accelerate the identification of the root cause. In case you face any issues, please provide us with the for the  CreateInvoice and Create Checkout requests
