@@ -26,7 +26,7 @@ echo 'Signature: ', PHP_EOL, hash('sha256', implode(':', $data)), PHP_EOL;
 2. **Run the script** in a terminal using the command:
 3. `php generate_signature.php`
 4. **Enter the required values** when prompted:
-    * **Order Amount** (e.g., `100.00`, `99.99`)
+    * **Order Amount** (e.g., `100.00`, `99.99`)       
     * **Order Currency** (e.g., `USD`, `EUR`)
     * **Order ID** (e.g., `order12345`, `12345`)
     * **Secret Key** (your project’s secret key)
@@ -47,6 +47,7 @@ Enter order currency: USD
 Enter your system order ID: order12345
 Enter secret key of your project: mySuperSecretKey
 ```
+Any discrepancy in the ‘amount’ parameter between the signature and the createInvoice request (e.g., "2" vs "2.00") will result in an error. Please make sure that you are using the same integer/decimal format.
 
 **Example Output:**
 
