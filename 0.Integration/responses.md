@@ -206,4 +206,51 @@
 | ![500](https://img.shields.io/badge/500-darkred?style=for-the-badge)  | Internal error                         | Retry or contact support if persistent                |
 
 
-If you are using integrators (PaymentIQ, Praxis, etc), please ensure that full logging is enabled for your account to ensure a comprehensive investigation and to significantly accelerate the identification of the root cause. In case you face any issues, please provide us with the for the  CreateInvoice and Create Checkout requests
+
+## 💳 Card Payment Errors
+
+### Acquirer response codes
+
+The following response codes may be returned by the acquirer:
+
+| Code | Action | Description |
+|------|--------|-------------|
+| `00` | Approve | Approved or completed successfully |
+| `05` | Decline | Do not honor — ask payer to contact their bank |
+| `12` | Decline | Invalid transaction |
+| `13` | Decline | Invalid amount |
+| `14` | Decline | Invalid card number |
+| `51` | Decline | Insufficient funds |
+| `54` | Decline | Expired card |
+| `55` | Decline | Invalid PIN |
+| `57` | Decline | Transaction not permitted to cardholder |
+| `61` | Decline | Exceeds withdrawal amount limit |
+| `62` | Decline | Restricted card |
+| `65` | Decline | 3DS soft decline — resubmit with 3DS authentication |
+| `91` | Decline | Issuer system unavailable — retry later |
+| `96` | Decline | System error — retry later |
+
+---
+
+### Internal errors
+
+| Error message | Description |
+|---------------|-------------|
+| `Transaction rejected by security reason.` | Transaction was blocked by internal anti-fraud rules. |
+| `We are unable to process your payment due to security reasons.` | The card is in the block list. |
+| `3DS authentication failed` | 3DS verification was not completed successfully. |
+| `Field: (card_security_code) length is invalid.` | CVV/CVC format is incorrect. |
+
+---
+
+### Failed transactions with empty reason
+
+If a transaction has `status = Failed` and no error reason is provided, this is typically caused by a temporary external unavailability or connection interruption. 
+
+**Recommended action:** retry the transaction. If the issue persists, contact Payop support and provide the transaction details for investigation.
+
+---
+
+### Troubleshooting tips
+
+If you are using payment integrators (PaymentIQ, Praxis, etc.), ensure that full request logging is enabled on your account. When contacting support, provide the full request and response logs for `Create Invoice` and `Create Checkout Transaction` to accelerate investigation.
