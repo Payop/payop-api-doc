@@ -11,6 +11,10 @@ Payop offers two primary integration options for merchants to process payments: 
 
 The **Hosted Page Integration** is the **simplest** and **most convenient** method for merchants who prefer a **quick and easy** way to accept payments without extensive development efforts. Payop handles most of the payment flow, including security, compliance, and user experience.
 
+> 🧾 **Please Note:** Hosted Page integration is suitable for merchants who 
+> accept card payments without a PCI DSS certificate. Card data collection and 
+> tokenization are handled entirely by Payop.
+
 
 ### **How It Works**
 
@@ -56,6 +60,38 @@ The **Hosted Page Integration** is the **simplest** and **most convenient** meth
 * Merchants who **do not want to build** their own checkout page.
 * Companies needing **multi-language** and **multi-currency** payment solutions with minimal setup.
 
+## **Hosted Page by Payment Method ID**
+
+### **Overview**
+
+This integration works the same as Hosted Page, but with a specific payment 
+method pre-selected. The merchant creates an invoice with a `paymentMethod` ID 
+specified, and the payer is redirected directly to the card payment form on the 
+Payop checkout page — skipping the payment method selection step.
+
+> 🧾 **Please Note:** Hosted Page and Hosted Page by Payment Method ID are the 
+> recommended integration options for merchants who have card payment methods 
+> available but **do not have a PCI DSS certificate**. These integrations do not 
+> require card tokenization to be enabled on the merchant's project.
+
+### **Checkout Flow**
+
+1. **Create Invoice** with `paymentMethod` ID specified: `POST https://api.payop.com/v1/invoices/create`   
+*( [See the Invoice section for more details](../1.Invoice/invoice.md) )*
+2. **Redirect payer to invoice preprocessing page:**
+3. `https://checkout.payop.com/{{locale}}/payment/invoice-preprocessing/{{invoiceId}}`
+    * `{{locale}}` → Language of the invoice (`en`, `ru`, etc.).
+    * `{{invoiceId}}` → Unique invoice identifier.
+4. Payer fills in card details on Payop checkout page.
+5. Receive IPN when transaction reaches final state.
+
+
+### **Best Use Cases**
+
+* Merchants who want to display a specific card payment method on their site 
+with a **Pay** button, redirecting directly to the card form.
+* Merchants who accept card payments **without a PCI DSS certificate**.
+
 
 ## **2. Direct Integration**
 
@@ -63,6 +99,10 @@ The Direct Integration option provides a more advanced and customizable way for 
 
 This method is ideal for businesses with development resources who want to embed payments directly into their own UI and reduce friction during the checkout process.
 
+> ⚠️ **Important:** Direct Integration is **not supported for card payment 
+> methods**. For card payments, use:
+> - [Hosted Page integration](#1-hosted-page-integration) or [Hosted Page by Payment Method ID](#2-hosted-page-by-payment-method-id)
+> - [S2S integration](s2s.md) *(requires PCI DSS certificate)*
 
 ### **How It Works**
 
@@ -420,6 +460,22 @@ Perfect for platforms and systems that require tighter integration or more advan
    <td>✅ Best for enterprises needing full control over your checkout flow and optimize the payment process
    </td>
   </tr>
+     <tr>
+   <td>Card payments without PCI DSS
+   </td>
+   <td>✅ Supported (Hosted Page and Hosted Page by Payment Method ID)
+   </td>
+   <td>❌ Not supported
+   </td>
+  </tr>
+  <tr>
+   <td>Card payments with PCI DSS
+   </td>
+   <td>✅ Supported (Hosted Page and Hosted Page by Payment Method ID)
+   </td>
+   <td>✅ Supported via S2S integration
+   </td>
+  </tr>
 </table>
 
 
@@ -428,6 +484,10 @@ Perfect for platforms and systems that require tighter integration or more advan
 
 
 * **Choose Hosted Page** if you want a **simple, fast, and secure** way to accept payments with minimal development effort.
+
+* **Choose Hosted Page by Payment Method ID** if you want to display a specific 
+card payment method on your site and redirect the payer directly to the card 
+form — **no PCI DSS certificate required**.
 
 * **Choose Direct Integration** if you **want full control** over your checkout flow and **optimize** the payment process for better conversion rates.
 
