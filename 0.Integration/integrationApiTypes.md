@@ -11,10 +11,7 @@ Payop offers two primary integration options for merchants to process payments: 
 
 The **Hosted Page Integration** is the **simplest** and **most convenient** method for merchants who prefer a **quick and easy** way to accept payments without extensive development efforts. Payop handles most of the payment flow, including security, compliance, and user experience.
 
-> 🧾 **Please Note:** Hosted Page integration is suitable for merchants who 
-> accept card payments without a PCI DSS certificate. Card data collection and 
-> tokenization are handled entirely by Payop.
-
+> 🧾 **Please Note:** Hosted Page integration **is suitable for any payment method**, including those where merchants accept card payments without a PCI DSS certificate. Card data collection and tokenisation are handled entirely by Payop.
 
 ### **How It Works**
 
@@ -60,7 +57,7 @@ The **Hosted Page Integration** is the **simplest** and **most convenient** meth
 * Merchants who **do not want to build** their own checkout page.
 * Companies needing **multi-language** and **multi-currency** payment solutions with minimal setup.
 
-## **Hosted Page by Payment Method ID**
+## **2. Hosted Page by Payment Method ID**
 
 ### **Overview**
 
@@ -69,10 +66,7 @@ method pre-selected. The merchant creates an invoice with a `paymentMethod` ID
 specified, and the payer is redirected directly to the card payment form on the 
 Payop checkout page — skipping the payment method selection step.
 
-> 🧾 **Please Note:** Hosted Page and Hosted Page by Payment Method ID are the 
-> recommended integration options for merchants who have card payment methods 
-> available but **do not have a PCI DSS certificate**. These integrations do not 
-> require card tokenization to be enabled on the merchant's project.
+> 🧾 **Please Note:** Hosted Page and Hosted Page by Payment Method ID are **suitable for any payment method**, and are the recommended integration options for merchants who have card payment methods available but **do not have a PCI DSS certificate**. These integrations do not require card tokenization to be enabled on the merchant's project.
 
 ### **Checkout Flow**
 
@@ -88,12 +82,12 @@ Payop checkout page — skipping the payment method selection step.
 
 ### **Best Use Cases**
 
-* Merchants who want to display a specific card payment method on their site 
-with a **Pay** button, redirecting directly to the card form.
+* Merchants who want to display a specific payment method on their site with a **Pay** button, redirecting directly to the checkout page with preselected payment method.
+
 * Merchants who accept card payments **without a PCI DSS certificate**.
 
 
-## **2. Direct Integration**
+## **3. Direct Integration**
 
 The Direct Integration option provides a more advanced and customizable way for merchants to accept payments by bypassing the Payop-hosted checkout page. Instead, merchants integrate specific payment methods directly into their own system, giving them full control over the user experience, design, and data collection flow.
 
@@ -338,7 +332,12 @@ If IPNs are configured, Payop will automatically notify your server when the tra
   6. Listen for [IPN](../2.Checkout/checkout.md#4-ipn) callbacks to confirm final transaction status.
 
 ---
-### **Simplified Checkout Flow Summary**
+## **4. Simplified Checkout Flow Summary**
+
+> 🧾 **Please Note:** For card payment methods, this simplified flow is only 
+> supported with **Hosted Page** or **Hosted Page by Payment Method ID** 
+> integrations. If you require full control over card data collection, use 
+> [S2S integration](s2s.md) *(requires a valid PCI DSS certificate)*.
 
 This is a simplified direct integration flow designed to minimize the effort required from your side. You don’t need to create a checkout transaction, implement status polling, or manually handle redirects. All you need to do is create an invoice with a predefined payment method and payer data, and redirect the payer to the invoice preprocessing page. From that point onward, the Payop system automatically manages the rest, including transaction creation and redirecting the user to the appropriate pages. You can still embed payments directly into your UI. However, this flow will be much more similar to the Hosted Page integration (Payop-hosted pages won’t be bypassed).
 
