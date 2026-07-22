@@ -208,6 +208,10 @@ idempotency-key: YOUR_UNIQUE_UUID  (Optional, recommended)
 ```
 > `direction` is not required for this method (the only exception among all methods). `beneficiaryBank` can be omitted — the server automatically resolves the bank from the IBAN/account.
 
+> **Error handling:** if the bank cannot be resolved from the given `beneficiary.account` (IBAN or local account number) or `bic`, the request fails with `404` — `Bank details for iban %s not found` / `Bank details for account number %s not found`.
+>
+> **Routing precondition:** this method must be enabled in the merchant's active payout routing configuration. If not, the request fails with `422` — `... is not supported for the payouts. Please get in touch with our support or select another method.`
+
 
 ### **Commission Types:**
 
