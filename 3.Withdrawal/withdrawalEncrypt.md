@@ -28,13 +28,14 @@
 ```json
 [
  {
-   "method": 14,
+   "method": 15,
    "type": 1,
    "amount": 1000,
    "currency": "EUR",
    "additionalData": {
      "direction": "Test Payout",
-     "email": "recipient@example.com"
+     "email": "recipient@example.com",
+     "recipientAccountType": 1
    },
    "metadata": {
      "internalOrderId": "ORDER-2024-001"
@@ -43,11 +44,12 @@
 ]
 ```
 
-* **<code>method</code>: Withdrawal method ID (e.g., <code>14</code> = Volet, <code>15</code> = PayDo)**
+* **<code>method</code>: Withdrawal method ID (e.g., <code>15</code> = PayDo)**
 * **<code>type</code>: Commission type (1 - from wallet, 2 - from withdrawal amount)**
 * **<code>amount</code>: Amount to be withdrawn**
 * **<code>currency</code>: Payout currency (EUR, USD, etc.)**
 * **<code>additionalData</code>: Method-specific fields (check required fields per method)**
+* **`recipientAccountType`**: Recipient account type. `1` — Personal account, `2` — Business account
 * **<code>metadata</code>: Optional custom data (for internal tracking)**
 
 
@@ -68,13 +70,14 @@ $certificate = file_get_contents($certFilePath);
 
 $data = [
    [
-       'method' => 14,
+       'method' => 15,
        'type' => 1,
        'amount' => 1000,
        'currency' => 'EUR',
        'additionalData' => [
            'direction' => 'Affiliate Payout',
-           'email' => 'recipient@example.com'
+           'email' => 'recipient@example.com',
+           'recipientAccountType': 1
        ],
        'metadata' => [
            'internalOrderId' => 'ORDER-2024-001'
@@ -127,6 +130,8 @@ curl -X POST https://api.payop.com/v1/withdrawals/create-mass \
 ### **📖	 User Guides**
 ---
 
+👉 Guide: [How to create mass payouts through the API?](https://www.youtube.com/watch?v=fdsF9ji1Los)
+
 <details>
    <summary> 👉 Guide: Run PHP Script to Encrypt Withdrawal Payload Using Docker</summary> 
  
@@ -167,7 +172,7 @@ $certFilePath = __DIR__ . '/c9f5753e-587f-41fa-9b2a-b7ab998d1bcc'; // Ensure you
 $certificate = file_get_contents($certFilePath);
 $data = [
    [
-       'method' => 14,
+       'method' => 15,
        'type' => 1,
        'amount' => 1000,
        'currency' => 'EUR',
