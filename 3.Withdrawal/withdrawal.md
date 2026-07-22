@@ -168,20 +168,6 @@ idempotency-key: YOUR_UNIQUE_UUID  (Optional, recommended)
 ### **Withdrawal Method Examples:**
 
 
-#### **🟦 Volet (method: 14)**
-
-
-```json
-{
- "direction": "Salary for September",
- "email": "recipient@example.com"
-}
-```
-
-
-** **
-
-
 #### **🟧 PayDo (method: 15)**
 
 
@@ -194,7 +180,7 @@ idempotency-key: YOUR_UNIQUE_UUID  (Optional, recommended)
 ```
 
 ** **
-
+* **`recipientAccountType`**: Recipient account type. `1` — Personal account, `2` — Business account
 
 #### **🟩 Bank Transfer for PBB (method: 20)**
 ```json
@@ -315,8 +301,8 @@ curl -X GET "https://payop.com/v1/instrument-settings/payment-methods/available-
 {
  "data": [
    {
-     "type": 14,
-     "name": "Volet",
+     "type": 15,
+     "name": "PayDo",
      "currencies": ["EUR", "USD"]
    },
    {
