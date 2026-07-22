@@ -304,11 +304,6 @@ curl -X GET "https://payop.com/v1/instrument-settings/payment-methods/available-
      "type": 15,
      "name": "PayDo",
      "currencies": ["EUR", "USD"]
-   },
-   {
-     "type": 15,
-     "name": "PayDo",
-     "currencies": ["EUR", "USD"]
    }
  ],
  "status": 1
