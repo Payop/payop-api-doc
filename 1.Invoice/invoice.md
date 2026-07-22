@@ -52,7 +52,7 @@ https://api.payop.com/v1/invoices/create
 | `order.amount`        | `string`         | Payment amount.                                                                 | ✅           |
 | `order.currency`      | `string`         | Payment currency.                                                               | ✅           |
 | `order.description`   | `string`         | Description of payment.                                                         | ❌           |
-| `order.items`         | `json array`     | List of products/services.                                                      | ❌           |
+| `order.items`         | `json array`     | List of products/services. Required field, but can be passed as an empty array `[]`                                                      | ℹ️           |
 | `payer`               | `JSON object`    | Payer details.                                                                  | ✅           |
 | `payer.email`         | `string`         | Payer email.                                                                    | ✅           |
 | `language`            | `string`         | Language of the checkout page (e.g., `en`, `ru`).                               | ❌           |
