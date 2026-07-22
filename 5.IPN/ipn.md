@@ -14,7 +14,7 @@
 * **Retries happen until your server responds with HTTP 200 OK.**
 * **You may receive multiple IPNs for the same transaction with:**
     * **The same status (duplicate)**
-    * **Updated status (e.g., from <code>failed</code> → <code>success</code>) — must be handled**
+    * **Updated status (e.g., from <code>failed</code> → <code>accepted</code>) — must be handled**
 
 
 ## **Best Practices for IPNs**
@@ -40,14 +40,14 @@
 
 ### **What is Checkout IPN?**
 
-A **Checkout IPN (Instant Payment Notification)** is a server-to-server message sent by Payop when the status of a checkout transaction is updated—particularly when it reaches a final state such as **Success** or **Fail**.
+A **Checkout IPN (Instant Payment Notification)** is a server-to-server message sent by Payop when the status of a checkout transaction is updated—particularly when it reaches a final state such as **Accepted** or **Fail**.
 
 
 ### **When is Checkout IPN Sent?**
 
 
-*  **Sent after a final status is determined** for a transaction (e.g., payment succeeded or failed). \
-*  **Delivered to the IPN URL** configured in your project settings under the *Checkout* section. \
+*  **Sent after a final status is determined** for a transaction (e.g., payment accepted or failed). 
+*  **Delivered to the IPN URL** configured in your project settings under the *Checkout* section. 
 *  **Repeated automatically** until your server responds with an HTTP `200 OK`, confirming successful receipt.
 
 
@@ -136,7 +136,11 @@ Content-Type: application/json
    </td>
    <td><strong>number</strong>
    </td>
-   <td><strong>Transaction state (2 = success, 3/5 = failed, etc.)</strong>
+   <td><strong>Transaction state:</strong><br>
+   <strong>2</strong> = accepted<br>
+   <strong>5</strong> with <code>transaction.error.message = 'timeout'</code> → Timeout<br>
+   <strong>5</strong> with <code>transaction.error.message = 'We are unable to process your payment due to security reasons.'</code> → Rejected<br>
+   <strong>5</strong> with any other <code>transaction.error.message</code> → Failed
    </td>
   </tr>
   <tr>
@@ -211,9 +215,9 @@ curl -X POST https://your-server.com/ipn-endpoint \
 
 
 * **You may receive multiple IPNs with the same data → Process only the first one.**
-* **If status changes later (e.g., from <code>failed</code> to <code>success</code>), process the new one and update your system.**
-* **Received multiple IPNs with same refundId and <code>success</code> → process the first only.**
-* **First IPN had <code>failed</code> status, later IPN has <code>success</code> → update refund state.**
+* **If status changes later (e.g., from <code>failed</code> to <code>accepted</code>), process the new one and update your system.**
+* **Received multiple IPNs with same refundId and <code>accepted</code> → process the first only.**
+* **First IPN had <code>failed</code> status, later IPN has <code>accepted</code> → update refund state.**
 
 
 ### **IPN Payload Example for Refund**
