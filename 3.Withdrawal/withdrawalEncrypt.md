@@ -178,7 +178,8 @@ $data = [
        'currency' => 'EUR',
        'additionalData' => [
            'direction' => 'Test payout',
-           'email' => 'recipient@example.com'
+           'email' => 'recipient@example.com',
+           'recipientAccountType' => 1
        ]
    ]
 ];
