@@ -193,6 +193,17 @@ idempotency-key: YOUR_UNIQUE_UUID  (Optional, recommended)
 }
 ```
 
+#### **🟩 Bank Transfer for PBB (method: 20)**
+```json
+{
+  "beneficiary": {
+    "account": "GB80HBUK44830812341234",
+    "name": "Petro Petrovich"
+  },
+  "email": "recipient@example.com"
+}
+```
+> `direction` is not required for this method (the only exception among all methods). `beneficiaryBank` can be omitted — the server automatically resolves the bank from the IBAN/account.
 
 
 ### **Commission Types:**
