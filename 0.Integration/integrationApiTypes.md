@@ -141,7 +141,6 @@ The response includes method identifiers and the required payer fields for each 
 **🔹2. Collect Payer Data**
 
 Based on the selected payment method, collect the required fields from the payer and pass these fields in both `/invoices/create` and `/checkout/create` requests. For example:
-For example:
   * `email`
   * `name`
   * `date_of_birth`
