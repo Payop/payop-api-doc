@@ -21,14 +21,14 @@ The **Hosted Page Integration** is the **simplest** and **most convenient** meth
 **🔹3. Payer Enters Required Data:** On the Payop checkout page, the payer fills in necessary details (e.g., name, date of birth, email, etc.).  
 **🔹4. Automatic Processing** – Payop determines the next steps, such as selecting the appropriate payment method or requiring additional details.  
 **🔹5. Payment Confirmation** – If the payment is successful, the payer is redirected to the `resultUrl`. If the payment fails, the payer is redirected to the `failPath`.  
-**🔹6. Receive IPN (Instant Payment Notification)** If IPNs are configured, Payop will automatically notify your server when the transaction status changes. This ensures your backend is updated even if the user does not return to your site.   \
+**🔹6. Receive IPN (Instant Payment Notification)** If IPNs are configured, Payop will automatically notify your server when the transaction status changes. This ensures your backend is updated even if the user does not return to your site.
 
  *[See Checkout->IPN for more details](../2.Checkout/checkout.md#4-ipn)*
 
 
 ### **Checkout Flow**
 
-1. **Create Invoice** `POST https://api.payop.com/v1/invoices/create`   
+1. **Create Invoice** `POST https:/api.payop.com/v1/invoices/create`   
 *( [See the Invoice section for more details](../1.Invoice/invoice.md) )*
 2. **Redirect payer to invoice preprocessing page:**
 3. `https://checkout.payop.com/{{locale}}/payment/invoice-preprocessing/{{invoiceId}}`
@@ -313,7 +313,7 @@ Use the `method` and `fields` returned in the `data.form` object to construct a 
 
 **🔹6. Receive IPN (Instant Payment Notification)** 
 
-If IPNs are configured, Payop will automatically notify your server when the transaction status changes to final. This ensures your backend is updated even if the user does not return to your site. \
+If IPNs are configured, Payop will automatically notify your server when the transaction status changes to final. This ensures your backend is updated even if the user does not return to your site.
 
 *[Refer to Checkout->IPN section for more details](../2.Checkout/checkout.md#4-ipn)*
 
