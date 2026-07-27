@@ -187,7 +187,7 @@ idempotency-key: YOUR_UNIQUE_UUID  (Optional, recommended)
 {
   "beneficiary": {
     "account": "GB80HBUK44830812341234",
-    "name": "Petro Petrovich"
+    "name": "John Doe"
   },
   "email": "recipient@example.com"
 }
@@ -196,7 +196,7 @@ idempotency-key: YOUR_UNIQUE_UUID  (Optional, recommended)
 
 > **Error handling:** if the bank cannot be resolved from the given `beneficiary.account` (IBAN or local account number) or `bic`, the request fails with `404` — `Bank details for iban %s not found` / `Bank details for account number %s not found`.
 
-> **Routing precondition:** this method must be enabled in the merchant's active payout routing configuration. If not, the request fails with `422` — `... is not supported for the payouts. Please get in touch with our support or select another method.`
+> **Routing precondition:**  this method must be enabled as a payout option in the merchant account. If not, the request fails with `422` — `... is not supported for the payouts. Please get in touch with our support or select another method.`
 
 ** **
 
