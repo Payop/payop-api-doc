@@ -24,6 +24,7 @@
 
 **Prepare the JSON structure you want to send.**
 
+#### **🟧 PayDo (method: 15)**
 
 ```json
 [
@@ -51,6 +52,37 @@
 * **<code>additionalData</code>: Method-specific fields (check required fields per method)**
 * **`recipientAccountType`**: Recipient account type. `1` — Personal account, `2` — Business account
 * **<code>metadata</code>: Optional custom data (for internal tracking)**
+
+#### **🟩 Bank Transfer for PBB (method: 20)**
+```json
+[
+  {
+    "method": 20,
+    "type": 1,
+    "amount": 1000,
+    "currency": "EUR",
+    "additionalData": {
+      "beneficiary": {
+        "account": "FR7640618803580004092680885"
+      },
+      "email": "beneficiary@example.com"
+    },
+    "metadata": {
+      "externalId": "PAYMENT-12345"
+    },
+    "clientId": "WITHDRAWAL-12345"
+  }
+]
+```
+* **<code>method</code>: Withdrawal method ID (e.g., <code>20</code> = PBB)**
+* **<code>type</code>: Commission type (1 - from wallet, 2 - from withdrawal amount)**
+* **<code>amount</code>: Amount to be withdrawn**
+* **<code>currency</code>: Payout currency (EUR, GBP)**
+* **<code>additionalData</code>: Method-specific fields (check required fields per method)**
+* **<code>account</code>: payer's IBAN**
+* **<code>email</code>: payer's email**
+* **<code>metadata</code>: Client-defined data returned unchanged in the response. Maximum size: 800 bytes.**
+* **<code>clientId</code>: Client-generated unique withdrawal reference. Must contain 1-36 letters, numbers, or hyphens and must be unique for the user.**
 
 
 ---
