@@ -100,29 +100,32 @@ curl -X GET "https://api.payop.com/v1/wallets/get-balances?includeTotal=1"  -H "
 
 ```json
 {
-  "snapshotAt": "2025-09-15T12:34:56Z",
-  "currencies": [
-    {
-      "code": "EUR",
-      "balance": {
-        "available": "1000.50",
-        "referral": "15.00",
-        "pending": "50.00",
-        "reserve": "200.00",
-        "total": "1265.50"
+  "data": {
+    "snapshotAt": "2025-09-15T12:34:56Z",
+    "currencies": [
+      {
+        "code": "EUR",
+        "balance": {
+          "available": "1000.50",
+          "referral": "15.00",
+          "pending": "50.00",
+          "reserve": "200.00",
+          "total": "1265.50"
+        }
+      },
+      {
+        "code": "USD",
+        "balance": {
+          "available": "8000.50",
+          "referral": "0.00",
+          "pending": "0.00",
+          "reserve": "0.00",
+          "total": "8000.50"
+        }
       }
-    },
-    {
-      "code": "USD",
-      "balance": {
-        "available": "8000.50",
-        "referral": "0.00",
-        "pending": "0.00",
-        "reserve": "0.00",
-        "total": "8000.50"
-      }
-    }
-  ]
+    ]
+  },
+  "status": 1
 }
 ```
 
