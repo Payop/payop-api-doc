@@ -192,7 +192,8 @@ idempotency-key: YOUR_UNIQUE_UUID  (Optional, recommended)
 }
 ```
 
-> **Error handling:** 
+**Error handling:**
+
 | HTTP status | Scenario | message |
 |---|---|---|
 | — | Unverified user | "Only verified users can request a withdrawal" (@CheckVerification) |
