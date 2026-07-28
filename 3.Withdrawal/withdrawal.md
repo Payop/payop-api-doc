@@ -186,17 +186,32 @@ idempotency-key: YOUR_UNIQUE_UUID  (Optional, recommended)
 ```json
 {
   "beneficiary": {
-    "account": "GB80HBUK44830812341234",
-    "name": "John Doe"
+    "account": "GB80HBUK44830812341234"    
   },
   "email": "recipient@example.com"
 }
 ```
-> `direction` is not required for this method (the only exception among all methods). `beneficiaryBank` can be omitted — the server automatically resolves the bank from the IBAN/account.
 
-> **Error handling:** if the bank cannot be resolved from the given `beneficiary.account` (IBAN or local account number) or `bic`, the request fails with `404` — `Bank details for iban %s not found` / `Bank details for account number %s not found`.
+> **Error handling:** 
+| HTTP status | Scenario | message |
+|---|---|---|
+| — | Unverified user | "Only verified users can request a withdrawal" (@CheckVerification) |
+| 400 | No certificate issued for the user | "Certificate not found" |
+| 400 | Ciphertext is empty | "Unable decrypt empty message" |
+| 400 | Ciphertext is invalid or cannot be decrypted | "Unable decrypt message. Please check if it's properly encrypted" |
+| 400 | Decrypted payload is not valid JSON | "Decrypted message is not valid JSON" |
+| 403 | Missing or insufficient permission | "Insufficient Permissions" |
+| 404 | Bank details for the supplied account or IBAN cannot be resolved | "Bank details for iban %s not found." / "Bank details for account number %s not found." |
+| 409 | Duplicate idempotency-key | "Not unique idempotency key" |
+| 422 | Decoded payload is not an array of objects | "Decoded batch withdrawal request should be a collection of withdrawal objects" |
+| 422 | An item fails structural validation, for example method is not numeric | "Incorrect withdrawal data on element with index {index}: {reason}" |
+| 422 | Method is not enabled for payouts for this merchant | "Unfortunately, the selected method {method} is not supported for the payouts. Please get in touch with our support or select another method." |
+| 422 | clientId has already been used by this user | {"clientId": ["This value should be unique."]} |
+| 422 | Batch is larger than 100 items | "Size of mass withdrawal must be less then 100" |
+| 422 | Insufficient wallet balance | "Not enough money to perform this operation. Try reducing the amount by ..." |
+| 500 | Anything else unexpected | "Something went wrong, try again or contact support." |
 
-> **Routing precondition:**  this method must be enabled as a payout option in the merchant account. If not, the request fails with `422` — `... is not supported for the payouts. Please get in touch with our support or select another method.`
+
 
 ** **
 
