@@ -186,7 +186,8 @@ idempotency-key: YOUR_UNIQUE_UUID  (Optional, recommended)
 ```json
 {
   "beneficiary": {
-    "account": "GB80HBUK44830812341234"    
+    "account": "GB80HBUK44830812341234",
+     "name" : "Johe Bovi"    
   },
   "email": "recipient@example.com"
 }
