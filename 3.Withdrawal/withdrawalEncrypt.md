@@ -63,7 +63,8 @@
     "currency": "EUR",
     "additionalData": {
       "beneficiary": {
-        "account": "FR7640618803580004092680885"
+        "account": "FR7640618803580004092680885",
+         "name": "John Doe"
       },
       "email": "beneficiary@example.com"
     },
