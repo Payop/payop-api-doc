@@ -179,7 +179,7 @@ idempotency-key: YOUR_UNIQUE_UUID  (Optional, recommended)
 }
 ```
 
-** **
+
 * **`recipientAccountType`**: Recipient account type. `1` — Personal account, `2` — Business account
 
 #### **🟩 Bank Transfer for PBB (method: 20)**
@@ -192,7 +192,7 @@ idempotency-key: YOUR_UNIQUE_UUID  (Optional, recommended)
   "email": "recipient@example.com"
 }
 ```
-** **
+
 * **account`**: p payer's IBAN
 * **name`**: payer's name (optional). If provided, it is used as-is and the Peer profile lookup is skipped. The profile name is used only when the field is omitted. A name mismatch does not block the request.
 * **email`**:  payer's email
