@@ -63,7 +63,8 @@
     "currency": "EUR",
     "additionalData": {
       "beneficiary": {
-        "account": "FR7640618803580004092680885"         
+        "account": "FR7640618803580004092680885",
+        "name": "Johe Bovie"
       },
       "email": "beneficiary@example.com"
     },
@@ -80,6 +81,7 @@
 * **<code>currency</code>: Payout currency (EUR, GBP)**
 * **<code>additionalData</code>: Method-specific fields (check required fields per method)**
 * **<code>account</code>: payer's IBAN**
+* **<code>name</code>: payer's name (optional). If provided, it is used as-is and the Peer profile lookup is skipped. The profile name is used only when the field is omitted. A name mismatch does not block the request.**
 * **<code>email</code>: payer's email**
 * **<code>metadata</code>: Client-defined data returned unchanged in the response. Maximum size: 800 bytes.**
 * **<code>clientId</code>: Client-generated unique withdrawal reference. Must contain 1-36 letters, numbers, or hyphens and must be unique for the user.**
