@@ -215,6 +215,7 @@ idempotency-key: YOUR_UNIQUE_UUID  (Optional, recommended)
 | 422 | clientId has already been used by this user | {"clientId": ["This value should be unique."]} |
 | 422 | Batch is larger than 100 items | "Size of mass withdrawal must be less then 100" |
 | 422 | Insufficient wallet balance | "Not enough money to perform this operation. Try reducing the amount by ..." |
+| 422 | Unprocessable Entity | "Check the request body and ensure that all required withdrawal details are provided and correctly formatted. Correct any missing or invalid values, then submit the request again." |
 | 500 | Anything else unexpected | "Something went wrong, try again or contact support." |
 
 
