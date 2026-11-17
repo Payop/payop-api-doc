@@ -249,10 +249,10 @@ Status | Type         | Description                                             
 2      | accepted     | Transaction was paid successfully                                                                                        |
 4      | pending      | Transaction pending, has not yet been paid and is expected to be paid                                                    |
 3, 5  | failed       | Transaction failed, has not been paid for technical or financial reasons                                                 |
-9     | pre-approved | Transaction has been submitted through the bank, however, we are still awaiting the funds to be credited to our account* |
+9     | awaiting_transfer | Transaction has been submitted through the bank, however, we are still awaiting the funds to be credited to our account* |
 15    | timeout      | Transaction timed out due to lack of final confirmation from the payer after initiation                                  |
 
-> **🧾Please Note:** *"Pre-approved" status may change to "Accepted" status or "Failed" status, in case funds are not received or the payer has canceled the transaction. While it is quite a rare scenario, in some cases it is still possible to cancel the payment on the payer's side, **please use "Pre-approved" for goods/service delivery at your own risk. Only the final "Accepted" status is guaranteed**
+> **🧾Please Note:** *"Awaiting transfer" status may change to "Accepted" status or "Failed" status, in case funds are not received or the payer has canceled the transaction. While it is quite a rare scenario, in some cases it is still possible to cancel the payment on the payer's side, **please use "Awaiting transfer" for goods/service delivery at your own risk. Only the final "Accepted" status is guaranteed**
 
 ** **
 
@@ -407,10 +407,10 @@ Status | Type         | Description                                             
 2      | accepted     | Transaction was paid successfully                                                                                        |
 4      | pending      | Transaction pending, has not yet been paid and is expected to be paid                                                    |
 3, 5  | failed       | Transaction failed, has not been paid for technical or financial reasons                                                 |
-9     | pre-approved | Transaction has been submitted through the bank, however, we are still awaiting the funds to be credited to our account* |
+9     | awaiting_transfer | Transaction has been submitted through the bank, however, we are still awaiting the funds to be credited to our account* |
 15    | timeout      | Transaction timed out due to lack of final confirmation from the payer after initiation                                  |
 
-> **🧾Please Note:** *"Pre-approved" status may change to "Accepted" status or "Failed" status, in case funds are not received or the payer has canceled the transaction. While it is quite a rare scenario, in some cases it is still possible to cancel the payment on the payer's side, **please use "Pre-approved" for goods/service delivery at your own risk. Only the final "Accepted" status is guaranteed**
+> **🧾Please Note:** *"Awaiting transfer" status may change to "Accepted" status or "Failed" status, in case funds are not received or the payer has canceled the transaction. While it is quite a rare scenario, in some cases it is still possible to cancel the payment on the payer's side, **please use "Awaiting transfer" for goods/service delivery at your own risk. Only the final "Accepted" status is guaranteed**
 
 ** **
 
