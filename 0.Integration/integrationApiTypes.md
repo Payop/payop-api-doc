@@ -149,7 +149,15 @@ Based on the selected payment method, collect the required fields from the payer
 >Therefore, these fields should generally not be passed directly from the merchant’s side, as they must reflect the payer’s own bank selection on checkout.
 >Considering the information above, in this case, bypassing the checkout page is not possible.
 
-**🔹3. Create Invoice** 
+### 3. Create Invoice
+
+> ⚠️ **Name validation — `payer.name`**
+>
+> Use **2–26 characters inclusive**. The first character must be **A–Z or a–z**. Use only basic Latin letters, spaces, dots (.), apostrophes (') and hyphens (-).
+>
+> [Full validation rules and examples](name-validation.md#validation-rules).
+>
+> We recommend that you take these validation rules into account, as they may have a positive impact on your conversion rate.
 
 Use your public key and signature to create an invoice:
 *You can generate a signature using the script ( [See signature generation instruction section for more details](signatureGenerator.md) )*
@@ -190,7 +198,15 @@ curl -X POST "https://api.payop.com/v1/invoices/create" \
 ```
 
 
-**🔹4. Create Checkout Transaction** 
+### 4. Create Checkout Transaction
+
+> ⚠️ **Name validation — `customer.name`**
+>
+> Use **2–26 characters inclusive**. The first character must be **A–Z or a–z**. Use only basic Latin letters, spaces, dots (.), apostrophes (') and hyphens (-).
+>
+> [Full validation rules and examples](name-validation.md#validation-rules).
+>
+> We recommend that you take these validation rules into account, as they may have a positive impact on your conversion rate.
 
 Once required data is collected and the invoice is created, initiate the transaction with a POST request:
 
@@ -488,4 +504,5 @@ card payment method on your site and redirect the payer directly to the card
 form — **no PCI DSS certificate required**.
 
 * **Choose Direct Integration** if you **want full control** over your checkout flow and **optimize** the payment process for better conversion rates.
+
 
