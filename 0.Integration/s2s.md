@@ -181,7 +181,7 @@ https://payop.com/v1/invoices/create
 | `order.items` | `json array` | Products or services included in the order. An array containing arbitrary data. Can be an empty array. | ✅ |
 | `payer` | `JSON object` | Payer info | ✅ |
 | `payer.email` | `string` | Payer email | ✅ |
-| `payer.name` | `string` | Payer name | ❌ |
+| `payer.name` | `string` | Payer name. See [name validation rules](name-validation.md#validation-rules). | ❌ |
 | `payer.phone` | `string` | Payer phone | ❌ |
 | `payer.extraFields` | `JSON object` | All required payment method fields other than `email`, `name`, and `phone` | ❌ |
 | `language` | `string` | Language (`en`, `ru`) | ✅ |
@@ -190,6 +190,14 @@ https://payop.com/v1/invoices/create
 | `signature` | `string` | Request signature. See [Signature](#signature) for generation details. | ✅ |
 | `paymentMethod` | `string` | Payment method ID. Required for S2S card integration — use one of: `381`, `480`, `481`. | ❌ |
 | `metadata` | `JSON object` | Arbitrary data structure for additional merchant data. Result JSON must be less than 800 kB. | ❌ |
+
+> ⚠️ **Name validation — `payer.name`**
+>
+> Use **2–26 characters inclusive**. The first character must be **A–Z or a–z**. Use only basic Latin letters, spaces, dots (.), apostrophes (') and hyphens (-).
+>
+> [Full validation rules and examples](name-validation.md#validation-rules).
+>
+> We recommend that you take these validation rules into account, as they may have a positive impact on your conversion rate.
 
 **Payer object example:**
 
@@ -304,7 +312,7 @@ curl -X POST \
     "signature": "YOUR_SIGNATURE",
     "payer": {
       "email": "payer@example.com",
-      "name": "PAYER_NAME"
+      "name": "John Doe"
     },
     "paymentMethod": 381,
     "language": "en",
@@ -376,7 +384,15 @@ https://payop.com/v1/payment-tools/card-token/create
 | `pan` | `string` | Bank card number | ✅ |
 | `expirationDate` | `string` | Expiration date. Format `MM/YY` (e.g. `12/28`) | ✅ |
 | `cvv` | `string` | CVV / CVC | ✅ |
-| `holderName` | `string` | Cardholder name | ✅ |
+| `holderName` | `string` | Cardholder name. See [name validation rules](name-validation.md#validation-rules). | ✅ |
+
+> ⚠️ **Name validation — `holderName`**
+>
+> Use **2–26 characters inclusive**. The first character must be **A–Z or a–z**. Use only basic Latin letters, spaces, dots (.), apostrophes (') and hyphens (-).
+>
+> [Full validation rules and examples](name-validation.md#validation-rules).
+>
+> We recommend that you take these validation rules into account, as they may have a positive impact on your conversion rate.
 
 ![POST](https://img.shields.io/badge/request-post-yellow?style=for-the-badge)
 
@@ -479,7 +495,7 @@ https://payop.com/v1/checkout/create
 |---------------|----------|-----------------|--------------|
 | `invoiceIdentifier` | `string` | Invoice identifier | ✅ |
 | `customer` | `JSON object` | Payer / Customer info | ✅ |
-| `customer.name` | `string` | Name | ✅ |
+| `customer.name` | `string` | Name. See [name validation rules](name-validation.md#validation-rules). | ✅ |
 | `customer.email` | `string` | Email | ✅ |
 | `customer.ip` | `string` | Payer's IP address. If not provided, Payop will use the IP of the server that sent the request, which may lead to incorrect identification of the payer. We strongly recommend passing this parameter explicitly. | ❌ |
 | `...` | `string` | Any additional data related to the payer / customer | ❌ |
@@ -487,6 +503,14 @@ https://payop.com/v1/checkout/create
 | `payCurrency` | `string` | Currency code. Should be passed in case the payment currency differs from the order currency. | ❌ |
 | `paymentMethod` | `string` | Payment method ID. Required if the invoice does not have a payment method specified. | ❌ |
 | `cardToken` | `string` | Bank card token. Required when `paymentMethod.formType` equals `cards`. | ❌ |
+
+> ⚠️ **Name validation — `customer.name`**
+>
+> Use **2–26 characters inclusive**. The first character must be **A–Z or a–z**. Use only basic Latin letters, spaces, dots (.), apostrophes (') and hyphens (-).
+>
+> [Full validation rules and examples](name-validation.md#validation-rules).
+>
+> We recommend that you take these validation rules into account, as they may have a positive impact on your conversion rate.
 
 **If `paymentMethod.formType` is `cards`:**
 
@@ -500,7 +524,7 @@ curl -X POST \
   -H 'Content-Type: application/json' \
   -d '{
     "invoiceIdentifier": "INVOICE_IDENTIFIER",
-    "customer": {"email": "test@email.com", "name": "CUSTOMER_NAME"},
+    "customer": {"email": "test@email.com", "name": "John Doe"},
     "checkStatusUrl": "https://your.site/check-status/{{txid}}",
     "payCurrency": "EUR",
     "paymentMethod": 381,
@@ -518,7 +542,7 @@ curl -X POST \
   -H 'Content-Type: application/json' \
   -d '{
     "invoiceIdentifier": "INVOICE_IDENTIFIER",
-    "customer": {"email": "test@email.com", "name": "CUSTOMER_NAME"},
+    "customer": {"email": "test@email.com", "name": "John Doe"},
     "checkStatusUrl": "https://your.site/check-status/{{txid}}",
     "payCurrency": "EUR",
     "paymentMethod": 381
@@ -787,3 +811,4 @@ make up
 ```
 
 The application will start and become available on the port specified in the `NGINX_PORT` configuration parameter.
+
