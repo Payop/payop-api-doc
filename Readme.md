@@ -18,6 +18,8 @@ Each request to Payop API should have a `Content-Type` HTTPS header with `applic
           
 * [Response examples](0.Integration/responses.md)  
 * [Signature generation](0.Integration/signatureGenerator.md)  
+* [Name validation rules](0.Integration/name-validation.md)
+* [S2S Card Integration](0.Integration/s2s.md)
 
 ### 1. Invoice
 
