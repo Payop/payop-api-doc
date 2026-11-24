@@ -61,6 +61,13 @@ Authorization: Bearer YOUR_JWT_TOKEN
 * **A <code>POST</code> request is sent with the invoice details, payment method, and customer information.**
 * **The response returns a unique transaction ID.**
 
+> ⚠️ **Name validation — `customer.name`**
+>
+> Use **2–26 characters inclusive**. The first character must be **A–Z or a–z**. Use only basic Latin letters, spaces, dots (.), apostrophes (') and hyphens (-).
+>
+> [Full validation rules and examples](../0.Integration/name-validation.md#validation-rules).
+>
+> We recommend that you take these validation rules into account, as they may have a positive impact on your conversion rate.
 
 #### **Example Usage:**
 
@@ -73,7 +80,7 @@ curl -X POST \
   -H 'Content-Type: application/json' \
   -d '{
 	"invoiceIdentifier": "INVOICE_IDENTIFIER",
-	"customer": {"email": "test@email.com", "name":"CUSTOMER_NAME"},
+	"customer": {"email": "test@email.com", "name":"John Doe"},
 	"checkStatusUrl": "https://your.site/check-status/{{txid}}",
 	"paymentMethod": 935
 }'
@@ -86,6 +93,7 @@ curl -X POST \
 
 * **<code>invoiceIdentifier</code>: The invoice ID.**
 * **<code>customer</code>: Customer details (name, email, IP address).**
+* **<code>customer.name</code>: Customer name. See [name validation rules](../0.Integration/name-validation.md#validation-rules).**
 * **<code>paymentMethod</code>: The payment method ID.**
 * **<code>checkStatusUrl</code>: A URL of a page that will be displayed when the user is redirected to the payment provider's page.**
 
@@ -568,4 +576,5 @@ https://api.payop.com/v1/checkout/void
  "status": 1
 }
 ```
+
 
